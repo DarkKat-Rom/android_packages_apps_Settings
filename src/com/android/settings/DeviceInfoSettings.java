@@ -1,6 +1,8 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
  *
+ * Copyright (C) 2016 DarkKat
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,18 +23,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.SELinux;
-import android.os.SystemClock;
 import android.os.SystemProperties;
-import android.os.UserHandle;
-import android.os.UserManager;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceGroup;
 import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.dashboard.SummaryLoader;
@@ -40,48 +35,20 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Index;
 import com.android.settings.search.Indexable;
 import com.android.settingslib.DeviceInfoUtils;
-import com.android.settingslib.RestrictedLockUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
-
 public class DeviceInfoSettings extends SettingsPreferenceFragment implements Indexable {
+    private static final String PROP_DK_VERSION               = "ro.dk.version";
 
-    private static final String LOG_TAG = "DeviceInfoSettings";
-
-    private static final String KEY_MANUAL = "manual";
-    private static final String KEY_REGULATORY_INFO = "regulatory_info";
-    private static final String PROPERTY_URL_SAFETYLEGAL = "ro.url.safetylegal";
-    private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
-    private static final String KEY_KERNEL_VERSION = "kernel_version";
-    private static final String KEY_BUILD_NUMBER = "build_number";
-    private static final String KEY_DEVICE_MODEL = "device_model";
-    private static final String KEY_DEVICE_CPU = "device_cpu";
-    private static final String KEY_DEVICE_MEMORY = "device_memory";
-    private static final String KEY_SELINUX_STATUS = "selinux_status";
-    private static final String KEY_BASEBAND_VERSION = "baseband_version";
-    private static final String KEY_FIRMWARE_VERSION = "firmware_version";
-    private static final String KEY_SECURITY_PATCH = "security_patch";
-    private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
-    private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
-    private static final String KEY_DEVICE_FEEDBACK = "device_feedback";
-    private static final String KEY_SAFETY_LEGAL = "safetylegal";
-
-    static final int TAPS_TO_BE_A_DEVELOPER = 7;
-
-    long[] mHits = new long[3];
-    int mDevHitCountdown;
-    Toast mDevHitToast;
-
-    private UserManager mUm;
-
-    private EnforcedAdmin mFunDisallowedAdmin;
-    private boolean mFunDisallowedBySystem;
-    private EnforcedAdmin mDebuggingFeaturesDisallowedAdmin;
-    private boolean mDebuggingFeaturesDisallowedBySystem;
+    private static final String PREF_MANUAL          = "manual";
+    private static final String PREF_REGULATORY_INFO = "regulatory_info";
+    private static final String PREF_DEVICE_FEEDBACK = "device_feedback";
+    private static final String PREF_ABOUT_HARDWARE  = "about_hardware";
+    private static final String PREF_ABOUT_SOFTWARE  = "about_software";
+    private static final String PREF_ABOUT_DARKKAT   = "about_darkkat";
 
     @Override
     protected int getMetricsCategory() {
@@ -96,72 +63,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        mUm = UserManager.get(getActivity());
 
         addPreferencesFromResource(R.xml.device_info_settings);
-
-        setStringSummary(KEY_FIRMWARE_VERSION, Build.VERSION.RELEASE);
-        findPreference(KEY_FIRMWARE_VERSION).setEnabled(true);
-
-        final String patch = DeviceInfoUtils.getSecurityPatch();
-        if (!TextUtils.isEmpty(patch)) {
-            setStringSummary(KEY_SECURITY_PATCH, patch);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_SECURITY_PATCH));
-        }
-
-        setValueSummary(KEY_BASEBAND_VERSION, "gsm.version.baseband");
-        setStringSummary(KEY_DEVICE_MODEL, Build.MODEL + DeviceInfoUtils.getMsvSuffix());
-        setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
-        setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
-        setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
-        findPreference(KEY_BUILD_NUMBER).setEnabled(true);
-        findPreference(KEY_KERNEL_VERSION).setSummary(DeviceInfoUtils.getFormattedKernelVersion());
-
-        final String cpuInfo = DeviceInfoUtils.getCPUInfo();
-        String memInfo = DeviceInfoUtils.getMemInfo();
-
-        if (cpuInfo != null) {
-            setStringSummary(KEY_DEVICE_CPU, cpuInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_CPU));
-        }
-
-        if (memInfo != null) {
-            setStringSummary(KEY_DEVICE_MEMORY, memInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_MEMORY));
-        }
-
-        if (!SELinux.isSELinuxEnabled()) {
-            String status = getResources().getString(R.string.selinux_status_disabled);
-            setStringSummary(KEY_SELINUX_STATUS, status);
-        } else if (!SELinux.isSELinuxEnforced()) {
-            String status = getResources().getString(R.string.selinux_status_permissive);
-            setStringSummary(KEY_SELINUX_STATUS, status);
-        }
-
-        // Remove selinux information if property is not present
-        removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
-                PROPERTY_SELINUX_STATUS);
-
-        // Remove Safety information preference if PROPERTY_URL_SAFETYLEGAL is not set
-        removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SAFETY_LEGAL,
-                PROPERTY_URL_SAFETYLEGAL);
-
-        // Remove Equipment id preference if FCC ID is not set by RIL
-        removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_EQUIPMENT_ID,
-                PROPERTY_EQUIPMENT_ID);
-
-        // Remove Baseband version if wifi-only device
-        if (Utils.isWifiOnly(getActivity())) {
-            getPreferenceScreen().removePreference(findPreference(KEY_BASEBAND_VERSION));
-        }
-
-        // Dont show feedback option if there is no reporter.
-        if (TextUtils.isEmpty(DeviceInfoUtils.getFeedbackReporterPackage(getActivity()))) {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_FEEDBACK));
-        }
 
         /*
          * Settings is a generic app and should not contain any device-specific
@@ -169,138 +72,33 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
          */
 
         // Remove manual entry if none present.
-        removePreferenceIfBoolFalse(KEY_MANUAL, R.bool.config_show_manual);
+        removePreferenceIfBoolFalse(PREF_MANUAL, R.bool.config_show_manual);
 
         // Remove regulatory information if none present.
         final Intent intent = new Intent(Settings.ACTION_SHOW_REGULATORY_INFO);
         if (getPackageManager().queryIntentActivities(intent, 0).isEmpty()) {
-            Preference pref = findPreference(KEY_REGULATORY_INFO);
+            Preference pref = findPreference(PREF_REGULATORY_INFO);
             if (pref != null) {
                 getPreferenceScreen().removePreference(pref);
             }
         }
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        mDevHitCountdown = getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
-                Context.MODE_PRIVATE).getBoolean(DevelopmentSettings.PREF_SHOW, true)
-                        ? -1 : TAPS_TO_BE_A_DEVELOPER;
-        mDevHitToast = null;
-        mFunDisallowedAdmin = RestrictedLockUtils.checkIfRestrictionEnforced(
-                getActivity(), UserManager.DISALLOW_FUN, UserHandle.myUserId());
-        mFunDisallowedBySystem = RestrictedLockUtils.hasBaseUserRestriction(
-                getActivity(), UserManager.DISALLOW_FUN, UserHandle.myUserId());
-        mDebuggingFeaturesDisallowedAdmin = RestrictedLockUtils.checkIfRestrictionEnforced(
-                getActivity(), UserManager.DISALLOW_DEBUGGING_FEATURES, UserHandle.myUserId());
-        mDebuggingFeaturesDisallowedBySystem = RestrictedLockUtils.hasBaseUserRestriction(
-                getActivity(), UserManager.DISALLOW_DEBUGGING_FEATURES, UserHandle.myUserId());
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference.getKey().equals(KEY_FIRMWARE_VERSION)) {
-            System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
-            mHits[mHits.length-1] = SystemClock.uptimeMillis();
-            if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
-                if (mUm.hasUserRestriction(UserManager.DISALLOW_FUN)) {
-                    if (mFunDisallowedAdmin != null && !mFunDisallowedBySystem) {
-                        RestrictedLockUtils.sendShowAdminSupportDetailsIntent(getActivity(),
-                                mFunDisallowedAdmin);
-                    }
-                    Log.d(LOG_TAG, "Sorry, no fun for you!");
-                    return false;
-                }
-
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setClassName("android",
-                        com.android.internal.app.PlatLogoActivity.class.getName());
-                try {
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
-                }
-            }
-        } else if (preference.getKey().equals(KEY_BUILD_NUMBER)) {
-            // Don't enable developer options for secondary users.
-            if (!mUm.isAdminUser()) return true;
-
-            // Don't enable developer options until device has been provisioned
-            if (!Utils.isDeviceProvisioned(getActivity())) {
-                return true;
-            }
-
-            if (mUm.hasUserRestriction(UserManager.DISALLOW_DEBUGGING_FEATURES)) {
-                if (mDebuggingFeaturesDisallowedAdmin != null &&
-                        !mDebuggingFeaturesDisallowedBySystem) {
-                    RestrictedLockUtils.sendShowAdminSupportDetailsIntent(getActivity(),
-                            mDebuggingFeaturesDisallowedAdmin);
-                }
-                return true;
-            }
-
-            if (mDevHitCountdown > 0) {
-                mDevHitCountdown--;
-                if (mDevHitCountdown == 0) {
-                    getActivity().getSharedPreferences(DevelopmentSettings.PREF_FILE,
-                            Context.MODE_PRIVATE).edit().putBoolean(
-                                    DevelopmentSettings.PREF_SHOW, true).apply();
-                    if (mDevHitToast != null) {
-                        mDevHitToast.cancel();
-                    }
-                    mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_on,
-                            Toast.LENGTH_LONG);
-                    mDevHitToast.show();
-                    // This is good time to index the Developer Options
-                    Index.getInstance(
-                            getActivity().getApplicationContext()).updateFromClassNameResource(
-                                    DevelopmentSettings.class.getName(), true, true);
-
-                } else if (mDevHitCountdown > 0
-                        && mDevHitCountdown < (TAPS_TO_BE_A_DEVELOPER-2)) {
-                    if (mDevHitToast != null) {
-                        mDevHitToast.cancel();
-                    }
-                    mDevHitToast = Toast.makeText(getActivity(), getResources().getQuantityString(
-                            R.plurals.show_dev_countdown, mDevHitCountdown, mDevHitCountdown),
-                            Toast.LENGTH_SHORT);
-                    mDevHitToast.show();
-                }
-            } else if (mDevHitCountdown < 0) {
-                if (mDevHitToast != null) {
-                    mDevHitToast.cancel();
-                }
-                mDevHitToast = Toast.makeText(getActivity(), R.string.show_dev_already,
-                        Toast.LENGTH_LONG);
-                mDevHitToast.show();
-            }
-        } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
-            sendFeedback();
+        // Dont show feedback option if there is no reporter.
+        if (TextUtils.isEmpty(DeviceInfoUtils.getFeedbackReporterPackage(getActivity()))) {
+            getPreferenceScreen().removePreference(findPreference(PREF_DEVICE_FEEDBACK));
         }
-        return super.onPreferenceTreeClick(preference);
-    }
 
-    private void removePreferenceIfPropertyMissing(PreferenceGroup preferenceGroup,
-            String preference, String property ) {
-        if (SystemProperties.get(property).equals("")) {
-            // Property is missing so remove preference from group
-            try {
-                preferenceGroup.removePreference(findPreference(preference));
-            } catch (RuntimeException e) {
-                Log.d(LOG_TAG, "Property '" + property + "' missing and no '"
-                        + preference + "' preference");
-            }
-        }
-    }
+        final String summaryHardware = getResources().getString(
+                R.string.about_hardware_summary, Build.MODEL);
+        final String summarySoftware = Utils.isWifiOnly(getActivity())
+                ? getResources().getString(R.string.about_software_wifi_only_summary)
+                : getResources().getString(R.string.about_software_summary);
+        final String summaryDarkKat = getResources().getString(
+                R.string.about_darkkat_summary, getPropValue(PROP_DK_VERSION));
 
-    private void removePreferenceIfBoolFalse(String preference, int resId) {
-        if (!getResources().getBoolean(resId)) {
-            Preference pref = findPreference(preference);
-            if (pref != null) {
-                getPreferenceScreen().removePreference(pref);
-            }
-        }
+        setStringSummary(PREF_ABOUT_HARDWARE, summaryHardware);
+        setStringSummary(PREF_ABOUT_SOFTWARE, summarySoftware);
+        setStringSummary(PREF_ABOUT_DARKKAT, summaryDarkKat);
     }
 
     private void setStringSummary(String preference, String value) {
@@ -312,13 +110,24 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         }
     }
 
-    private void setValueSummary(String preference, String property) {
-        try {
-            findPreference(preference).setSummary(
-                    SystemProperties.get(property,
-                            getResources().getString(R.string.device_info_default)));
-        } catch (RuntimeException e) {
-            // No recovery
+    private static String getPropValue(String property) {
+        return SystemProperties.get(property);
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference.getKey().equals(PREF_DEVICE_FEEDBACK)) {
+            sendFeedback();
+        }
+        return super.onPreferenceTreeClick(preference);
+    }
+
+    private void removePreferenceIfBoolFalse(String preference, int resId) {
+        if (!getResources().getBoolean(resId)) {
+            Preference pref = findPreference(preference);
+            if (pref != null) {
+                getPreferenceScreen().removePreference(pref);
+            }
         }
     }
 
@@ -345,8 +154,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         @Override
         public void setListening(boolean listening) {
             if (listening) {
-                mSummaryLoader.setSummary(this, mContext.getString(R.string.about_summary,
-                        Build.VERSION.RELEASE));
+                mSummaryLoader.setSummary(this, mContext.getString(R.string.about_summary_darkkat,
+                        Build.MODEL, Build.VERSION.RELEASE, getPropValue(PROP_DK_VERSION)));
             }
         }
     }
@@ -377,29 +186,11 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 final List<String> keys = new ArrayList<String>();
-                if (isPropertyMissing(PROPERTY_SELINUX_STATUS)) {
-                    keys.add(KEY_SELINUX_STATUS);
-                }
-                if (isPropertyMissing(PROPERTY_URL_SAFETYLEGAL)) {
-                    keys.add(KEY_SAFETY_LEGAL);
-                }
-                if (isPropertyMissing(PROPERTY_EQUIPMENT_ID)) {
-                    keys.add(KEY_EQUIPMENT_ID);
-                }
-                // Remove Baseband version if wifi-only device
-                if (Utils.isWifiOnly(context)) {
-                    keys.add((KEY_BASEBAND_VERSION));
-                }
                 // Dont show feedback option if there is no reporter.
                 if (TextUtils.isEmpty(DeviceInfoUtils.getFeedbackReporterPackage(context))) {
-                    keys.add(KEY_DEVICE_FEEDBACK);
+                    keys.add(PREF_DEVICE_FEEDBACK);
                 }
                 return keys;
             }
-
-            private boolean isPropertyMissing(String property) {
-                return SystemProperties.get(property).equals("");
-            }
         };
-
 }
