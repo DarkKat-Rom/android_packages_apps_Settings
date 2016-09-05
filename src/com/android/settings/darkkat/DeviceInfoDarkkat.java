@@ -25,10 +25,10 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class DeviceInfoDarkkat extends SettingsPreferenceFragment {
-    private static final String PROP_DK_VERSION               = "ro.dk.version";
-    private static final String PROP_DK_BUILD_VERSION_DISPLAY = "ro.dk.build.version.display";
-    private static final String PROP_DK_BUILD_TYPE            = "ro.dk.build.type";
-    private static final String PROP_DK_BUILD_DATE            = "ro.build.date";
+    private static final String PROP_DK_VERSION       = "ro.dk.version";
+    private static final String PROP_DK_BUILD_VERSION = "ro.dk.build.version";
+    private static final String PROP_DK_BUILD_TYPE    = "ro.dk.build.type";
+    private static final String PROP_DK_BUILD_DATE    = "ro.build.date";
 
     private static final String PREF_DARKKAT_VERSION       = "darkkat_version";
     private static final String PREF_DARKKAT_BUILD_VERSION = "darkkat_build_version";
@@ -42,7 +42,7 @@ public class DeviceInfoDarkkat extends SettingsPreferenceFragment {
         addPreferencesFromResource(R.xml.device_info_darkkat);
 
         setValueSummary(PREF_DARKKAT_VERSION, PROP_DK_VERSION);
-        setValueSummary(PREF_DARKKAT_BUILD_VERSION, PROP_DK_BUILD_VERSION_DISPLAY);
+        setValueSummary(PREF_DARKKAT_BUILD_VERSION, PROP_DK_BUILD_VERSION);
         setValueSummary(PREF_DARKKAT_BUILD_TYPE, PROP_DK_BUILD_TYPE);
         setValueSummary(PREF_DARKKAT_BUILD_DATE, PROP_DK_BUILD_DATE);
     }
