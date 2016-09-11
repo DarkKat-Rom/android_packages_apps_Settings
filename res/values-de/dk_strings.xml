@@ -15,6 +15,24 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Global used -->
+    <string name="reset">Zurücksetzen</string>
+    <string name="dlg_dslv_reset_message">Standardeinstellungen wiederherstellen?</string>
+    <string name="dlg_reset_values_message">Werte auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
+    <string name="dlg_reset_colors_message">Farben auf\nAndroid- oder DarkKat Standard\nzurück setzen?</string>
+    <string name="dlg_reset_theme_default_colors_message">Farben auf Theme Standard zurück setzen?</string>
+    <string name="dlg_reset_android">Android</string>
+    <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="status_bar_title">Statusleiste</string>
+    <string name="colors_title">Farben</string>
+    <string name="colors_general_title">Farben allgemein</string>
+    <string name="colors_general_dark_mode_title">Farben allgemein (helle Statusleiste)</string>
+    <string name="colors_battery_title">Farben Akkustatus</string>
+    <string name="colors_battery_dark_mode_title">Farben Akkustatus (helle Statusleiste)</string>
+    <string name="text_title">Text</string>
+    <string name="text_charge_icon_title">Prozentzahl &amp; Ladesymbol</string>
+    <string name="icon_title">Symbol</string>
+
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Farbauswahl</string>
     <string name="apply_color_title">Farbe anwenden</string>
@@ -62,8 +80,14 @@
     <string name="color_picker_help_do_not_show_title">Nicht erneut anzeigen</string>
     <string name="color_picker_help_button_ok_title">OK</string>
 
+    <!-- Dashboard header categories -->
+    <string name="header_category_ui_title">Benutzeroberfläche</string>
+
     <!-- Dashboard tiles-->
     <string name="button_settings_title">Tasten</string>
+
+    <!-- Colors -->
+    <string name="colors_status_bar_summary">Wähle die Farben mit denen Text und Symbole in der Statusleiste eingefärbt werden</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>

@@ -15,6 +15,24 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Global used -->
+    <string name="reset">Reset</string>
+    <string name="dlg_dslv_reset_message">Reset all entries to default?</string>
+    <string name="dlg_reset_values_message">Reset values to\nAndroid- or DarkKat default?</string>
+    <string name="dlg_reset_colors_message">Reset colors to\nAndroid- or DarkKat default?</string>
+    <string name="dlg_reset_theme_default_colors_message">Reset colors to theme default?</string>
+    <string name="dlg_reset_android">Android</string>
+    <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="status_bar_title">Status bar</string>
+    <string name="colors_title">Colors</string>
+    <string name="colors_general_title">Colors general</string>
+    <string name="colors_general_dark_mode_title">Colors general (light status bar)</string>
+    <string name="colors_battery_title">Colors battery status</string>
+    <string name="colors_battery_dark_mode_title">Colors battery status (light status bar)</string>
+    <string name="text_title">Text</string>
+    <string name="text_charge_icon_title">Percentage text &amp; charging indicator</string>
+    <string name="icon_title">Icon</string>
+
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Color Picker</string>
     <string name="apply_color_title">Apply color</string>
@@ -62,8 +80,14 @@
     <string name="color_picker_help_do_not_show_title">Don\'t show again</string>
     <string name="color_picker_help_button_ok_title">OK</string>
 
+    <!-- Dashboard header categories -->
+    <string name="header_category_ui_title">User interface</string>
+
     <!-- Dashboard tiles-->
     <string name="button_settings_title">Buttons</string>
+
+    <!-- Colors settings -->
+    <string name="colors_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Power menu</string>
