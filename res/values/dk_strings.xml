@@ -98,14 +98,14 @@
     <string name="power_menu_show_advanced_reboot_summary">Enable to show advanced options in the reboot menu</string>
 
     <!-- Device info settings -->
-    <string name="about_summary_darkkat">%1$s, Android %2$s, Darkkat-%3$s</string>
+    <string name="about_summary_darkkat">%1$s, Android %2$s, %3$s</string>
     <string name="about_hardware_title">Model</string>
     <string name="about_hardware_summary">Show more about the %1$s</string>
     <string name="about_software_title">Software</string>
     <string name="about_software_summary">Show more about Android, kernel, baseband etc.</string>
     <string name="about_software_wifi_only_summary">Show more about Android, kernel etc.</string>
     <string name="about_darkkat_title">Darkkat</string>
-    <string name="about_darkkat_summary">Show more about the installed Darkkat-%1$s version</string>
+    <string name="about_darkkat_summary">Show more about the installed %1$s version</string>
 
     <!-- Hardware -->
     <string name="cpu_info">CPU</string>
