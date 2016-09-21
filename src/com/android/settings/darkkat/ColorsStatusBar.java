@@ -310,6 +310,6 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.COLORS;
+        return InstrumentedFragment.THEME;
     }
 }

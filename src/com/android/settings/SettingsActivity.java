@@ -73,7 +73,7 @@ import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.dashboard.DashboardSummary;
 import com.android.settings.dashboard.SearchResultsSummary;
 import com.android.settings.darkkat.ButtonSettings;
-import com.android.settings.darkkat.ColorsSettings;
+import com.android.settings.darkkat.ThemeColorsSettings;
 import com.android.settings.datausage.DataUsageSummary;
 import com.android.settings.deviceinfo.ImeiInformation;
 import com.android.settings.deviceinfo.PrivateVolumeForget;
@@ -274,7 +274,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             UserDictionarySettings.class.getName(),
             HomeSettings.class.getName(),
             DisplaySettings.class.getName(),
-            ColorsSettings.class.getName(),
+            ThemeColorsSettings.class.getName(),
             ButtonSettings.class.getName(),
             DeviceInfoSettings.class.getName(),
             ManageApplications.class.getName(),

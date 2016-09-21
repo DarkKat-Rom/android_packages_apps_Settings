@@ -16,7 +16,14 @@ limitations under the License.
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/colors_title">
+    android:title="@string/theme_colors_settings_title">
+
+    <ListPreference
+        android:key="theme"
+        android:title="@string/theme_title"
+        android:summary="@string/theme_summary"
+        android:entries="@array/theme_entries"
+        android:entryValues="@array/theme_values" />
 
     <PreferenceScreen
         android:key="colors_status_bar"

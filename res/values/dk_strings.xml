@@ -84,9 +84,15 @@
     <string name="header_category_ui_title">User interface</string>
 
     <!-- Dashboard tiles-->
+    <string name="theme_colors_settings_title">Theme &amp; colors</string>
     <string name="button_settings_title">Buttons</string>
 
-    <!-- Colors settings -->
+    <!-- Theme & colors settings -->
+    <string name="theme_title">Theme</string>
+    <string name="theme_summary">%s</string>
+    <string name="theme_darkkat_title">DarkKat</string>
+    <string name="theme_material_light_title">Material Light</string>
+    <string name="theme_blackout_title">Blackout</string>
     <string name="colors_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
 
     <!-- Button settings -->

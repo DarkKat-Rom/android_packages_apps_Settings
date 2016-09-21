@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- CyanideL addition -->
+    <color name="lock_pattern_view_regular_color">@*android:color/secondary_text_default_material_dark</color>
+
+    <color name="switchbar_background_color">#ff1f2429</color><!-- darkkat blue blue grey -->
+    <color name="switch_accent_color">#009688</color><!-- material teal 500 -->
+</resources>

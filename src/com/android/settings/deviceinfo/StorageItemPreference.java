@@ -22,6 +22,7 @@ import android.support.v7.preference.PreferenceViewHolder;
 import android.text.format.Formatter;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.settings.R;
 
@@ -66,6 +67,8 @@ public class StorageItemPreference extends Preference {
     @Override
     public void onBindViewHolder(PreferenceViewHolder view) {
         progressBar = (ProgressBar) view.findViewById(android.R.id.progress);
+        final TextView summary = (TextView) view.findViewById(android.R.id.summary);
+        summary.setTextColor(getContext().getResources().getColor(R.color.storage_summary_text_color));
         updateProgressBar();
         super.onBindViewHolder(view);
     }

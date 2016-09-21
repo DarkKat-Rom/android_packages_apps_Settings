@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.settings.R;
 import com.android.settings.deviceinfo.StorageSettings.UnmountTask;
@@ -102,8 +103,11 @@ public class StorageVolumePreference extends Preference {
     @Override
     public void onBindViewHolder(PreferenceViewHolder view) {
         final ImageView unmount = (ImageView) view.findViewById(R.id.unmount);
+        final TextView summary = (TextView) view.findViewById(android.R.id.summary);
+        summary.setTextColor(getContext().getResources().getColor(R.color.storage_summary_text_color));
         if (unmount != null) {
-            unmount.setImageTintList(ColorStateList.valueOf(Color.parseColor("#8a000000")));
+            unmount.setImageTintList(ColorStateList.valueOf(
+                    getContext().getResources().getColor(R.color.storage_summary_text_color)));
             unmount.setOnClickListener(mUnmountListener);
         }
 

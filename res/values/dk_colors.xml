@@ -16,6 +16,9 @@
 
 <resources>
 
+    <!-- Day theme -->
+    <color name="storage_summary_text_color">#8a000000</color>
+
     <!-- DarkKat theme -->
     <color name="background_darkkat_blue_grey">#ff1b1f23</color>
 
