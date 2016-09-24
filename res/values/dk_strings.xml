@@ -23,15 +23,38 @@
     <string name="dlg_reset_theme_default_colors_message">Reset colors to theme default?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="action_show_detailed_weather_view_title">Show detailed weather view</string>
     <string name="status_bar_title">Status bar</string>
+    <string name="weather_title">Weather</string>
+    <string name="detailed_weather_title">Detailed weather view</string>
+    <string name="weather_service_missing_title">\'DK Weather Service\' is not installed</string>
+    <string name="weather_service_missing_summary">To use the weather feature, the app DKWeatherService \'DK Weather Service\' has to be installed</string>
+    <string name="weather_service_disabled_title">\'DK Weather Service\' is disabled</string>
+    <string name="weather_service_disabled_summary">To use the weather feature, enable the app DKWeatherService \'DK Weather Service\', and reboot your phone</string>
+    <string name="weather_service_disabled_tablet_summary">To use the weather feature, enable the app DKWeatherService \'DK Weather Service\', and reboot your tablet</string>
+    <string name="customize_title">Customize</string>
     <string name="colors_title">Colors</string>
     <string name="colors_general_title">Colors general</string>
     <string name="colors_general_dark_mode_title">Colors general (light status bar)</string>
     <string name="colors_battery_title">Colors battery status</string>
     <string name="colors_battery_dark_mode_title">Colors battery status (light status bar)</string>
+    <string name="colors_background_title">Background colors</string>
+    <string name="colors_accent_title">Accent color</string>
+    <string name="colors_text_title">Text colors</string>
+    <string name="colors_icon_title">Icon colors</string>
+    <string name="colors_ripple_title">Ripple effect colors</string>
+    <string name="background_title">Background</string>
+    <string name="accent_title">Accent</string>
     <string name="text_title">Text</string>
     <string name="text_charge_icon_title">Percentage text &amp; charging indicator</string>
     <string name="icon_title">Icon</string>
+    <string name="ripple_title">Ripple effect</string>
+    <string name="action_bar_title">Action bar</string>
+    <string name="content_title">Content</string>
+    <string name="cards_title">Cards</string>
+    <string name="weather_icon_monochrome_title">Monochrome</string>
+    <string name="weather_icon_colored_title">Colored</string>
+    <string name="weather_icon_vclouds_title">VClouds</string>
 
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Color Picker</string>
@@ -93,7 +116,22 @@
     <string name="theme_darkkat_title">DarkKat</string>
     <string name="theme_material_light_title">Material Light</string>
     <string name="theme_blackout_title">Blackout</string>
+    <string name="colors_customize_detailed_weather_summary">Choose the theme and colors to colorize the detailed weather view</string>
     <string name="colors_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
+
+    <!-- Theme & colors (detailed weather view) -->
+    <string name="colors_detailed_weather_customize_colors_title">Customize colors</string>
+    <string name="colors_detailed_weather_customize_colors_summary">Enable to customize colors</string>
+
+    <!-- Weather -->
+    <string name="weather_config_title">Configuration</string>
+    <string name="weather_config_summary">Configure the weather</string>
+    <string name="weather_detailed_weather_settings_summary">Choose how to display the detailed weather view</string>
+
+    <!-- Detailed weather -->
+    <string name="detailed_weather_show_location_title">Show location</string>
+    <string name="detailed_weather_show_location_summary">Enable to show the location</string>
+    <string name="detailed_weather_condition_icon_title">Condition icon</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Power menu</string>

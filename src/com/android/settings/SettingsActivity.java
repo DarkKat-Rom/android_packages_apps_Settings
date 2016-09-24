@@ -50,6 +50,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SearchView;
 import com.android.internal.util.ArrayUtils;
+import com.android.internal.util.darkkat.WeatherHelper;
 import com.android.settings.Settings.WifiSettingsActivity;
 import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.AccessibilitySettingsForSetupWizard;
@@ -74,6 +75,7 @@ import com.android.settings.dashboard.DashboardSummary;
 import com.android.settings.dashboard.SearchResultsSummary;
 import com.android.settings.darkkat.ButtonSettings;
 import com.android.settings.darkkat.ThemeColorsSettings;
+import com.android.settings.darkkat.Weather;
 import com.android.settings.datausage.DataUsageSummary;
 import com.android.settings.deviceinfo.ImeiInformation;
 import com.android.settings.deviceinfo.PrivateVolumeForget;
@@ -275,6 +277,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             HomeSettings.class.getName(),
             DisplaySettings.class.getName(),
             ThemeColorsSettings.class.getName(),
+            Weather.class.getName(),
             ButtonSettings.class.getName(),
             DeviceInfoSettings.class.getName(),
             ManageApplications.class.getName(),
@@ -1054,6 +1057,11 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                 Settings.BluetoothSettingsActivity.class.getName()),
                 pm.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH), isAdmin, pm);
+
+        setTileEnabled(new ComponentName(packageName,
+                Settings.WeatherSettingsActivity.class.getName()),
+                WeatherHelper.getWeatherServiceAvailability(this)
+                        == WeatherHelper.PACKAGE_ENABLED, isAdmin, pm);
 
         setTileEnabled(new ComponentName(packageName,
                 Settings.DataUsageSummaryActivity.class.getName()),

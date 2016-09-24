@@ -30,4 +30,18 @@ limitations under the License.
         android:title="@string/status_bar_title"
         android:summary="@string/colors_status_bar_summary"
         android:fragment="com.android.settings.darkkat.ColorsStatusBar" />
+
+<!--
+    <PreferenceCategory
+        android:key="theme_color_cat_detailed_weather"
+        android:title="@string/detailed_weather_title">
+
+        <PreferenceScreen
+            android:key="colors_customize_detailed_weather"
+            android:title="@string/customize_title"
+            android:summary="@string/colors_customize_detailed_weather_summary"
+            android:fragment="com.android.settings.darkkat.ColorsDetailedWeather" />
+
+	</PreferenceCategory>
+-->
 </PreferenceScreen>

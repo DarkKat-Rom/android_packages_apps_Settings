@@ -2388,13 +2388,27 @@
                 android:icon="@drawable/ic_settings_theme_colors"
                 android:exported="true"
                 android:taskAffinity="">
-            <intent-filter android:priority="1">
+            <intent-filter android:priority="2">
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
                        android:value="com.android.settings.category.ui" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.darkkat.ThemeColorsSettings" />
+        </activity>
+
+        <activity android:name="Settings$WeatherSettingsActivity"
+                android:label="@string/weather_title"
+                android:icon="@drawable/ic_settings_weather"
+                android:exported="true"
+                android:taskAffinity="">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                       android:value="com.android.settings.category.ui" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.Weather" />
         </activity>
 
         <activity android:name="Settings$ButtonSettingsActivity"

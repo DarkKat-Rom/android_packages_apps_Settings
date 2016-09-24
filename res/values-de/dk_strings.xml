@@ -23,15 +23,38 @@
     <string name="dlg_reset_theme_default_colors_message">Farben auf Theme Standard zurück setzen?</string>
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
+    <string name="action_show_detailed_weather_view_title">Detaillierte Wetteransicht anzeigen</string>
     <string name="status_bar_title">Statusleiste</string>
+    <string name="weather_title">Wetter</string>
+    <string name="detailed_weather_title">Detaillierte Wetteransicht</string>
+    <string name="weather_service_missing_title">\"DK Wetter Dienst\" ist nicht installiert</string>
+    <string name="weather_service_missing_summary">Um die Wetter Funtion nutzen zu können, muss die App DKWeatherService \"DK Wetter Dienst\" installiert sein</string>
+    <string name="weather_service_disabled_title">\"DK Wetter Dienst\" ist deaktiviert</string>
+    <string name="weather_service_disabled_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App DKWeatherService \"DK Wetter Dienst\" und starte das Telefon neu</string>
+    <string name="weather_service_disabled_tablet_summary">Um die Wetter Funtion nutzen zu können, aktiviere die App DKWeatherService \"DK Wetter Dienst\" und starte das Tablet neu</string>
+    <string name="customize_title">Anpassen</string>
     <string name="colors_title">Farben</string>
     <string name="colors_general_title">Farben allgemein</string>
     <string name="colors_general_dark_mode_title">Farben allgemein (helle Statusleiste)</string>
     <string name="colors_battery_title">Farben Akkustatus</string>
     <string name="colors_battery_dark_mode_title">Farben Akkustatus (helle Statusleiste)</string>
+    <string name="colors_background_title">Hintergrund Farben</string>
+    <string name="colors_accent_title">Akzent Farbe</string>
+    <string name="colors_text_title">Text Farben</string>
+    <string name="colors_icon_title">Symbol Farben</string>
+    <string name="colors_ripple_title">Ripple Effekt Farben</string>
+    <string name="background_title">Hintergrund</string>
+    <string name="accent_title">Akzent</string>
     <string name="text_title">Text</string>
     <string name="text_charge_icon_title">Prozentzahl &amp; Ladesymbol</string>
     <string name="icon_title">Symbol</string>
+    <string name="ripple_title">Ripple Effect</string>
+    <string name="action_bar_title">Actionsleiste</string>
+    <string name="content_title">Inhalt</string>
+    <string name="cards_title">Karten</string>
+    <string name="weather_icon_monochrome_title">Einfarbig</string>
+    <string name="weather_icon_colored_title">Farbig</string>
+    <string name="weather_icon_vclouds_title">VClouds</string>
 
     <!-- Color picker -->
     <string name="color_picker_fragment_title">Farbauswahl</string>
@@ -93,7 +116,22 @@
     <string name="theme_darkkat_title">DarkKat</string>
     <string name="theme_material_light_title">Material Light</string>
     <string name="theme_blackout_title">Blackout</string>
+    <string name="colors_customize_detailed_weather_summary">Wähle das Theme und die Farben mit denen die Detaillierte Wetteransicht eingefärbt wird</string>
     <string name="colors_status_bar_summary">Wähle die Farben mit denen Text und Symbole in der Statusleiste eingefärbt werden</string>
+
+    <!-- Theme & colors (detailed weather view) -->
+    <string name="colors_detailed_weather_customize_colors_title">Farben anpassen</string>
+    <string name="colors_detailed_weather_customize_colors_summary">Aktieren um eigene Farben zu benutzen</string>
+
+    <!-- Weather -->
+    <string name="weather_config_title">Konfiguration</string>
+    <string name="weather_config_summary">Das Wetter konfigurieren</string>
+    <string name="weather_detailed_weather_settings_summary">Wähle wie die Detaillierte Wetteransicht dargestellt wird</string>
+
+    <!-- Detailed weather -->
+    <string name="detailed_weather_show_location_title">Standort anzeigen</string>
+    <string name="detailed_weather_show_location_summary">Aktivieren um den Standort anzuzeigen</string>
+    <string name="detailed_weather_condition_icon_title">Wetterlage Symbol</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>

@@ -25,6 +25,9 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.util.Log;
 
+import com.android.internal.util.darkkat.DeviceUtils;
+import com.android.internal.util.darkkat.WeatherHelper;
+
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -52,6 +55,26 @@ public class ThemeColorsSettings extends SettingsPreferenceFragment implements
         final int theme = uiManager.getNightMode();
         mTheme.setValue(String.valueOf(theme));
         mTheme.setOnPreferenceChangeListener(this);
+
+/*
+        final boolean isWeatherServiceAvailable =
+                WeatherHelper.isWeatherServiceAvailable(getActivity());
+        final int weatherServiceAvailability = WeatherHelper.getWeatherServiceAvailability(getActivity());
+
+        Preference customizeDetailedWeather =
+                findPreference("theme_color_customize_detailed_weather");
+
+        if (weatherServiceAvailability == WeatherHelper.PACKAGE_DISABLED) {
+            final CharSequence summary = getResources().getString(DeviceUtils.isPhone(getActivity())
+                    ? R.string.weather_service_disabled_summary
+                    : R.string.weather_service_disabled_tablet_summary);
+            customizeDetailedWeather.setSummary(summary);
+        } else if (weatherServiceAvailability == WeatherHelper.PACKAGE_MISSING) {
+            customizeDetailedWeather.setSummary(
+                    getResources().getString(R.string.weather_service_missing_summary));
+        }
+        customizeDetailedWeather.setEnabled(isWeatherServiceAvailable);
+ */
     }
 
     @Override
