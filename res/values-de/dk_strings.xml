@@ -52,6 +52,11 @@
     <string name="action_bar_title">Actionsleiste</string>
     <string name="content_title">Inhalt</string>
     <string name="cards_title">Karten</string>
+    <string name="normal_title">Normal</string>
+    <string name="hidden_title">Verborgen</string>
+    <string name="position_title">Position</string>
+    <string name="position_right_title">Rechts</string>
+    <string name="position_centered_title">Zentriert</string>
     <string name="weather_icon_monochrome_title">Einfarbig</string>
     <string name="weather_icon_colored_title">Farbig</string>
     <string name="weather_icon_vclouds_title">VClouds</string>
@@ -132,6 +137,30 @@
     <string name="detailed_weather_show_location_title">Standort anzeigen</string>
     <string name="detailed_weather_show_location_summary">Aktivieren um den Standort anzuzeigen</string>
     <string name="detailed_weather_condition_icon_title">Wetterlage Symbol</string>
+
+    <!-- Status bar -->
+    <string name="status_bar_clock_date_settings_title">Uhr &amp; Datum</string>
+    <string name="status_bar_clock_date_settings_summary">Wähle wie die Uhr &amp; das Datum in der Statusleiste dargestellt werden</string>
+
+    <!-- clock and date settings -->
+    <string name="clock_date_cat_clock_title">Uhr</string>
+    <string name="clock_date_cat_date_title">Datum</string>
+    <string name="clock_date_show_date_title">Das Datum anzeigen</string>
+    <string name="clock_date_show_date_summary">Aktivieren um das Datum neben der Uhr in der Statusleiste anzuzeigen</string>
+    <string name="clock_date_show_seconds_title">Sekunden anzeigen</string>
+    <string name="clock_date_show_seconds_summary">Aktivieren um die Uhr mit Sekunden in der Statusleiste anzuzeigen</string>
+    <string name="clock_date_am_pm_title">AM&#47;PM Style</string>
+    <string name="clock_date_am_pm_disabled_summary">24-Stunden-Format ist aktiviert</string>
+    <string name="clock_date_am_pm_small">Klein</string>
+    <string name="clock_date_date_size_title">Größe</string>
+    <string name="clock_date_date_size_summary">Aktivieren um ein kleines Datum anzuzeigen</string>
+    <string name="clock_date_date_style_title">Style</string>
+    <string name="clock_date_date_style_lowercase">Kleinbuchstaben</string>
+    <string name="clock_date_date_style_uppercase">Großbuchstaben</string>
+    <string name="clock_date_date_format_title">Datumsformat</string>
+    <string name="clock_date_date_custom_java_format">Eigenes Java Format</string>
+    <string name="clock_date_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
+    <string name="clock_date_date_string_edittext_summary">Zeichenfolge eingeben</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>
