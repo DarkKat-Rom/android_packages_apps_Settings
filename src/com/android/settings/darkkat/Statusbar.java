@@ -17,6 +17,10 @@
 package com.android.settings.darkkat;
 
 import android.os.Bundle;
+import android.support.v7.preference.Preference;
+
+import com.android.internal.util.darkkat.DeviceUtils;
+import com.android.internal.util.darkkat.WeatherHelper;
 
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
@@ -29,6 +33,23 @@ public class Statusbar extends SettingsPreferenceFragment {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar);
+
+        final boolean isWeatherServiceAvailable =
+                WeatherHelper.isWeatherServiceAvailable(getActivity());
+        final int weatherServiceAvailability =
+                WeatherHelper.getWeatherServiceAvailability(getActivity());
+
+        Preference weather = findPreference("status_bar_weather_settings");
+
+        if (weatherServiceAvailability == WeatherHelper.PACKAGE_DISABLED) {
+            final CharSequence summary = getResources().getString(DeviceUtils.isPhone(getActivity())
+                    ? R.string.weather_service_disabled_summary
+                    : R.string.weather_service_disabled_tablet_summary);
+            weather.setSummary(summary);
+        } else if (weatherServiceAvailability == WeatherHelper.PACKAGE_MISSING) {
+            weather.setSummary(getResources().getString(R.string.weather_service_missing_summary));
+        }
+        weather.setEnabled(isWeatherServiceAvailable);
     }
 
     @Override
