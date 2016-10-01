@@ -26,11 +26,12 @@ import android.support.v14.preference.PreferenceFragment;
  */
 public abstract class InstrumentedFragment extends PreferenceFragment {
     // Declare new temporary categories here, starting after this value.
-    public static final int UNDECLARED = 100000;
-    public static final int THEME      = 100001;
-    public static final int WEATHER    = 100002;
-    public static final int STATUSBAR  = 100003;
-    public static final int BUTTONS    = 100004;
+    public static final int UNDECLARED         = 100000;
+    public static final int THEME              = 100001;
+    public static final int WEATHER            = 100002;
+    public static final int STATUSBAR          = 100003;
+    public static final int STATUSBAREXPANDED  = 100004;
+    public static final int BUTTONS            = 100005;
 
     // Used by PreferenceActivity for the dummy fragment it adds, no useful data here.
     public static final int PREFERENCE_ACTIVITY_FRAGMENT = UNDECLARED + 1;

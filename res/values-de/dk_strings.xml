@@ -25,7 +25,9 @@
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="action_show_detailed_weather_view_title">Detaillierte Wetteransicht anzeigen</string>
     <string name="status_bar_title">Statusleiste</string>
+    <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
     <string name="weather_title">Wetter</string>
+    <string name="qs_title">Schnelleinstellungen</string>
     <string name="detailed_weather_title">Detaillierte Wetteransicht</string>
     <string name="weather_service_missing_summary">\"DK Wetter Dienst\" ist nicht installiert.\nUm die Wetter Funtion nutzen zu können, muss die App DKWeatherService \"DK Wetter Dienst\" installiert sein</string>
     <string name="weather_service_disabled_summary">\"DK Wetter Dienst\" ist deaktiviert.\nUm die Wetter Funtion nutzen zu können, aktiviere die App DKWeatherService \"DK Wetter Dienst\" und starte das Telefon neu</string>
@@ -221,6 +223,23 @@
     <string name="clock_date_date_custom_java_format">Eigenes Java Format</string>
     <string name="clock_date_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
     <string name="clock_date_date_string_edittext_summary">Zeichenfolge eingeben</string>
+
+    <!-- Status bar expanded -->
+    <string name="status_bar_expanded_qs_settings_summary">Wähle wie die Schnelleinstellungen dargestellt werden</string>
+
+    <!-- QS settings -->
+    <string name="qs_cat_portrait_title">Hochformat</string>
+    <string name="qs_cat_landscape_title">Querformat</string>
+    <string name="qs_rows_title">Reihen</string>
+    <string name="qs_columns_title">Spalten</string>
+    <string name="qs_rows_columns_1_title">1</string>
+    <string name="qs_rows_columns_2_title">2</string>
+    <string name="qs_rows_columns_3_title">3</string>
+    <string name="qs_rows_columns_4_title">4</string>
+    <string name="qs_rows_columns_5_title">5</string>
+    <string name="qs_rows_columns_6_title">6</string>
+    <string name="qs_rows_columns_7_title">7</string>
+    <string name="qs_rows_columns_8_title">8</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>

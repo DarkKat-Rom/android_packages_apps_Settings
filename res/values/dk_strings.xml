@@ -25,7 +25,9 @@
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="action_show_detailed_weather_view_title">Show detailed weather view</string>
     <string name="status_bar_title">Status bar</string>
+    <string name="status_bar_expanded_title">Status bar expanded</string>
     <string name="weather_title">Weather</string>
+    <string name="qs_title">Quick settings</string>
     <string name="detailed_weather_title">Detailed weather view</string>
     <string name="weather_service_missing_summary">\'DK Weather Service\' is not installed.\nTo use the weather feature, the app DKWeatherService \'DK Weather Service\' has to be installed</string>
     <string name="weather_service_disabled_summary">\'DK Weather Service\' is disabled.\nTo use the weather feature, enable the app DKWeatherService \'DK Weather Service\', and reboot your phone</string>
@@ -222,6 +224,23 @@
     <string name="clock_date_date_custom_java_format">Custom java format</string>
     <string name="clock_date_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
     <string name="clock_date_date_string_edittext_summary">Enter string</string>
+
+    <!-- Status bar expanded -->
+    <string name="status_bar_expanded_qs_settings_summary">Choose how to display the Quick Settings</string>
+
+    <!-- QS settings -->
+    <string name="qs_cat_portrait_title">Portrait</string>
+    <string name="qs_cat_landscape_title">Landscape</string>
+    <string name="qs_rows_title">Rows</string>
+    <string name="qs_columns_title">Columns</string>
+    <string name="qs_rows_columns_1_title">1</string>
+    <string name="qs_rows_columns_2_title">2</string>
+    <string name="qs_rows_columns_3_title">3</string>
+    <string name="qs_rows_columns_4_title">4</string>
+    <string name="qs_rows_columns_5_title">5</string>
+    <string name="qs_rows_columns_6_title">6</string>
+    <string name="qs_rows_columns_7_title">7</string>
+    <string name="qs_rows_columns_8_title">8</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Power menu</string>
