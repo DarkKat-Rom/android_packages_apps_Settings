@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments;
 
 import android.os.Bundle;
 
@@ -22,18 +22,17 @@ import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class StatusbarExpanded extends SettingsPreferenceFragment {
+public class StatusBarExpandedSettings extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.status_bar_expanded);
-
+        addPreferencesFromResource(R.xml.status_bar_expanded_settings);
     }
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.STATUSBAREXPANDED;
+        return InstrumentedFragment.DARKKAT;
     }
 }

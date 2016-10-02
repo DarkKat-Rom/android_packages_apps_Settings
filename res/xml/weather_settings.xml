@@ -28,8 +28,8 @@ limitations under the License.
     </PreferenceScreen>
 
     <PreferenceScreen
-        android:key="weather_detailed_weather_settings"
-        android:title="@string/detailed_weather_title"
-        android:summary="@string/weather_detailed_weather_settings_summary"
-        android:fragment="com.android.settings.darkkat.DetailedWeatherSettings" />
+        android:key="weather_detailed_weather_view_settings"
+        android:title="@string/detailed_weather_view_title"
+        android:summary="@string/weather_detailed_weather_view_settings_summary"
+        android:fragment="com.android.settings.darkkat.fragments.weather.DetailedWeatherViewSettings" />
 </PreferenceScreen>

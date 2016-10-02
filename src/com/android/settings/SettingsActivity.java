@@ -73,11 +73,11 @@ import com.android.settings.applications.VrListenerSettings;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.dashboard.DashboardSummary;
 import com.android.settings.dashboard.SearchResultsSummary;
-import com.android.settings.darkkat.ButtonSettings;
-import com.android.settings.darkkat.Statusbar;
-import com.android.settings.darkkat.StatusbarExpanded;
-import com.android.settings.darkkat.ThemeColorsSettings;
-import com.android.settings.darkkat.Weather;
+import com.android.settings.darkkat.fragments.ButtonSettings;
+import com.android.settings.darkkat.fragments.StatusBarSettings;
+import com.android.settings.darkkat.fragments.StatusBarExpandedSettings;
+import com.android.settings.darkkat.fragments.ThemeColorsSettings;
+import com.android.settings.darkkat.fragments.WeatherSettings;
 import com.android.settings.datausage.DataUsageSummary;
 import com.android.settings.deviceinfo.ImeiInformation;
 import com.android.settings.deviceinfo.PrivateVolumeForget;
@@ -279,9 +279,9 @@ public class SettingsActivity extends SettingsDrawerActivity
             HomeSettings.class.getName(),
             DisplaySettings.class.getName(),
             ThemeColorsSettings.class.getName(),
-            Weather.class.getName(),
-            Statusbar.class.getName(),
-            StatusbarExpanded.class.getName(),
+            WeatherSettings.class.getName(),
+            StatusBarSettings.class.getName(),
+            StatusBarExpandedSettings.class.getName(),
             ButtonSettings.class.getName(),
             DeviceInfoSettings.class.getName(),
             ManageApplications.class.getName(),

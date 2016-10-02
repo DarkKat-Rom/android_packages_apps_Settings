@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments.statusbar;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -42,7 +42,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.Date;
 
-public class StatusBarClockDateSettings extends SettingsPreferenceFragment implements
+public class ClockDateSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener { 
 
     private static final String PREF_CAT_CLOCK =
@@ -340,8 +340,8 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
             return frag;
         }
 
-        StatusBarClockDateSettings getOwner() {
-            return (StatusBarClockDateSettings) getTargetFragment();
+        ClockDateSettings getOwner() {
+            return (ClockDateSettings) getTargetFragment();
         }
 
         @Override
@@ -408,6 +408,6 @@ public class StatusBarClockDateSettings extends SettingsPreferenceFragment imple
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.STATUSBAR;
+        return InstrumentedFragment.DARKKAT;
     }
 }

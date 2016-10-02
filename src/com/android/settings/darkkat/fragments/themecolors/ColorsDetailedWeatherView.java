@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments.themecolors;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -43,7 +43,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import net.darkkatrom.colorpicker.preference.ColorPickerPreference;
 
-public class ColorsDetailedWeather extends SettingsPreferenceFragment implements
+public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_CAT_BG_COLORS =
@@ -113,7 +113,7 @@ public class ColorsDetailedWeather extends SettingsPreferenceFragment implements
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.colors_detailed_weather);
+        addPreferencesFromResource(R.xml.colors_detailed_weather_view);
         mResolver = getContentResolver();
 
         PreferenceCategory catBgColors =
@@ -441,8 +441,8 @@ public class ColorsDetailedWeather extends SettingsPreferenceFragment implements
             return frag;
         }
 
-        ColorsDetailedWeather getOwner() {
-            return (ColorsDetailedWeather) getTargetFragment();
+        ColorsDetailedWeatherView getOwner() {
+            return (ColorsDetailedWeatherView) getTargetFragment();
         }
 
         @Override
@@ -513,6 +513,6 @@ public class ColorsDetailedWeather extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.THEME;
+        return InstrumentedFragment.DARKKAT;
     }
 }

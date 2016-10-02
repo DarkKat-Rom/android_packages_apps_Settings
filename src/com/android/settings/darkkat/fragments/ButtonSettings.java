@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments;
 
 import android.os.Bundle;
 
@@ -33,6 +33,6 @@ public class ButtonSettings extends SettingsPreferenceFragment {
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.BUTTONS;
+        return InstrumentedFragment.DARKKAT;
     }
 }

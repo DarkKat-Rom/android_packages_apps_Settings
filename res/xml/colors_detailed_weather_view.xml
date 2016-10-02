@@ -16,7 +16,7 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/detailed_weather_title">
+    android:title="@string/detailed_weather_view_title">
 
     <ListPreference
 	    android:key="colors_detailed_weather_theme"

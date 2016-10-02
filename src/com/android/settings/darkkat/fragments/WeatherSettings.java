@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,13 +29,13 @@ import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class Weather extends SettingsPreferenceFragment {
+public class WeatherSettings extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.weather);
+        addPreferencesFromResource(R.xml.weather_settings);
 
         setHasOptionsMenu(true);
     }
@@ -66,6 +66,6 @@ public class Weather extends SettingsPreferenceFragment {
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.WEATHER;
+        return InstrumentedFragment.DARKKAT;
     }
 }

@@ -2394,7 +2394,7 @@
             <meta-data android:name="com.android.settings.category"
                        android:value="com.android.settings.category.ui" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.ThemeColorsSettings" />
+                android:value="com.android.settings.darkkat.fragments.ThemeColorsSettings" />
         </activity>
 
         <activity android:name="Settings$WeatherSettingsActivity"
@@ -2408,7 +2408,7 @@
             <meta-data android:name="com.android.settings.category"
                        android:value="com.android.settings.category.ui" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.Weather" />
+                android:value="com.android.settings.darkkat.fragments.WeatherSettings" />
         </activity>
 
         <activity android:name="Settings$StatusbarSettingsActivity"
@@ -2422,7 +2422,7 @@
             <meta-data android:name="com.android.settings.category"
                        android:value="com.android.settings.category.ui" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.Statusbar" />
+                android:value="com.android.settings.darkkat.fragments.StatusBarSettings" />
         </activity>
 
         <activity android:name="Settings$StatusbarExpandedSettingsActivity"
@@ -2436,7 +2436,7 @@
             <meta-data android:name="com.android.settings.category"
                        android:value="com.android.settings.category.ui" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.StatusbarExpanded" />
+                android:value="com.android.settings.darkkat.fragments.StatusBarExpandedSettings" />
         </activity>
 
         <activity android:name="Settings$ButtonSettingsActivity"
@@ -2450,7 +2450,7 @@
             <meta-data android:name="com.android.settings.category"
                        android:value="com.android.settings.category.device" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.ButtonSettings" />
+                android:value="com.android.settings.darkkat.fragments.ButtonSettings" />
         </activity>
 
         <!-- DarkKat activities end -->

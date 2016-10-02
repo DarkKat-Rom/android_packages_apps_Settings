@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments;
 
 import android.os.Bundle;
 import android.support.v7.preference.Preference;
@@ -26,13 +26,13 @@ import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class Statusbar extends SettingsPreferenceFragment {
+public class StatusBarSettings extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.status_bar);
+        addPreferencesFromResource(R.xml.status_bar_settings);
 
         final boolean isWeatherServiceAvailable =
                 WeatherHelper.isWeatherServiceAvailable(getActivity());
@@ -54,6 +54,6 @@ public class Statusbar extends SettingsPreferenceFragment {
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.STATUSBAR;
+        return InstrumentedFragment.DARKKAT;
     }
 }

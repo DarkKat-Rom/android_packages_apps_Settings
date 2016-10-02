@@ -14,22 +14,24 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments.deviceinfo;
 
 import android.os.Build;
 import android.os.Bundle;
 
-import com.android.internal.logging.MetricsProto.MetricsEvent;
-
+import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.DeviceInfoUtils;
 
-public class DeviceInfoHardware extends SettingsPreferenceFragment {
+public class Hardware extends SettingsPreferenceFragment {
 
-    private static final String PREF_DEVICE_MODEL  = "device_model";
-    private static final String PREF_DEVICE_CPU    = "device_cpu";
-    private static final String PREF_DEVICE_MEMORY = "device_memory";
+    private static final String PREF_DEVICE_MODEL =
+            "device_model";
+    private static final String PREF_DEVICE_CPU =
+            "device_cpu";
+    private static final String PREF_DEVICE_MEMORY =
+            "device_memory";
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -67,6 +69,6 @@ public class DeviceInfoHardware extends SettingsPreferenceFragment {
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.DEVICEINFO;
+        return InstrumentedFragment.DARKKAT;
     }
 }

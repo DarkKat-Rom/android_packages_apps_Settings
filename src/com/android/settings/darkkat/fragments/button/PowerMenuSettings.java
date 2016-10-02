@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments.button;
 
 import android.content.ContentResolver;
 import android.os.Bundle;
@@ -29,7 +29,8 @@ import com.android.settings.SettingsPreferenceFragment;
 public class PowerMenuSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String PREF_SHOW_ADVANCED_REBOOT = "power_menu_show_advanced_reboot";
+    private static final String PREF_SHOW_ADVANCED_REBOOT =
+            "power_menu_show_advanced_reboot";
 
     private SwitchPreference mShowAdvancedReboot;
 
@@ -64,6 +65,6 @@ public class PowerMenuSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.BUTTONS;
+        return InstrumentedFragment.DARKKAT;
     }
 }

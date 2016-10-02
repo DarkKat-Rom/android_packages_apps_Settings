@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments.statusbar;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -36,7 +36,7 @@ import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment implements
+public class NetworkTrafficSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_CAT_STYLE =
@@ -313,8 +313,8 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
             return frag;
         }
 
-        StatusBarNetworkTrafficSettings getOwner() {
-            return (StatusBarNetworkTrafficSettings) getTargetFragment();
+        NetworkTrafficSettings getOwner() {
+            return (NetworkTrafficSettings) getTargetFragment();
         }
 
         @Override
@@ -396,7 +396,7 @@ public class StatusBarNetworkTrafficSettings extends SettingsPreferenceFragment 
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.STATUSBAR;
+        return InstrumentedFragment.DARKKAT;
     }
 }
 

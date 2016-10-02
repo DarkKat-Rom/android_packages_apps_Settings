@@ -110,11 +110,11 @@
 
     <string-array name="number_of_notifications_entries">
         <item>@string/always_title</item>
-        <item>@string/number_of_notifications_two_title</item>
-        <item>@string/number_of_notifications_three_title</item>
-        <item>@string/number_of_notifications_four_title</item>
-        <item>@string/number_of_notifications_five_title</item>
-        <item>@string/number_of_notifications_six_title</item>
+        <item>@string/two_title</item>
+        <item>@string/three_title</item>
+        <item>@string/four_title</item>
+        <item>@string/five_title</item>
+        <item>@string/six_title</item>
     </string-array>
 
     <string-array name="number_of_notifications_values" translatable="false">
@@ -261,9 +261,9 @@
     </string-array>
 
     <string-array name="qs_rows_portrait_entries">
-        <item>@string/qs_rows_columns_1_title</item>
-        <item>@string/qs_rows_columns_2_title</item>
-        <item>@string/qs_rows_columns_3_title</item>
+        <item>@string/one_title</item>
+        <item>@string/two_title</item>
+        <item>@string/three_title</item>
     </string-array>
 
     <string-array name="qs_rows_portrait_values" translatable="false">
@@ -273,10 +273,10 @@
     </string-array>
 
     <string-array name="qs_columns_portrait_entries">
-        <item>@string/qs_rows_columns_3_title</item>
-        <item>@string/qs_rows_columns_4_title</item>
-        <item>@string/qs_rows_columns_5_title</item>
-        <item>@string/qs_rows_columns_6_title</item>
+        <item>@string/three_title</item>
+        <item>@string/four_title</item>
+        <item>@string/five_title</item>
+        <item>@string/six_title</item>
     </string-array>
 
     <string-array name="qs_columns_portrait_values" translatable="false">
@@ -287,7 +287,7 @@
     </string-array>
 
     <string-array name="qs_rows_landscape_entries">
-        <item>@string/qs_rows_columns_1_title</item>
+        <item>@string/one_title</item>
     </string-array>
 
     <string-array name="qs_rows_landscape_values" translatable="false">
@@ -295,12 +295,12 @@
     </string-array>
 
     <string-array name="qs_columns_landscape_entries">
-        <item>@string/qs_rows_columns_3_title</item>
-        <item>@string/qs_rows_columns_4_title</item>
-        <item>@string/qs_rows_columns_5_title</item>
-        <item>@string/qs_rows_columns_6_title</item>
-        <item>@string/qs_rows_columns_7_title</item>
-        <item>@string/qs_rows_columns_8_title</item>
+        <item>@string/three_title</item>
+        <item>@string/four_title</item>
+        <item>@string/five_title</item>
+        <item>@string/six_title</item>
+        <item>@string/seven_title</item>
+        <item>@string/eight_title</item>
     </string-array>
 
     <string-array name="qs_columns_landscape_values" translatable="false">

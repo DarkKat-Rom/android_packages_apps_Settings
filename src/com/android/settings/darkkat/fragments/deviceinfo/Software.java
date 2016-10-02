@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments.deviceinfo;
 
 import android.app.Activity;
 import android.content.Context;
@@ -34,9 +34,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.android.internal.logging.MetricsProto.MetricsEvent;
-
 import com.android.settings.DevelopmentSettings;
+import com.android.settings.InstrumentedFragment;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.Utils;
@@ -46,20 +45,30 @@ import com.android.settingslib.RestrictedLockUtils;
 
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
-public class DeviceInfoSoftware extends SettingsPreferenceFragment {
+public class Software extends SettingsPreferenceFragment {
     private static final String LOG_TAG = "DeviceInfoSoftware";
 
-    private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
-    private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
+    private static final String PROPERTY_SELINUX_STATUS =
+            "ro.build.selinux";
+    private static final String PROPERTY_EQUIPMENT_ID =
+            "ro.ril.fccid";
 
-    private static final String PREF_FIRMWARE_VERSION = "firmware_version";
-    private static final String PREF_BUILD_ID            = "build_id";
-    private static final String PREF_SECURITY_PATCH = "security_patch";
-    private static final String PREF_KERNEL_VERSION = "kernel_version";
-    private static final String PREF_EQUIPMENT_ID = "fcc_equipment_id";
-    private static final String PREF_BASEBAND_VERSION = "baseband_version";
-    private static final String PREF_BUILD_NUMBER = "build_number";
-    private static final String PREF_SELINUX_STATUS = "selinux_status";
+    private static final String PREF_FIRMWARE_VERSION =
+            "firmware_version";
+    private static final String PREF_BUILD_ID =
+            "build_id";
+    private static final String PREF_SECURITY_PATCH =
+            "security_patch";
+    private static final String PREF_KERNEL_VERSION =
+            "kernel_version";
+    private static final String PREF_EQUIPMENT_ID =
+            "fcc_equipment_id";
+    private static final String PREF_BASEBAND_VERSION =
+            "baseband_version";
+    private static final String PREF_BUILD_NUMBER =
+            "build_number";
+    private static final String PREF_SELINUX_STATUS =
+            "selinux_status";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
 
@@ -73,11 +82,6 @@ public class DeviceInfoSoftware extends SettingsPreferenceFragment {
     private boolean mFunDisallowedBySystem;
     private EnforcedAdmin mDebuggingFeaturesDisallowedAdmin;
     private boolean mDebuggingFeaturesDisallowedBySystem;
-
-    @Override
-    protected int getMetricsCategory() {
-        return MetricsEvent.DEVICEINFO;
-    }
 
     @Override
     protected int getHelpResource() {
@@ -258,5 +262,10 @@ public class DeviceInfoSoftware extends SettingsPreferenceFragment {
         } catch (RuntimeException e) {
             // No recovery
         }
+    }
+
+    @Override
+    protected int getMetricsCategory() {
+        return InstrumentedFragment.DARKKAT;
     }
 }

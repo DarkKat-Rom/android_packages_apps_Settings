@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments.statusbarexpanded;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -31,7 +31,7 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.Date;
 
-public class StatusbarExpandedQSSettings extends SettingsPreferenceFragment implements
+public class QSSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener { 
 
     private static final String PREF_CAT_LANDSCAPE =
@@ -64,7 +64,7 @@ public class StatusbarExpandedQSSettings extends SettingsPreferenceFragment impl
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.status_bar_expanded_qs);
+        addPreferencesFromResource(R.xml.status_bar_expanded_qs_settings);
 
         mResolver = getContentResolver();
         Resources res = getResources();
@@ -151,6 +151,6 @@ public class StatusbarExpandedQSSettings extends SettingsPreferenceFragment impl
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.STATUSBAR;
+        return InstrumentedFragment.DARKKAT;
     }
 }

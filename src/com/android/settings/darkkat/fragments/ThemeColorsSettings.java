@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments;
 
 import android.app.UiModeManager;
 import android.content.ContentResolver;
@@ -22,7 +22,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.util.Log;
 
 import com.android.internal.util.darkkat.DeviceUtils;
@@ -33,10 +32,11 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class ThemeColorsSettings extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
-
+        Preference.OnPreferenceChangeListener {
     private static final String TAG = "ThemeColorsSettings";
-    private static final String PREF_THEME = "theme";
+
+    private static final String PREF_THEME =
+            "theme";
 
     private ListPreference mTheme;
 
@@ -94,6 +94,6 @@ public class ThemeColorsSettings extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.THEME;
+        return InstrumentedFragment.DARKKAT;
     }
 }

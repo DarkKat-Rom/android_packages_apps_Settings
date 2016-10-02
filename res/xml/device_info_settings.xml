@@ -53,16 +53,16 @@
         <PreferenceScreen
                 android:key="about_hardware"
                 android:title="@string/about_hardware_title"
-                android:fragment="com.android.settings.darkkat.DeviceInfoHardware" />
+                android:fragment="com.android.settings.darkkat.fragments.deviceinfo.Hardware" />
 
         <PreferenceScreen
                 android:key="about_software"
                 android:title="@string/about_software_title"
-                android:fragment="com.android.settings.darkkat.DeviceInfoSoftware" />
+                android:fragment="com.android.settings.darkkat.fragments.deviceinfo.Software" />
 
         <PreferenceScreen
                 android:key="about_darkkat"
                 android:title="@string/about_darkkat_title"
-                android:fragment="com.android.settings.darkkat.DeviceInfoDarkkat" />
+                android:fragment="com.android.settings.darkkat.fragments.deviceinfo.Darkkat" />
 
 </PreferenceScreen>

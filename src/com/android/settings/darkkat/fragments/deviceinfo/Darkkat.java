@@ -14,26 +14,33 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments.deviceinfo;
 
 import android.os.Bundle;
 import android.os.SystemProperties;
 
-import com.android.internal.logging.MetricsProto.MetricsEvent;
-
+import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class DeviceInfoDarkkat extends SettingsPreferenceFragment {
-    private static final String PROP_DK_VERSION_SHORT = "ro.dk.version_short";
-    private static final String PROP_DK_BUILD_VERSION = "ro.dk.build.version";
-    private static final String PROP_DK_BUILD_TYPE    = "ro.dk.build.type";
-    private static final String PROP_DK_BUILD_DATE    = "ro.build.date";
+public class Darkkat extends SettingsPreferenceFragment {
+    private static final String PROP_DK_VERSION_SHORT =
+            "ro.dk.version_short";
+    private static final String PROP_DK_BUILD_VERSION =
+            "ro.dk.build.version";
+    private static final String PROP_DK_BUILD_TYPE =
+            "ro.dk.build.type";
+    private static final String PROP_DK_BUILD_DATE =
+            "ro.build.date";
 
-    private static final String PREF_DARKKAT_VERSION       = "darkkat_version";
-    private static final String PREF_DARKKAT_BUILD_VERSION = "darkkat_build_version";
-    private static final String PREF_DARKKAT_BUILD_TYPE    = "darkkat_build_type";
-    private static final String PREF_DARKKAT_BUILD_DATE    = "darkkat_build_date";
+    private static final String PREF_DARKKAT_VERSION =
+            "darkkat_version";
+    private static final String PREF_DARKKAT_BUILD_VERSION =
+            "darkkat_build_version";
+    private static final String PREF_DARKKAT_BUILD_TYPE =
+            "darkkat_build_type";
+    private static final String PREF_DARKKAT_BUILD_DATE =
+            "darkkat_build_date";
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -59,7 +66,7 @@ public class DeviceInfoDarkkat extends SettingsPreferenceFragment {
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.DEVICEINFO;
+        return InstrumentedFragment.DARKKAT;
     }
 }
 

@@ -29,18 +29,18 @@ limitations under the License.
         android:key="colors_status_bar"
         android:title="@string/status_bar_title"
         android:summary="@string/colors_status_bar_summary"
-        android:fragment="com.android.settings.darkkat.ColorsStatusBar" />
+        android:fragment="com.android.settings.darkkat.fragments.themecolors.ColorsStatusBar" />
 
 <!--
     <PreferenceCategory
-        android:key="theme_color_cat_detailed_weather"
+        android:key="theme_color_cat_detailed_weather_view"
         android:title="@string/detailed_weather_title">
 
         <PreferenceScreen
-            android:key="colors_customize_detailed_weather"
+            android:key="colors_customize_detailed_weather_view"
             android:title="@string/customize_title"
-            android:summary="@string/colors_customize_detailed_weather_summary"
-            android:fragment="com.android.settings.darkkat.ColorsDetailedWeather" />
+            android:summary="@string/colors_customize_detailed_weather_view_summary"
+            android:fragment="com.android.settings.darkkat.ColorsDetailedWeatherView" />
 
 	</PreferenceCategory>
 -->

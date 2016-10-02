@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments.weather;
 
 import android.content.ContentResolver;
 import android.os.Bundle;
@@ -31,7 +31,7 @@ import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class DetailedWeatherSettings extends SettingsPreferenceFragment implements
+public class DetailedWeatherViewSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String PREF_SHOW_LOCATION =
@@ -56,7 +56,7 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
             prefs.removeAll();
         }
 
-        addPreferencesFromResource(R.xml.weather_detailed_weather_settings);
+        addPreferencesFromResource(R.xml.detailed_weather_view_settings);
         mResolver = getContentResolver();
 
         mShowLocation = (SwitchPreference) findPreference(PREF_SHOW_LOCATION);
@@ -93,6 +93,6 @@ public class DetailedWeatherSettings extends SettingsPreferenceFragment implemen
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.WEATHER;
+        return InstrumentedFragment.DARKKAT;
     }
 }

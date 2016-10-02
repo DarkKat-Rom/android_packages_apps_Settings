@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat;
+package com.android.settings.darkkat.fragments.themecolors;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -54,9 +54,12 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
     private static final String PREF_BATTERY_TEXT_COLOR_DARK_MODE =
             "colors_status_bar_battery_text_color_dark_mode";
 
-    private static final int LIGHT_MODE_COLOR_SINGLE_TONE = 0xffffffff;
-    private static final int HOLO_BLUE_LIGHT              = 0xff33b5e5;
-    private static final int DARK_MODE_COLOR_SINGLE_TONE  = 0x99000000;
+    private static final int LIGHT_MODE_COLOR_SINGLE_TONE =
+            0xffffffff;
+    private static final int HOLO_BLUE_LIGHT              =
+            0xff33b5e5;
+    private static final int DARK_MODE_COLOR_SINGLE_TONE  =
+            0x99000000;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
@@ -310,6 +313,6 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return InstrumentedFragment.THEME;
+        return InstrumentedFragment.DARKKAT;
     }
 }
