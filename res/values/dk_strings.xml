@@ -171,6 +171,8 @@
     <string name="status_bar_network_traffic_settings_summary">Choose how to display the network traffic in the status bar</string>
     <string name="status_bar_clock_date_settings_title">Clock &amp; date</string>
     <string name="status_bar_clock_date_settings_summary">Choose how to display the clock &amp; date in the status bar</string>
+    <string name="status_bar_ticker_settings_title">Ticker</string>
+    <string name="status_bar_ticker_settings_summary">Show&#47;hide the ticker in the status bar</string>
 
     <!-- Weather settings -->
     <string name="weather_show_summary">Enable to show the weather</string>
@@ -236,6 +238,9 @@
     <string name="clock_date_date_custom_java_format">Custom java format</string>
     <string name="clock_date_date_string_edittext_title">Must be in DateFormat eg. MM/dd/yy</string>
     <string name="clock_date_date_string_edittext_summary">Enter string</string>
+
+    <!-- Ticker settings -->
+    <string name="ticker_show_summary">Enable to show the ticker in the status bar</string>
     <!-- Status bar end -->
 
     <!-- Status bar expanded -->
