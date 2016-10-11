@@ -39,6 +39,8 @@
     <string name="hide_title">Hide</string>
     <string name="always_title">Always</string>
     <string name="colors_title">Colors</string>
+    <string name="use_theme_colors_title">Use theme colors</string>
+    <string name="use_theme_colors_summary">Enable to use colors from the current theme, disable to customize the colors</string>
     <string name="colors_general_title">Colors general</string>
     <string name="colors_general_dark_mode_title">Colors general (light status bar)</string>
     <string name="colors_battery_title">Colors battery status</string>
@@ -51,6 +53,8 @@
     <string name="type_title">Type</string>
     <string name="type_text_icon">Text &amp; icon</string>
     <string name="background_title">Background</string>
+    <string name="primary_background_title">Primary background</string>
+    <string name="secondary_background_title">Secondary background</string>
     <string name="accent_title">Accent</string>
     <string name="text_title">Text</string>
     <string name="text_charge_icon_title">Percentage text &amp; charging indicator</string>
@@ -144,6 +148,7 @@
     <string name="theme_blackout_title">Blackout</string>
     <string name="colors_customize_detailed_weather_view_summary">Choose the theme and colors to colorize the detailed weather view</string>
     <string name="colors_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
+    <string name="colors_status_bar_expanded_summary">Choose the colors to colorize the content in the status bar expanded</string>
 
     <!-- Detailed weather view -->
     <string name="colors_detailed_weather_customize_colors_title">Customize colors</string>

@@ -39,6 +39,8 @@
     <string name="hide_title">Verbergen</string>
     <string name="always_title">Immer</string>
     <string name="colors_title">Farben</string>
+    <string name="use_theme_colors_title">Theme Farben benutzen</string>
+    <string name="use_theme_colors_summary">Aktivieren um die Farben aus dem aktuellen Theme zu nutzen, deaktivieren um die farben anzupassen</string>
     <string name="colors_general_title">Farben allgemein</string>
     <string name="colors_general_dark_mode_title">Farben allgemein (helle Statusleiste)</string>
     <string name="colors_battery_title">Farben Akkustatus</string>
@@ -51,6 +53,8 @@
     <string name="type_title">Typ</string>
     <string name="type_text_icon">Text &amp; Symbol</string>
     <string name="background_title">Hintergrund</string>
+    <string name="primary_background_title">Primärer Hintergrund</string>
+    <string name="secondary_background_title">Sekundärer Hintergrund</string>
     <string name="accent_title">Akzent</string>
     <string name="text_title">Text</string>
     <string name="text_charge_icon_title">Prozentzahl &amp; Ladesymbol</string>
@@ -144,6 +148,7 @@
     <string name="theme_blackout_title">Blackout</string>
     <string name="colors_customize_detailed_weather_view_summary">Wähle das Theme und die Farben mit denen die Detaillierte Wetteransicht eingefärbt wird</string>
     <string name="colors_status_bar_summary">Wähle die Farben mit denen Text und Symbole in der Statusleiste eingefärbt werden</string>
+    <string name="colors_status_bar_expanded_summary">Wähle die Farben mit denen der Inhalt in der Erweiterten Statusleiste eingefärbt werden</string>
 
     <!-- Detailed weather view -->
     <string name="colors_detailed_weather_customize_colors_title">Farben anpassen</string>

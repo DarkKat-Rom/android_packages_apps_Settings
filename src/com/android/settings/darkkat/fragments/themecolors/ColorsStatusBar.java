@@ -30,6 +30,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.android.internal.util.darkkat.ColorConstants;
 import com.android.internal.util.darkkat.StatusBarColorHelper;
 
 import com.android.settings.InstrumentedFragment;
@@ -53,13 +54,6 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
             "colors_status_bar_battery_text_color";
     private static final String PREF_BATTERY_TEXT_COLOR_DARK_MODE =
             "colors_status_bar_battery_text_color_dark_mode";
-
-    private static final int LIGHT_MODE_COLOR_SINGLE_TONE =
-            0xffffffff;
-    private static final int HOLO_BLUE_LIGHT              =
-            0xff33b5e5;
-    private static final int DARK_MODE_COLOR_SINGLE_TONE  =
-            0x99000000;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
@@ -97,7 +91,8 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
         mTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColor.setSummary(hexColor);
-        mTextColor.setResetColors(LIGHT_MODE_COLOR_SINGLE_TONE, HOLO_BLUE_LIGHT);
+        mTextColor.setResetColors(ColorConstants.LIGHT_MODE_COLOR_SINGLE_TONE,
+                ColorConstants.HOLO_BLUE_LIGHT);
         mTextColor.setOnPreferenceChangeListener(this);
 
         mIconColor =
@@ -106,7 +101,8 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
         mIconColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColor.setSummary(hexColor);
-        mIconColor.setResetColors(LIGHT_MODE_COLOR_SINGLE_TONE, HOLO_BLUE_LIGHT);
+        mIconColor.setResetColors(ColorConstants.LIGHT_MODE_COLOR_SINGLE_TONE,
+                ColorConstants.HOLO_BLUE_LIGHT);
         mIconColor.setOnPreferenceChangeListener(this);
 
         mTextColorDarkMode =
@@ -115,7 +111,8 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
         mTextColorDarkMode.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mTextColorDarkMode.setSummary(hexColor);
-        mTextColorDarkMode.setResetColors(DARK_MODE_COLOR_SINGLE_TONE, DARK_MODE_COLOR_SINGLE_TONE);
+        mTextColorDarkMode.setResetColors(ColorConstants.DARK_MODE_COLOR_SINGLE_TONE,
+                ColorConstants.DARK_MODE_COLOR_SINGLE_TONE);
         mTextColorDarkMode.setOnPreferenceChangeListener(this);
 
         mIconColorDarkMode =
@@ -124,7 +121,8 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
         mIconColorDarkMode.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mIconColorDarkMode.setSummary(hexColor);
-        mIconColorDarkMode.setResetColors(DARK_MODE_COLOR_SINGLE_TONE, DARK_MODE_COLOR_SINGLE_TONE);
+        mIconColorDarkMode.setResetColors(ColorConstants.DARK_MODE_COLOR_SINGLE_TONE,
+                ColorConstants.DARK_MODE_COLOR_SINGLE_TONE);
         mIconColorDarkMode.setOnPreferenceChangeListener(this);
 
         mBatteryTextColor =
@@ -133,7 +131,8 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
         mBatteryTextColor.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBatteryTextColor.setSummary(hexColor);
-        mBatteryTextColor.setResetColors(LIGHT_MODE_COLOR_SINGLE_TONE, LIGHT_MODE_COLOR_SINGLE_TONE);
+        mBatteryTextColor.setResetColors(ColorConstants.LIGHT_MODE_COLOR_SINGLE_TONE,
+                ColorConstants.LIGHT_MODE_COLOR_SINGLE_TONE);
         mBatteryTextColor.setOnPreferenceChangeListener(this);
 
         mBatteryTextColorDarkMode =
@@ -142,8 +141,8 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
         mBatteryTextColorDarkMode.setNewPreviewColor(intColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBatteryTextColorDarkMode.setSummary(hexColor);
-        mBatteryTextColorDarkMode.setResetColors(DARK_MODE_COLOR_SINGLE_TONE,
-                DARK_MODE_COLOR_SINGLE_TONE);
+        mBatteryTextColorDarkMode.setResetColors(ColorConstants.DARK_MODE_COLOR_SINGLE_TONE,
+                ColorConstants.DARK_MODE_COLOR_SINGLE_TONE);
         mBatteryTextColorDarkMode.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
@@ -257,22 +256,22 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_TEXT_COLOR,
-                                    LIGHT_MODE_COLOR_SINGLE_TONE);
+                                    ColorConstants.LIGHT_MODE_COLOR_SINGLE_TONE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_ICON_COLOR,
-                                    LIGHT_MODE_COLOR_SINGLE_TONE);
+                                    ColorConstants.LIGHT_MODE_COLOR_SINGLE_TONE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_TEXT_COLOR_DARK_MODE,
-                                    DARK_MODE_COLOR_SINGLE_TONE);
+                                    ColorConstants.DARK_MODE_COLOR_SINGLE_TONE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_ICON_COLOR_DARK_MODE,
-                                    DARK_MODE_COLOR_SINGLE_TONE);
+                                    ColorConstants.DARK_MODE_COLOR_SINGLE_TONE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR,
-                                    LIGHT_MODE_COLOR_SINGLE_TONE);
+                                    ColorConstants.LIGHT_MODE_COLOR_SINGLE_TONE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR_DARK_MODE,
-                                    DARK_MODE_COLOR_SINGLE_TONE);
+                                    ColorConstants.DARK_MODE_COLOR_SINGLE_TONE);
                             getOwner().refreshSettings();
                         }
                     })
@@ -281,22 +280,22 @@ public class ColorsStatusBar extends SettingsPreferenceFragment implements
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_TEXT_COLOR,
-                                    HOLO_BLUE_LIGHT);
+                                    ColorConstants.HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_ICON_COLOR,
-                                    HOLO_BLUE_LIGHT);
+                                    ColorConstants.HOLO_BLUE_LIGHT);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_TEXT_COLOR_DARK_MODE,
-                                    DARK_MODE_COLOR_SINGLE_TONE);
+                                    ColorConstants.DARK_MODE_COLOR_SINGLE_TONE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_ICON_COLOR_DARK_MODE,
-                                    DARK_MODE_COLOR_SINGLE_TONE);
+                                    ColorConstants.DARK_MODE_COLOR_SINGLE_TONE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR,
-                                    LIGHT_MODE_COLOR_SINGLE_TONE);
+                                    ColorConstants.LIGHT_MODE_COLOR_SINGLE_TONE);
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_BATTERY_TEXT_COLOR_DARK_MODE,
-                                    DARK_MODE_COLOR_SINGLE_TONE);
+                                    ColorConstants.DARK_MODE_COLOR_SINGLE_TONE);
                             getOwner().refreshSettings();
                         }
                     })
