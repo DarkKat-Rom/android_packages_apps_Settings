@@ -22,7 +22,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.android.internal.util.darkkat.DetailedWeatherHelper;
+import com.android.internal.util.darkkat.WeatherHelper;
 import com.android.internal.util.darkkat.WeatherServiceControllerImpl;
 
 import com.android.settings.InstrumentedFragment;
@@ -52,7 +52,7 @@ public class WeatherSettings extends SettingsPreferenceFragment {
         switch (item.getItemId()) {
             case Menu.FIRST:
                 Bundle b = new Bundle();
-                b.putInt(DetailedWeatherHelper.DAY_INDEX, 0);
+                b.putInt(WeatherHelper.DAY_INDEX, 0);
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setComponent(WeatherServiceControllerImpl.COMPONENT_DETAILED_WEATHER);

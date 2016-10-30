@@ -26,6 +26,12 @@ limitations under the License.
         android:entryValues="@array/theme_values" />
 
     <PreferenceScreen
+        android:key="colors_detailed_weather_view"
+        android:title="@string/detailed_weather_view_title"
+        android:summary="@string/colors_detailed_weather_view_summary"
+        android:fragment="com.android.settings.darkkat.fragments.themecolors.ColorsDetailedWeatherView" />
+
+    <PreferenceScreen
         android:key="colors_status_bar"
         android:title="@string/status_bar_title"
         android:summary="@string/colors_status_bar_summary"
@@ -36,18 +42,4 @@ limitations under the License.
         android:title="@string/status_bar_expanded_title"
         android:summary="@string/colors_status_bar_expanded_summary"
         android:fragment="com.android.settings.darkkat.fragments.themecolors.ColorsStatusBarExpanded" />
-
-<!--
-    <PreferenceCategory
-        android:key="theme_color_cat_detailed_weather_view"
-        android:title="@string/detailed_weather_title">
-
-        <PreferenceScreen
-            android:key="colors_customize_detailed_weather_view"
-            android:title="@string/customize_title"
-            android:summary="@string/colors_customize_detailed_weather_view_summary"
-            android:fragment="com.android.settings.darkkat.ColorsDetailedWeatherView" />
-
-	</PreferenceCategory>
--->
 </PreferenceScreen>

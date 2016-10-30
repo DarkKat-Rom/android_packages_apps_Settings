@@ -33,7 +33,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.android.internal.util.darkkat.DetailedWeatherHelper;
+import com.android.internal.util.darkkat.DetailedWeatherColorHelper;
+import com.android.internal.util.darkkat.DetailedWeatherThemeHelper;
+import com.android.internal.util.darkkat.ThemeHelper;
 import com.android.internal.util.darkkat.WeatherHelper;
 import com.android.internal.util.darkkat.WeatherServiceControllerImpl;
 
@@ -54,10 +56,8 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
             "colors_detailed_weather_cat_icon_colors";
     private static final String PREF_CAT_RIPPLE_COLORS =
             "colors_detailed_weather_cat_ripple_colors";
-    private static final String PREF_THEME =
-            "colors_detailed_weather_theme";
-    private static final String PREF_CUSTOMIZE_COLORS =
-            "colors_detailed_weather_customize_colors";
+    private static final String PREF_USE_THEME_COLORS =
+            "colors_detailed_weather_view_use_theme_colors";
     private static final String PREF_ACCENT_COLOR =
             "colors_detailed_weather_accent_color";
     private static final String PREF_STATUS_BAR_BG_COLOR =
@@ -66,44 +66,45 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
             "colors_detailed_weather_action_bar_bg_color";
     private static final String PREF_CONTENT_BG_COLOR =
             "colors_detailed_weather_content_bg_color";
-    private static final String PREF_CARDS_BG_COLOR =
-            "colors_detailed_weather_cards_bg_color";
+    private static final String PREF_CARD_BG_COLOR =
+            "colors_detailed_weather_card_bg_color";
     private static final String PREF_ACTION_BAR_TEXT_COLOR =
             "colors_detailed_weather_action_bar_text_color";
-    private static final String PREF_CARDS_TEXT_COLOR =
-            "colors_detailed_weather_cards_text_color";
+    private static final String PREF_CARD_TEXT_COLOR =
+            "colors_detailed_weather_card_text_color";
     private static final String PREF_ACTION_BAR_ICON_COLOR =
             "colors_detailed_weather_action_bar_icon_color";
-    private static final String PREF_CARDS_ICON_COLOR =
-            "colors_detailed_weather_cards_icon_color";
+    private static final String PREF_CARD_ICON_COLOR =
+            "colors_detailed_weather_card_icon_color";
     private static final String PREF_ACTION_BAR_RIPPLE_COLOR =
             "colors_detailed_weather_action_bar_ripple_color";
-    private static final String PREF_CARDS_RIPPLE_COLOR =
-            "colors_detailed_weather_cards_ripple_color";
+    private static final String PREF_CARD_RIPPLE_COLOR =
+            "colors_detailed_weather_card_ripple_color";
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int MENU_SHOW  = 2;
     private static final int DLG_RESET  = 0;
 
-    private ListPreference mTheme;
-    private SwitchPreference mCustomizeColors;
+    private SwitchPreference mUseThemeColors;
     private ColorPickerPreference mAccentColor;
     private ColorPickerPreference mStatusBarBgColor;
     private ColorPickerPreference mActionBarBgColor;
     private ColorPickerPreference mContentBgColor;
-    private ColorPickerPreference mCardsBgColor;
+    private ColorPickerPreference mCardBgColor;
     private ColorPickerPreference mActionBarTextColor;
-    private ColorPickerPreference mCardsTextColor;
+    private ColorPickerPreference mCardTextColor;
     private ColorPickerPreference mActionBarIconColor;
-    private ColorPickerPreference mCardsIconColor;
+    private ColorPickerPreference mCardIconColor;
     private ColorPickerPreference mActionBarRippleColor;
-    private ColorPickerPreference mCardsRippleColor;
+    private ColorPickerPreference mCardRippleColor;
 
+    private boolean mCustomizeColors;
     private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         refreshSettings();
     }
 
@@ -125,164 +126,145 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
         PreferenceCategory catRippleColors =
                 (PreferenceCategory) findPreference(PREF_CAT_RIPPLE_COLORS);
 
-        final boolean customizeColors = Settings.System.getInt(mResolver,
-                Settings.System.DETAILED_WEATHER_CUSTOMIZE_COLORS, 0) == 1;
+        mCustomizeColors = !ThemeHelper.detailedWeatherUseThemeColors(getActivity());
 
-        mTheme = (ListPreference) findPreference(PREF_THEME);
-        final int theme = Settings.System.getInt(mResolver,
-                Settings.System.DETAILED_WEATHER_THEME, 0);
-        mTheme.setValue(String.valueOf(theme));
-        mTheme.setSummary(mTheme.getEntry());
-        mTheme.setOnPreferenceChangeListener(this);
+        mUseThemeColors = (SwitchPreference) findPreference(PREF_USE_THEME_COLORS);
+        mUseThemeColors.setChecked(!mCustomizeColors);
+        mUseThemeColors.setOnPreferenceChangeListener(this);
 
-        mCustomizeColors = (SwitchPreference) findPreference(PREF_CUSTOMIZE_COLORS);
-        mCustomizeColors.setChecked(customizeColors);
-        mCustomizeColors.setOnPreferenceChangeListener(this);
-
-        if (customizeColors) {
+        if (mCustomizeColors) {
             int intColor;
             String hexColor;
             int defaultColor;
 
             mAccentColor =
                     (ColorPickerPreference) findPreference(PREF_ACCENT_COLOR);
-            intColor = DetailedWeatherHelper.getAccentColor(getActivity());
+            intColor = DetailedWeatherColorHelper.getAccentColor(getActivity());
             mAccentColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mAccentColor.setSummary(hexColor);
-            defaultColor = getThemeDefaultColor(DetailedWeatherHelper.INDEX_ACCENT_COLOR);
-            mAccentColor.setResetColor(defaultColor);
+            mAccentColor.setResetColor(DetailedWeatherThemeHelper.getAccentColor(getActivity()));
             mAccentColor.setResetColorTitle(R.string.reset_theme_default_title);
             mAccentColor.setOnPreferenceChangeListener(this);
 
             mStatusBarBgColor =
                     (ColorPickerPreference) findPreference(PREF_STATUS_BAR_BG_COLOR);
-            intColor = DetailedWeatherHelper.getStatusBarBgColor(getActivity());
+            intColor = DetailedWeatherColorHelper.getStatusBarBgColor(getActivity());
             mStatusBarBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mStatusBarBgColor.setSummary(hexColor);
-            mStatusBarBgColor.setResetColor(DetailedWeatherHelper.MATERIAL_BLUE_700);
+            mStatusBarBgColor.setResetColor(DetailedWeatherThemeHelper.getStatusBarBgColor());
             mStatusBarBgColor.setResetColorTitle(R.string.reset_theme_default_title);
             mStatusBarBgColor.setOnPreferenceChangeListener(this);
 
             mActionBarBgColor =
                     (ColorPickerPreference) findPreference(PREF_ACTION_BAR_BG_COLOR);
-            intColor = DetailedWeatherHelper.getActionBarBgColor(getActivity());
+            intColor = DetailedWeatherColorHelper.getActionBarBgColor(getActivity());
             mActionBarBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mActionBarBgColor.setSummary(hexColor);
-            mActionBarBgColor.setResetColor(DetailedWeatherHelper.MATERIAL_BLUE_500);
+            mActionBarBgColor.setResetColor(DetailedWeatherThemeHelper.getActionBarBgColor());
             mActionBarBgColor.setResetColorTitle(R.string.reset_theme_default_title);
             mActionBarBgColor.setOnPreferenceChangeListener(this);
 
             mContentBgColor =
                     (ColorPickerPreference) findPreference(PREF_CONTENT_BG_COLOR);
-            intColor = DetailedWeatherHelper.getContentBgColor(getActivity());
+            intColor = DetailedWeatherColorHelper.getContentBgColor(getActivity());
             mContentBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mContentBgColor.setSummary(hexColor);
-            defaultColor = getThemeDefaultColor(DetailedWeatherHelper.INDEX_CONTENT_BG_COLOR);
-            mContentBgColor.setResetColor(defaultColor);
+            mContentBgColor.setResetColor(DetailedWeatherThemeHelper.getContentBgColor(getActivity()));
             mContentBgColor.setResetColorTitle(R.string.reset_theme_default_title);
             mContentBgColor.setOnPreferenceChangeListener(this);
 
-            mCardsBgColor =
-                    (ColorPickerPreference) findPreference(PREF_CARDS_BG_COLOR);
-            intColor = DetailedWeatherHelper.getCardsBgColor(getActivity());
-            mCardsBgColor.setNewPreviewColor(intColor);
+            mCardBgColor =
+                    (ColorPickerPreference) findPreference(PREF_CARD_BG_COLOR);
+            intColor = DetailedWeatherColorHelper.getCardBgColor(getActivity());
+            mCardBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mCardsBgColor.setSummary(hexColor);
-            defaultColor = getThemeDefaultColor(DetailedWeatherHelper.INDEX_CARDS_BG_COLOR);
-            mCardsBgColor.setResetColor(defaultColor);
-            mCardsBgColor.setResetColorTitle(R.string.reset_theme_default_title);
-            mCardsBgColor.setOnPreferenceChangeListener(this);
+            mCardBgColor.setSummary(hexColor);
+            mCardBgColor.setResetColor(DetailedWeatherThemeHelper.getCardBgColor(getActivity()));
+            mCardBgColor.setResetColorTitle(R.string.reset_theme_default_title);
+            mCardBgColor.setOnPreferenceChangeListener(this);
 
             mActionBarTextColor =
                     (ColorPickerPreference) findPreference(PREF_ACTION_BAR_TEXT_COLOR);
-            intColor = DetailedWeatherHelper.getActionBarTextColor(getActivity(), true);
+            intColor = DetailedWeatherColorHelper.getActionBarPrimaryTextColor(getActivity());
             mActionBarTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mActionBarTextColor.setSummary(hexColor);
-            mActionBarTextColor.setResetColor(DetailedWeatherHelper.WHITE);
+            mActionBarTextColor.setResetColor(DetailedWeatherThemeHelper.getActionBarTextColor());
             mActionBarTextColor.setResetColorTitle(R.string.reset_theme_default_title);
             mActionBarTextColor.setOnPreferenceChangeListener(this);
 
-            mCardsTextColor =
-                    (ColorPickerPreference) findPreference(PREF_CARDS_TEXT_COLOR);
-            intColor = DetailedWeatherHelper.getCardsTextColor(getActivity(), true);
-            mCardsTextColor.setNewPreviewColor(intColor);
+            mCardTextColor =
+                    (ColorPickerPreference) findPreference(PREF_CARD_TEXT_COLOR);
+            intColor = DetailedWeatherColorHelper.getCardPrimaryTextColor(getActivity());
+            mCardTextColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mCardsTextColor.setSummary(hexColor);
-            defaultColor = getThemeDefaultColor(DetailedWeatherHelper.INDEX_CARDS_TEXT_COLOR);
-            mCardsTextColor.setResetColor(defaultColor);
-            mCardsTextColor.setResetColorTitle(R.string.reset_theme_default_title);
-            mCardsTextColor.setOnPreferenceChangeListener(this);
+            mCardTextColor.setSummary(hexColor);
+            mCardTextColor.setResetColor(DetailedWeatherThemeHelper.getPrimaryTextColor(getActivity()));
+            mCardTextColor.setResetColorTitle(R.string.reset_theme_default_title);
+            mCardTextColor.setOnPreferenceChangeListener(this);
 
             mActionBarIconColor =
                     (ColorPickerPreference) findPreference(PREF_ACTION_BAR_ICON_COLOR);
-            intColor = DetailedWeatherHelper.getActionBarIconColor(getActivity());
+            intColor = DetailedWeatherColorHelper.getActionBarIconColor(getActivity());
             mActionBarIconColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mActionBarIconColor.setSummary(hexColor);
-            mActionBarIconColor.setResetColor(DetailedWeatherHelper.WHITE);
+            mActionBarIconColor.setResetColor(DetailedWeatherThemeHelper.getActionBarIconColor());
             mActionBarIconColor.setResetColorTitle(R.string.reset_theme_default_title);
             mActionBarIconColor.setOnPreferenceChangeListener(this);
 
-            mCardsIconColor =
-                    (ColorPickerPreference) findPreference(PREF_CARDS_ICON_COLOR);
-            intColor = DetailedWeatherHelper.getCardsIconColor(getActivity());
-            mCardsIconColor.setNewPreviewColor(intColor);
+            mCardIconColor =
+                    (ColorPickerPreference) findPreference(PREF_CARD_ICON_COLOR);
+            intColor = DetailedWeatherColorHelper.getCardIconColor(getActivity());
+            mCardIconColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mCardsIconColor.setSummary(hexColor);
-            defaultColor = getThemeDefaultColor(DetailedWeatherHelper.INDEX_CARDS_ICON_COLOR);
-            mCardsIconColor.setResetColor(defaultColor);
-            mCardsIconColor.setResetColorTitle(R.string.reset_theme_default_title);
-            mCardsIconColor.setOnPreferenceChangeListener(this);
+            mCardIconColor.setSummary(hexColor);
+            mCardIconColor.setResetColor(DetailedWeatherThemeHelper.getIconColor(getActivity()));
+            mCardIconColor.setResetColorTitle(R.string.reset_theme_default_title);
+            mCardIconColor.setOnPreferenceChangeListener(this);
 
             mActionBarRippleColor =
                     (ColorPickerPreference) findPreference(PREF_ACTION_BAR_RIPPLE_COLOR);
-            intColor = DetailedWeatherHelper.getActionBarRippleColor(getActivity());
+            intColor = DetailedWeatherColorHelper.getActionBarRippleColor(getActivity());
             mActionBarRippleColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mActionBarRippleColor.setSummary(hexColor);
-            defaultColor = getThemeDefaultColor(DetailedWeatherHelper.INDEX_AB_RIPPLE_COLOR);
-            mActionBarRippleColor.setResetColor(defaultColor);
+            mActionBarRippleColor.setResetColor(DetailedWeatherThemeHelper.getActionBarRippleColor());
             mActionBarRippleColor.setResetColorTitle(R.string.reset_theme_default_title);
             mActionBarRippleColor.setOnPreferenceChangeListener(this);
 
-            mCardsRippleColor =
-                    (ColorPickerPreference) findPreference(PREF_CARDS_RIPPLE_COLOR);
-            intColor = DetailedWeatherHelper.getCardsRippleColor(getActivity());
-            mCardsRippleColor.setNewPreviewColor(intColor);
+            mCardRippleColor =
+                    (ColorPickerPreference) findPreference(PREF_CARD_RIPPLE_COLOR);
+            intColor = DetailedWeatherColorHelper.getCardRippleColor(getActivity());
+            mCardRippleColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mCardsRippleColor.setSummary(hexColor);
-            defaultColor = getThemeDefaultColor(DetailedWeatherHelper.INDEX_CARDS_RIPPLE_COLOR);
-            mCardsRippleColor.setResetColor(defaultColor);
-            mCardsRippleColor.setResetColorTitle(R.string.reset_theme_default_title);
-            mCardsRippleColor.setOnPreferenceChangeListener(this);
+            mCardRippleColor.setSummary(hexColor);
+            mCardRippleColor.setResetColor(DetailedWeatherThemeHelper.getRippleColor(getActivity()));
+            mCardRippleColor.setResetColorTitle(R.string.reset_theme_default_title);
+            mCardRippleColor.setOnPreferenceChangeListener(this);
         } else {
             removePreference(PREF_ACCENT_COLOR);
             catBgColors.removePreference(findPreference(PREF_STATUS_BAR_BG_COLOR));
             catBgColors.removePreference(findPreference(PREF_ACTION_BAR_BG_COLOR));
             catBgColors.removePreference(findPreference(PREF_CONTENT_BG_COLOR));
-            catBgColors.removePreference(findPreference(PREF_CARDS_BG_COLOR));
+            catBgColors.removePreference(findPreference(PREF_CARD_BG_COLOR));
             catTextColors.removePreference(findPreference(PREF_ACTION_BAR_TEXT_COLOR));
-            catTextColors.removePreference(findPreference(PREF_CARDS_TEXT_COLOR));
+            catTextColors.removePreference(findPreference(PREF_CARD_TEXT_COLOR));
             catIconColors.removePreference(findPreference(PREF_ACTION_BAR_ICON_COLOR));
-            catIconColors.removePreference(findPreference(PREF_CARDS_ICON_COLOR));
+            catIconColors.removePreference(findPreference(PREF_CARD_ICON_COLOR));
             catRippleColors.removePreference(findPreference(PREF_ACTION_BAR_RIPPLE_COLOR));
-            catRippleColors.removePreference(findPreference(PREF_CARDS_RIPPLE_COLOR));
+            catRippleColors.removePreference(findPreference(PREF_CARD_RIPPLE_COLOR));
             removePreference(PREF_CAT_BG_COLORS);
             removePreference(PREF_CAT_TEXT_COLORS);
             removePreference(PREF_CAT_ICON_COLORS);
             removePreference(PREF_CAT_RIPPLE_COLORS);
         }
-        setHasOptionsMenu(true);
-    }
 
-    private int getThemeDefaultColor(int index) {
-        return DetailedWeatherHelper.DEFAULT_COLORS[
-                DetailedWeatherHelper.getTheme(getActivity())][index];
+        getActivity().invalidateOptionsMenu();
     }
 
     @Override
@@ -296,6 +278,13 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
     }
 
     @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.getItem(0).setEnabled(mCustomizeColors);
+        menu.getItem(0).setVisible(mCustomizeColors);
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case MENU_RESET:
@@ -303,7 +292,7 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
                 return true;
             case MENU_SHOW:
                 Bundle b = new Bundle();
-                b.putInt(DetailedWeatherHelper.DAY_INDEX, 0);
+                b.putInt(WeatherHelper.DAY_INDEX, 0);
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setComponent(WeatherServiceControllerImpl.COMPONENT_DETAILED_WEATHER);
@@ -319,18 +308,10 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
         int intHex;
         String hex;
 
-        if (preference == mTheme) {
-            int intValue = Integer.valueOf((String) newValue);
-            int index = mTheme.findIndexOfValue((String) newValue);
-            Settings.System.putInt(mResolver,
-                    Settings.System.DETAILED_WEATHER_THEME, intValue);
-            mTheme.setSummary(mTheme.getEntries()[index]);
-            refreshSettings();
-            return true;
-        } else if (preference == mCustomizeColors) {
+        if (preference == mUseThemeColors) {
             boolean value = (Boolean) newValue;
             Settings.System.putInt(mResolver,
-                    Settings.System.DETAILED_WEATHER_CUSTOMIZE_COLORS, value ? 1 : 0);
+                    Settings.System.DETAILED_WEATHER_USE_THEME_COLORS, value ? 1 : 0);
             refreshSettings();
             return true;
         } else if (preference == mAccentColor) {
@@ -365,12 +346,12 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
                     Settings.System.DETAILED_WEATHER_CONTENT_BG_COLOR, intHex);
             refreshSettings();
             return true;
-        } else if (preference == mCardsBgColor) {
+        } else if (preference == mCardBgColor) {
             hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
                     String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                    Settings.System.DETAILED_WEATHER_CARDS_BG_COLOR, intHex);
+                    Settings.System.DETAILED_WEATHER_CARD_BG_COLOR, intHex);
             refreshSettings();
             return true;
         } else if (preference == mActionBarTextColor) {
@@ -381,12 +362,12 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
                     Settings.System.DETAILED_WEATHER_ACTION_BAR_TEXT_COLOR, intHex);
             refreshSettings();
             return true;
-        } else if (preference == mCardsTextColor) {
+        } else if (preference == mCardTextColor) {
             hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
                     String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                    Settings.System.DETAILED_WEATHER_CARDS_TEXT_COLOR, intHex);
+                    Settings.System.DETAILED_WEATHER_CARD_TEXT_COLOR, intHex);
             refreshSettings();
             return true;
         } else if (preference == mActionBarIconColor) {
@@ -397,12 +378,12 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
                     Settings.System.DETAILED_WEATHER_ACTION_BAR_ICON_COLOR, intHex);
             refreshSettings();
             return true;
-        } else if (preference == mCardsIconColor) {
+        } else if (preference == mCardIconColor) {
             hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
                     String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                    Settings.System.DETAILED_WEATHER_CARDS_ICON_COLOR, intHex);
+                    Settings.System.DETAILED_WEATHER_CARD_ICON_COLOR, intHex);
             refreshSettings();
             return true;
         } else if (preference == mActionBarRippleColor) {
@@ -413,12 +394,12 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
                     Settings.System.DETAILED_WEATHER_ACTION_BAR_RIPPLE_COLOR, intHex);
             refreshSettings();
             return true;
-        } else if (preference == mCardsRippleColor) {
+        } else if (preference == mCardRippleColor) {
             hex = ColorPickerPreference.convertToARGB(Integer.valueOf(
                     String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                    Settings.System.DETAILED_WEATHER_CARDS_RIPPLE_COLOR, intHex);
+                    Settings.System.DETAILED_WEATHER_CARD_RIPPLE_COLOR, intHex);
             refreshSettings();
             return true;
         }
@@ -459,44 +440,37 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
                         public void onClick(DialogInterface dialog, int which) {
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_ACCENT_COLOR,
-                                    getOwner().getThemeDefaultColor(
-                                    DetailedWeatherHelper.INDEX_ACCENT_COLOR));
+                                    DetailedWeatherThemeHelper.getAccentColor(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_STATUS_BAR_BG_COLOR,
-                                    DetailedWeatherHelper.MATERIAL_BLUE_700);
+                                    DetailedWeatherThemeHelper.getStatusBarBgColor());
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_ACTION_BAR_BG_COLOR,
-                                    DetailedWeatherHelper.MATERIAL_BLUE_500);
+                                    DetailedWeatherThemeHelper.getActionBarBgColor());
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_CONTENT_BG_COLOR,
-                                    getOwner().getThemeDefaultColor(
-                                    DetailedWeatherHelper.INDEX_CONTENT_BG_COLOR));
+                                    DetailedWeatherThemeHelper.getContentBgColor(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_CARDS_BG_COLOR,
-                                    getOwner().getThemeDefaultColor(
-                                    DetailedWeatherHelper.INDEX_CARDS_BG_COLOR));
+                                    Settings.System.DETAILED_WEATHER_CARD_BG_COLOR,
+                                    DetailedWeatherThemeHelper.getCardBgColor(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_ACTION_BAR_TEXT_COLOR,
-                                    DetailedWeatherHelper.WHITE);
+                                    DetailedWeatherThemeHelper.getActionBarTextColor());
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_CARDS_TEXT_COLOR,
-                                    getOwner().getThemeDefaultColor(
-                                    DetailedWeatherHelper.INDEX_CARDS_TEXT_COLOR));
+                                    Settings.System.DETAILED_WEATHER_CARD_TEXT_COLOR,
+                                    DetailedWeatherThemeHelper.getPrimaryTextColor(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_ACTION_BAR_ICON_COLOR,
-                                    DetailedWeatherHelper.WHITE);
+                                    DetailedWeatherThemeHelper.getActionBarIconColor());
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_CARDS_ICON_COLOR,
-                                    getOwner().getThemeDefaultColor(
-                                    DetailedWeatherHelper.INDEX_CARDS_ICON_COLOR));
+                                    Settings.System.DETAILED_WEATHER_CARD_ICON_COLOR,
+                                    DetailedWeatherThemeHelper.getIconColor(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_ACTION_BAR_RIPPLE_COLOR,
-                                    getOwner().getThemeDefaultColor(
-                                    DetailedWeatherHelper.INDEX_AB_RIPPLE_COLOR));
+                                    DetailedWeatherThemeHelper.getActionBarRippleColor());
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.DETAILED_WEATHER_CARDS_RIPPLE_COLOR,
-                                    getOwner().getThemeDefaultColor(
-                                    DetailedWeatherHelper.INDEX_CARDS_RIPPLE_COLOR));
+                                    Settings.System.DETAILED_WEATHER_CARD_RIPPLE_COLOR,
+                                    DetailedWeatherThemeHelper.getRippleColor(getActivity()));
                             getOwner().refreshSettings();
                         }
                     })

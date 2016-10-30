@@ -56,25 +56,24 @@ public class ThemeColorsSettings extends SettingsPreferenceFragment implements
         mTheme.setValue(String.valueOf(theme));
         mTheme.setOnPreferenceChangeListener(this);
 
-/*
+
         final boolean isWeatherServiceAvailable =
                 WeatherHelper.isWeatherServiceAvailable(getActivity());
         final int weatherServiceAvailability = WeatherHelper.getWeatherServiceAvailability(getActivity());
 
-        Preference customizeDetailedWeather =
-                findPreference("theme_color_customize_detailed_weather");
+        Preference detailedWeather =
+                findPreference("colors_detailed_weather_view");
 
         if (weatherServiceAvailability == WeatherHelper.PACKAGE_DISABLED) {
             final CharSequence summary = getResources().getString(DeviceUtils.isPhone(getActivity())
                     ? R.string.weather_service_disabled_summary
                     : R.string.weather_service_disabled_tablet_summary);
-            customizeDetailedWeather.setSummary(summary);
+            detailedWeather.setSummary(summary);
         } else if (weatherServiceAvailability == WeatherHelper.PACKAGE_MISSING) {
-            customizeDetailedWeather.setSummary(
+            detailedWeather.setSummary(
                     getResources().getString(R.string.weather_service_missing_summary));
         }
-        customizeDetailedWeather.setEnabled(isWeatherServiceAvailable);
- */
+        detailedWeather.setEnabled(isWeatherServiceAvailable);
     }
 
     @Override
