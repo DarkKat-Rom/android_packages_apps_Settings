@@ -20,10 +20,8 @@
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
                 android:title="@string/device_status"
-                android:summary="@string/device_status_summary">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.android.settings"
-                    android:targetClass="com.android.settings.Settings$StatusActivity" />
+                android:summary="@string/device_status_summary"
+                android:fragment="com.android.settings.deviceinfo.Status">
         </PreferenceScreen>
 
         <!-- Manual -->
@@ -41,7 +39,7 @@
 
         <PreferenceScreen
                 android:key="regulatory_info"
-                android:title="@string/regulatory_information">
+                android:title="@string/regulatory_labels">
             <intent android:action="android.settings.SHOW_REGULATORY_INFO" />
         </PreferenceScreen>
 
@@ -54,6 +52,7 @@
                 android:key="about_hardware"
                 android:title="@string/about_hardware_title"
                 android:fragment="com.android.settings.darkkat.fragments.deviceinfo.Hardware" />
+
 
         <PreferenceScreen
                 android:key="about_software"

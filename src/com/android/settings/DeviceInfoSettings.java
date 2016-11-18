@@ -74,14 +74,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         // Remove manual entry if none present.
         removePreferenceIfBoolFalse(PREF_MANUAL, R.bool.config_show_manual);
 
-        // Remove regulatory information if none present.
-        final Intent intent = new Intent(Settings.ACTION_SHOW_REGULATORY_INFO);
-        if (getPackageManager().queryIntentActivities(intent, 0).isEmpty()) {
-            Preference pref = findPreference(PREF_REGULATORY_INFO);
-            if (pref != null) {
-                getPreferenceScreen().removePreference(pref);
-            }
-        }
+        // Remove regulatory labels if no activity present to handle intent.
+        removePreferenceIfActivityMissing(
+                PREF_REGULATORY_INFO, Settings.ACTION_SHOW_REGULATORY_INFO);
+
+        removePreferenceIfActivityMissing(
+                "safety_info", "android.settings.SHOW_SAFETY_AND_REGULATORY_INFO");
 
         // Dont show feedback option if there is no reporter.
         if (TextUtils.isEmpty(DeviceInfoUtils.getFeedbackReporterPackage(getActivity()))) {
@@ -120,6 +118,16 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             sendFeedback();
         }
         return super.onPreferenceTreeClick(preference);
+    }
+
+   private void removePreferenceIfActivityMissing(String preferenceKey, String action) {
+        final Intent intent = new Intent(action);
+        if (getPackageManager().queryIntentActivities(intent, 0).isEmpty()) {
+            Preference pref = findPreference(preferenceKey);
+            if (pref != null) {
+                getPreferenceScreen().removePreference(pref);
+            }
+        }
     }
 
     private void removePreferenceIfBoolFalse(String preference, int resId) {

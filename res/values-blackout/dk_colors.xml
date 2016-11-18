@@ -20,5 +20,8 @@
     <color name="fingerprint_message_color">#ffffffff</color>
     <color name="fingerprint_progress_ring_bg">#20ffffff</color>
     <color name="fingerprint_indicator_background_resting">#12ffffff</color>
+
     <color name="storage_summary_text_color">#b3ffffff</color>
+
+    <color name="card_background_grey">#ff000000</color>
 </resources>
