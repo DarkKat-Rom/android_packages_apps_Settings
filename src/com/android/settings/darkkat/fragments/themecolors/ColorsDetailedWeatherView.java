@@ -153,7 +153,8 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
             mStatusBarBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mStatusBarBgColor.setSummary(hexColor);
-            mStatusBarBgColor.setResetColor(DetailedWeatherThemeHelper.getStatusBarBgColor());
+            mStatusBarBgColor.setResetColor(
+                    DetailedWeatherThemeHelper.getStatusBarBgColor(getActivity()));
             mStatusBarBgColor.setResetColorTitle(R.string.reset_theme_default_title);
             mStatusBarBgColor.setOnPreferenceChangeListener(this);
 
@@ -163,7 +164,8 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
             mActionBarBgColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mActionBarBgColor.setSummary(hexColor);
-            mActionBarBgColor.setResetColor(DetailedWeatherThemeHelper.getActionBarBgColor());
+            mActionBarBgColor.setResetColor(
+                    DetailedWeatherThemeHelper.getActionBarBgColor(getActivity()));
             mActionBarBgColor.setResetColorTitle(R.string.reset_theme_default_title);
             mActionBarBgColor.setOnPreferenceChangeListener(this);
 
@@ -443,10 +445,10 @@ public class ColorsDetailedWeatherView extends SettingsPreferenceFragment implem
                                     DetailedWeatherThemeHelper.getAccentColor(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_STATUS_BAR_BG_COLOR,
-                                    DetailedWeatherThemeHelper.getStatusBarBgColor());
+                                    DetailedWeatherThemeHelper.getStatusBarBgColor(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_ACTION_BAR_BG_COLOR,
-                                    DetailedWeatherThemeHelper.getActionBarBgColor());
+                                    DetailedWeatherThemeHelper.getActionBarBgColor(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.DETAILED_WEATHER_CONTENT_BG_COLOR,
                                     DetailedWeatherThemeHelper.getContentBgColor(getActivity()));
