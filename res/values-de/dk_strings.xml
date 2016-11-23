@@ -24,6 +24,7 @@
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="action_show_detailed_weather_view_title">Detaillierte Wetteransicht anzeigen</string>
+    <string name="lock_screen_title">Sperrbildschirm</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
     <string name="weather_title">Wetter</string>
@@ -163,6 +164,10 @@
     <string name="detailed_weather_show_location_summary">Aktivieren um den Standort anzuzeigen</string>
     <string name="detailed_weather_condition_icon_title">Wetterlage Symbol</string>
     <!-- Weather end -->
+
+    <!-- Lock screen -->
+    <string name="lock_screen_show_visualizer_title">Musik Visualisierung anzeigen</string>
+    <string name="lock_screen_show_visualizer_summary">Aktivieren um die Musik Visualisierung auf dem Sperrbildschirm anzuzeigen</string>
 
     <!-- Status bar -->
 

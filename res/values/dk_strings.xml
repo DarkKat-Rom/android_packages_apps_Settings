@@ -24,6 +24,7 @@
     <string name="dlg_reset_android">Android</string>
     <string name="dlg_reset_darkkat">DarkKat</string>
     <string name="action_show_detailed_weather_view_title">Show detailed weather view</string>
+    <string name="lock_screen_title">Lock screen</string>
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_expanded_title">Status bar expanded</string>
     <string name="weather_title">Weather</string>
@@ -163,6 +164,10 @@
     <string name="detailed_weather_show_location_summary">Enable to show the location</string>
     <string name="detailed_weather_condition_icon_title">Condition icon</string>
     <!-- Weather end -->
+
+    <!-- Lock screen -->
+    <string name="lock_screen_show_visualizer_title">Show music visualizer</string>
+    <string name="lock_screen_show_visualizer_summary">Enable to show the music visualizer on the lock screen</string>
 
     <!-- Status bar -->
 

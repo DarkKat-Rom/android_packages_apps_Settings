@@ -52,6 +52,7 @@ public class Settings extends SettingsActivity {
     public static class DisplaySettingsActivity extends SettingsActivity { /* empty */ }
     public static class ThemeColorsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class WeatherSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class LockScreenSettingsActivity extends SettingsActivity { /* empty */ }
     public static class StatusbarSettingsActivity extends SettingsActivity { /* empty */ }
     public static class StatusbarExpandedSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ButtonSettingsActivity extends SettingsActivity { /* empty */ }

@@ -75,6 +75,7 @@ import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.dashboard.DashboardContainerFragment;
 import com.android.settings.dashboard.SearchResultsSummary;
 import com.android.settings.darkkat.fragments.ButtonSettings;
+import com.android.settings.darkkat.fragments.LockScreenSettings;
 import com.android.settings.darkkat.fragments.StatusBarSettings;
 import com.android.settings.darkkat.fragments.StatusBarExpandedSettings;
 import com.android.settings.darkkat.fragments.ThemeColorsSettings;
@@ -285,6 +286,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             DisplaySettings.class.getName(),
             ThemeColorsSettings.class.getName(),
             WeatherSettings.class.getName(),
+            LockScreenSettings.class.getName(),
             StatusBarSettings.class.getName(),
             StatusBarExpandedSettings.class.getName(),
             ButtonSettings.class.getName(),
