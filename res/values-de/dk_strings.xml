@@ -27,6 +27,7 @@
     <string name="lock_screen_title">Sperrbildschirm</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
+    <string name="notifications_title">Benachrichtigungen</string>
     <string name="weather_title">Wetter</string>
     <string name="qs_title">Schnelleinstellungen</string>
     <string name="detailed_weather_view_title">Detaillierte Wetteransicht</string>
@@ -150,6 +151,10 @@
     <string name="colors_detailed_weather_view_summary">Wähle die Farben mit denen die Detaillierte Wetteransicht eingefärbt wird</string>
     <string name="colors_status_bar_summary">Wähle die Farben mit denen Text und Symbole in der Statusleiste eingefärbt werden</string>
     <string name="colors_status_bar_expanded_summary">Wähle die Farben mit denen der Inhalt in der Erweiterten Statusleiste eingefärbt werden</string>
+    <string name="colors_notification_summary">Wähle die Farben mit denen die benachrichtigungen eingefärbt werden</string>
+
+    <!-- Notifications -->
+    <string name="colors_notification_cat_dismiss_all">keine benachrichtigungen &amp; Alle löschen</string>
     <!-- Theme & colors end -->
 
     <!-- Weather -->

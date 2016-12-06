@@ -27,6 +27,7 @@
     <string name="lock_screen_title">Lock screen</string>
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_expanded_title">Status bar expanded</string>
+    <string name="notifications_title">Notifications</string>
     <string name="weather_title">Weather</string>
     <string name="qs_title">Quick settings</string>
     <string name="detailed_weather_view_title">Detailed weather view</string>
@@ -150,6 +151,11 @@
     <string name="colors_detailed_weather_view_summary">Choose the colors to colorize the detailed weather view</string>
     <string name="colors_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
     <string name="colors_status_bar_expanded_summary">Choose the colors to colorize the content in the status bar expanded</string>
+    <string name="colors_notification_summary">Choose the colors to colorize the notifications</string>
+
+    <!-- Notifications -->
+    <string name="colors_notification_cat_dismiss_all">No notifications &amp; Dismiss all</string>
+
     <!-- Theme & colors end -->
 
     <!-- Weather -->

@@ -38,8 +38,16 @@ limitations under the License.
         android:fragment="com.android.settings.darkkat.fragments.themecolors.ColorsStatusBar" />
 
     <PreferenceScreen
-        android:key="colors_status_bar"
+        android:key="colors_status_bar_expanded"
         android:title="@string/status_bar_expanded_title"
         android:summary="@string/colors_status_bar_expanded_summary"
         android:fragment="com.android.settings.darkkat.fragments.themecolors.ColorsStatusBarExpanded" />
+
+<!-- Disabled for now
+    <PreferenceScreen
+        android:key="colors_notification"
+        android:title="@string/notifications_title"
+        android:summary="@string/colors_notification_summary"
+        android:fragment="com.android.settings.darkkat.fragments.themecolors.ColorsNotification" />
+-->
 </PreferenceScreen>
