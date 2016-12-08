@@ -24,4 +24,6 @@
     <color name="storage_summary_text_color">#b3ffffff</color>
 
     <color name="card_background_grey">#ff000000</color>
+    <color name="card_background">#ff000000</color>
+    <color name="main_dashboard_background">#ff000000</color>
 </resources>

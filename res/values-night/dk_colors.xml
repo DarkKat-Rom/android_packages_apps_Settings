@@ -23,6 +23,8 @@
     <color name="accent_darkkat">#ff009688</color><!-- material teal 500 -->
 
     <color name="card_background">@color/darkkat_blue_grey</color>
+    <color name="card_background_grey">@color/darkkat_blue_blue_grey</color>
+    <color name="main_dashboard_background">@color/darkkat_blue_grey</color>
 
     <color name="suw_color_accent_dark">@color/accent_darkkat</color>
     <color name="setup_lock_pattern_view_success_color_dark">@color/accent_darkkat</color>
@@ -32,6 +34,4 @@
     <color name="fingerprint_indicator_background_resting">#12ffffff</color>
 
     <color name="storage_summary_text_color">#b3ffffff</color>
-
-    <color name="card_background_grey">@color/darkkat_blue_blue_grey</color>
 </resources>
