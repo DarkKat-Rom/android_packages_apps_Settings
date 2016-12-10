@@ -148,6 +148,9 @@
     <string name="theme_darkkat_title">DarkKat</string>
     <string name="theme_material_light_title">Material Light</string>
     <string name="theme_blackout_title">Blackout</string>
+    <string name="theme_auto_title">Auto day night</string>
+    <string name="auto_night_mode_title">Night theme</string>
+    <string name="auto_night_mode_summary">%s</string>
     <string name="colors_detailed_weather_view_summary">Choose the colors to colorize the detailed weather view</string>
     <string name="colors_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
     <string name="colors_status_bar_expanded_summary">Choose the colors to colorize the content in the status bar expanded</string>

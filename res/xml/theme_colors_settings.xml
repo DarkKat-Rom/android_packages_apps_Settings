@@ -25,6 +25,13 @@ limitations under the License.
         android:entries="@array/theme_entries"
         android:entryValues="@array/theme_values" />
 
+    <ListPreference
+        android:key="auto_night_mode"
+        android:title="@string/auto_night_mode_title"
+        android:summary="@string/auto_night_mode_summary"
+        android:entries="@array/auto_night_mode_entries"
+        android:entryValues="@array/auto_night_mode_values" />
+
     <PreferenceScreen
         android:key="colors_detailed_weather_view"
         android:title="@string/detailed_weather_view_title"

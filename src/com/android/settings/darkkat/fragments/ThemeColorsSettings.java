@@ -20,8 +20,10 @@ import android.app.UiModeManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
 import android.util.Log;
 
 import com.android.internal.util.darkkat.DeviceUtils;
@@ -35,27 +37,48 @@ public class ThemeColorsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "ThemeColorsSettings";
 
-    private static final String PREF_THEME =
-            "theme";
+    private static final String PREF_THEME = "theme";
+    private static final String PREF_AUTO_NIGHT_MODE = "auto_night_mode";
+
+    private UiModeManager mUiModeManager;
+    private ContentResolver mResolver;
 
     private ListPreference mTheme;
+    private ListPreference mAutoNightMode;
 
-    private ContentResolver mResolver;
+    private int mCurrentTheme;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshSettings();
+    }
+
+    public void refreshSettings() {
+        PreferenceScreen prefs = getPreferenceScreen();
+        if (prefs != null) {
+            prefs.removeAll();
+        }
 
         addPreferencesFromResource(R.xml.theme_colors_settings);
+
+        mUiModeManager = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
         mResolver = getContentResolver();
 
         mTheme = (ListPreference) findPreference(PREF_THEME);
-        final UiModeManager uiManager = (UiModeManager) getSystemService(
-                Context.UI_MODE_SERVICE);
-        final int theme = uiManager.getNightMode();
-        mTheme.setValue(String.valueOf(theme));
+        mCurrentTheme = mUiModeManager.getNightMode();
+        mTheme.setValue(String.valueOf(mCurrentTheme));
         mTheme.setOnPreferenceChangeListener(this);
 
+        if (mCurrentTheme == mUiModeManager.MODE_NIGHT_AUTO) {
+            mAutoNightMode = (ListPreference) findPreference(PREF_AUTO_NIGHT_MODE);
+            final int autoNightMode = Settings.Secure.getInt(mResolver,
+                    Settings.Secure.UI_NIGHT_AUTO_MODE, UiModeManager.MODE_NIGHT_YES);
+            mAutoNightMode.setValue(String.valueOf(autoNightMode));
+            mAutoNightMode.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(PREF_AUTO_NIGHT_MODE);
+        }
 
         final boolean isWeatherServiceAvailable =
                 WeatherHelper.isWeatherServiceAvailable(getActivity());
@@ -78,15 +101,23 @@ public class ThemeColorsSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        int intValue;
+
         if (preference == mTheme) {
             try {
-                final int value = Integer.parseInt((String) newValue);
-                final UiModeManager uiManager = (UiModeManager) getSystemService(
-                        Context.UI_MODE_SERVICE);
-                uiManager.setNightMode(value);
+                intValue = Integer.parseInt((String) newValue);
+                mUiModeManager.setNightMode(intValue);
             } catch (NumberFormatException e) {
                 Log.e(TAG, "could not persist night mode setting", e);
             }
+            mCurrentTheme = mUiModeManager.getNightMode();
+            Settings.Secure.putInt(mResolver, Settings.Secure.UI_NIGHT_MODE, mCurrentTheme);
+            refreshSettings();
+        } else if (preference == mAutoNightMode) {
+            intValue = Integer.valueOf((String) newValue);
+            Settings.Secure.putInt(mResolver,
+                    Settings.Secure.UI_NIGHT_AUTO_MODE, intValue);
+            return true;
         }
         return false;
     }
