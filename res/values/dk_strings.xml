@@ -154,11 +154,6 @@
     <string name="colors_detailed_weather_view_summary">Choose the colors to colorize the detailed weather view</string>
     <string name="colors_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
     <string name="colors_status_bar_expanded_summary">Choose the colors to colorize the content in the status bar expanded</string>
-    <string name="colors_notification_summary">Choose the colors to colorize the notifications</string>
-
-    <!-- Notifications -->
-    <string name="colors_notification_cat_dismiss_all">No notifications &amp; Dismiss all</string>
-
     <!-- Theme & colors end -->
 
     <!-- Weather -->
