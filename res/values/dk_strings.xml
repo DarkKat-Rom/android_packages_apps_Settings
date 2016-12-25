@@ -253,17 +253,22 @@
     <string name="ticker_show_summary">Enable to show the ticker in the status bar</string>
     <!-- Status bar end -->
 
-    <!-- Status bar expanded -->
+    <!-- Quick Settings -->
+    <string name="quick_settings_bar_title">Bar</string>
+    <string name="quick_settings_bar_summary">Choose how to display the quick settings bar</string>
+    <string name="quick_settings_panel_title">Panel</string>
+    <string name="quick_settings_panel_summary">Choose how to display the quick settings panel</string>
 
-    <!-- Status bar expanded settings -->
-    <string name="status_bar_expanded_qs_settings_summary">Choose how to display the Quick Settings</string>
+    <!-- Quick Settings bar -->
+    <string name="qs_bar_enable_scroll_title">Enable scroll</string>
+    <string name="qs_bar_enable_scroll_summary">Enable to scroll horizontally through all tiles in the bar. Disable to show only the first 6 tiles in the bar.</string>
 
-    <!-- QS settings -->
-    <string name="qs_cat_portrait_title">Portrait</string>
-    <string name="qs_cat_landscape_title">Landscape</string>
-    <string name="qs_rows_title">Rows</string>
-    <string name="qs_columns_title">Columns</string>
-    <!-- Status bar expanded end -->
+    <!-- Quick Settings panel -->
+    <string name="qs_panel_cat_portrait_title">Portrait</string>
+    <string name="qs_panel_cat_landscape_title">Landscape</string>
+    <string name="qs_panel_rows_title">Rows</string>
+    <string name="qs_panel_columns_title">Columns</string>
+    <!-- Quick Settings end -->
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Power menu</string>
