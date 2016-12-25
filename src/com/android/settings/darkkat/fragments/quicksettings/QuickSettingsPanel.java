@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.darkkat.fragments.statusbarexpanded;
+package com.android.settings.darkkat.fragments.quicksettings;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -22,28 +22,25 @@ import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.PreferenceScreen;
 import android.provider.Settings;
 
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import java.util.Date;
-
-public class QSSettings extends SettingsPreferenceFragment implements
+public class QuickSettingsPanel extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener { 
 
     private static final String PREF_CAT_LANDSCAPE =
-            "qs_cat_landscape";
+            "qs_panel_cat_landscape";
     private static final String PREF_ROWS_PORTRAIT =
-            "qs_rows_portrait";
+            "qs_panel_rows_portrait";
     private static final String PREF_COLUMNS_PORTRAIT =
-            "qs_columns_portrait";
+            "qs_panel_columns_portrait";
     private static final String PREF_ROWS_LANDSCAPE =
-            "qs_rows_landscape";
+            "qs_panel_rows_landscape";
     private static final String PREF_COLUMNS_LANDSCAPE =
-            "qs_columns_landscape";
+            "qs_panel_columns_landscape";
 
     private ListPreference mRowsPortrait;
     private ListPreference mColumnsPortrait;
@@ -55,16 +52,8 @@ public class QSSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        refreshSettings();
-    }
 
-    public void refreshSettings() {
-        PreferenceScreen prefs = getPreferenceScreen();
-        if (prefs != null) {
-            prefs.removeAll();
-        }
-
-        addPreferencesFromResource(R.xml.status_bar_expanded_qs_settings);
+        addPreferencesFromResource(R.xml.quick_settings_panel);
 
         mResolver = getContentResolver();
         Resources res = getResources();
@@ -90,7 +79,7 @@ public class QSSettings extends SettingsPreferenceFragment implements
         mColumnsPortrait.setSummary(mColumnsPortrait.getEntry());
         mColumnsPortrait.setOnPreferenceChangeListener(this);
 
-        defaultValue = res.getInteger(R.integer.config_qs_num_rows_landscape_default);
+        defaultValue = res.getInteger(R.integer.config_qs_panel_num_rows_landscape_default);
         if (defaultValue != 1) {
             mRowsLandscape =
                     (ListPreference) findPreference(PREF_ROWS_LANDSCAPE);
@@ -105,7 +94,7 @@ public class QSSettings extends SettingsPreferenceFragment implements
 
         mColumnsLandscape =
                 (ListPreference) findPreference(PREF_COLUMNS_LANDSCAPE);
-        defaultValue = res.getInteger(R.integer.config_qs_num_columns_landscape_default);
+        defaultValue = res.getInteger(R.integer.config_qs_panel_num_columns_landscape_default);
         int columnsLandscape = Settings.System.getInt(mResolver,
                 Settings.System.QS_COLUMNS_LANDSCAPE, defaultValue);
         mColumnsLandscape.setValue(String.valueOf(columnsLandscape));

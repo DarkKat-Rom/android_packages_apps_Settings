@@ -2486,9 +2486,9 @@
                 android:value="com.android.settings.darkkat.fragments.StatusBarSettings" />
         </activity>
 
-        <activity android:name="Settings$StatusbarExpandedSettingsActivity"
-                android:label="@string/status_bar_expanded_title"
-                android:icon="@drawable/ic_settings_status_bar_expanded"
+        <activity android:name="Settings$QuickSettingsActivity"
+                android:label="@string/qs_title"
+                android:icon="@drawable/ic_settings_quick_settings"
                 android:exported="true"
                 android:taskAffinity="">
             <intent-filter android:priority="1">
@@ -2497,7 +2497,7 @@
             <meta-data android:name="com.android.settings.category"
                        android:value="com.android.settings.category.ui" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.fragments.StatusBarExpandedSettings" />
+                android:value="com.android.settings.darkkat.fragments.QuickSettings" />
         </activity>
 
         <activity android:name="Settings$ButtonSettingsActivity"

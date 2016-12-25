@@ -22,13 +22,13 @@ import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class StatusBarExpandedSettings extends SettingsPreferenceFragment {
+public class QuickSettings extends SettingsPreferenceFragment { 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.status_bar_expanded_settings);
+        addPreferencesFromResource(R.xml.quick_settings);
     }
 
     @Override

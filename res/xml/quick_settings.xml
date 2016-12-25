@@ -16,12 +16,18 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/status_bar_expanded_title">
+    android:title="@string/qs_title">
 
     <PreferenceScreen
-        android:key="status_bar_expanded_qs_settings"
-        android:title="@string/qs_title"
-        android:summary="@string/status_bar_expanded_qs_settings_summary"
-        android:fragment="com.android.settings.darkkat.fragments.statusbarexpanded.QSSettings" />
+        android:key="quick_settings_bar"
+        android:title="@string/quick_settings_bar_title"
+        android:summary="@string/quick_settings_bar_summary"
+        android:fragment="com.android.settings.darkkat.fragments.quicksettings.QuickSettingsBar" />
+
+    <PreferenceScreen
+        android:key="quick_settings_panel"
+        android:title="@string/quick_settings_panel_title"
+        android:summary="@string/quick_settings_panel_summary"
+        android:fragment="com.android.settings.darkkat.fragments.quicksettings.QuickSettingsPanel" />
 
 </PreferenceScreen>

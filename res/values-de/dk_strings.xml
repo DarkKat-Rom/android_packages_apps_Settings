@@ -253,16 +253,21 @@
     <string name="ticker_show_summary">Aktivieren um den Ticker in der Statusleiste anzeigen</string>
     <!-- Status bar end -->
 
-    <!-- Status bar expanded -->
+    <!-- Quick Settings -->
+    <string name="quick_settings_bar_title">Leiste</string>
+    <string name="quick_settings_bar_summary">Wähle wie die Leiste der Schnelleinstellungen dargestellt wird</string>
+    <string name="quick_settings_panel_title">Feld</string>
+    <string name="quick_settings_panel_summary">Wähle wie das Feld der Schnelleinstellungen dargestellt wird</string>
 
-    <!-- Status bar expanded settings -->
-    <string name="status_bar_expanded_qs_settings_summary">Wähle wie die Schnelleinstellungen dargestellt werden</string>
+    <!-- Quick Settings bar -->
+    <string name="qs_bar_enable_scroll_title">Scrollen aktivieren</string>
+    <string name="qs_bar_enable_scroll_summary">Aktivieren um horizontal durch alle Kacheln zu scrollen. Deaktivieren um nur die ersten 6 Kacheln anzuzeigen.</string>
 
-    <!-- QS settings -->
-    <string name="qs_cat_portrait_title">Hochformat</string>
-    <string name="qs_cat_landscape_title">Querformat</string>
-    <string name="qs_rows_title">Reihen</string>
-    <string name="qs_columns_title">Spalten</string>
+    <!-- Quick Settings panel -->
+    <string name="qs_panel_cat_portrait_title">Hochformat</string>
+    <string name="qs_panel_cat_landscape_title">Querformat</string>
+    <string name="qs_panel_rows_title">Reihen</string>
+    <string name="qs_panel_columns_title">Spalten</string>
     <!-- Status bar expanded end -->
 
     <!-- Button settings -->
