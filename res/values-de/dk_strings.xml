@@ -34,6 +34,8 @@
     <string name="weather_service_missing_summary">\"DK Wetter Dienst\" ist nicht installiert.\nUm die Wetter Funtion nutzen zu können, muss die App DKWeatherService \"DK Wetter Dienst\" installiert sein</string>
     <string name="weather_service_disabled_summary">\"DK Wetter Dienst\" ist deaktiviert.\nUm die Wetter Funtion nutzen zu können, aktiviere die App DKWeatherService \"DK Wetter Dienst\" und starte das Telefon neu</string>
     <string name="weather_service_disabled_tablet_summary">\"DK Wetter Dienst\" ist deaktiviert.\nUm die Wetter Funtion nutzen zu können, aktiviere die App DKWeatherService \"DK Wetter Dienst\" und starte das Tablet neu</string>
+    <string name="battery_meter_settings_title">Akkuanzeige</string>
+    <string name="battery_meter_settings_summary">Die Akkuzeige anpassen</string>
     <string name="customize_title">Anpassen</string>
     <string name="options_title">Optionen</string>
     <string name="show_title">Anzeigen</string>
@@ -248,6 +250,39 @@
     <string name="clock_date_date_custom_java_format">Eigenes Java Format</string>
     <string name="clock_date_date_string_edittext_title">Muß in Java DateFormat Schreibweise sein, z.B. MM/dd/yy</string>
     <string name="clock_date_date_string_edittext_summary">Zeichenfolge eingeben</string>
+
+    <!-- Status bar battery meter settings -->
+    <string name="battery_meter_cat_circle_dotted_title">Punktierter Kreis</string>
+    <string name="battery_meter_cat_text_charge_icon_title">Prozentzahl &amp; Ladesymbol</string>
+    <string name="battery_meter_cat_bar_title">Leiste</string>
+    <string name="battery_meter_cat_charge_animation_title">Ladeanimation</string>
+    <string name="battery_meter_type_title">Anzeigetyp</string>
+    <string name="battery_meter_type_icon_portrait_title">Akku Hochformat</string>
+    <string name="battery_meter_type_icon_landscape_left_title">Akku Querformat links</string>
+    <string name="battery_meter_type_icon_landscape_right_title">Akku Querformat rechts</string>
+    <string name="battery_meter_type_circle_title">Kreis</string>
+    <string name="battery_meter_type_text_only_title">Nur Text</string>
+    <string name="battery_meter_show_text_title">Prozentzahl anzeigen</string>
+    <string name="battery_meter_show_text_summary">Aktivieren um die Prozentzahl anzuzeigen</string>
+    <string name="battery_meter_circle_dot_interval_title">Abstand</string>
+    <string name="battery_meter_circle_dot_length_title">Länge</string>
+    <string name="battery_meter_circle_dot_no_dot_summary">Der Kreis wird nicht punktiert angezeigt</string>
+    <string name="battery_meter_circle_dot_no_dot">Keine Punkte</string>
+    <string name="battery_meter_circle_dot_1">1</string>
+    <string name="battery_meter_circle_dot_2">2</string>
+    <string name="battery_meter_circle_dot_3">3</string>
+    <string name="battery_meter_circle_dot_4">4</string>
+    <string name="battery_meter_circle_dot_5">5</string>
+    <string name="battery_meter_circle_dot_6">6</string>
+    <string name="battery_meter_circle_dot_7">7</string>
+    <string name="battery_meter_circle_dot_8">8</string>
+    <string name="battery_meter_circle_dot_9">9</string>
+    <string name="battery_meter_circle_dot_10">10</string>
+    <string name="battery_meter_cut_out_title">Ausschneiden</string>
+    <string name="battery_meter_cut_out_summary">Aktivieren um Prozentzahl/Ladesymbol aus dem Akkusymbol auszuschneiden, sobald die Akkufüllung Prozentzahl/Ladesymbol überlagert</string>
+    <string name="battery_meter_show_battery_bar_summary">Aktivieren um die Leiste anzuzeigen</string>
+    <string name="battery_meter_show_battery_bar_on_lock_screen_summary">Aktivieren um die Leiste auf dem Sperrbildschirm anzuzeigen</string>
+    <string name="battery_meter_show_charge_animation_summary">Aktivieren um die Ladeanimation anzuzeigen</string>
 
     <!-- Ticker settings -->
     <string name="ticker_show_summary">Aktivieren um den Ticker in der Statusleiste anzeigen</string>

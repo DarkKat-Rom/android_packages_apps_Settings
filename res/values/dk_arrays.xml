@@ -272,6 +272,52 @@
         <item>Custom java format</item>
     </string-array>
 
+    <string-array name="battery_meter_type_entries" translatable="false">
+        <item>@string/battery_meter_type_icon_portrait_title</item>
+        <item>@string/battery_meter_type_icon_landscape_left_title</item>
+        <item>@string/battery_meter_type_icon_landscape_right_title</item>
+        <item>@string/battery_meter_type_circle_title</item>
+        <item>@string/battery_meter_type_text_only_title</item>
+        <item>@string/hidden_title</item>
+    </string-array>
+
+    <string-array name="battery_meter_type_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="battery_meter_circle_dot_entries">
+        <item>@string/battery_meter_circle_dot_no_dot</item>
+        <item>@string/battery_meter_circle_dot_1</item>
+        <item>@string/battery_meter_circle_dot_2</item>
+        <item>@string/battery_meter_circle_dot_3</item>
+        <item>@string/battery_meter_circle_dot_4</item>
+        <item>@string/battery_meter_circle_dot_5</item>
+        <item>@string/battery_meter_circle_dot_6</item>
+        <item>@string/battery_meter_circle_dot_7</item>
+        <item>@string/battery_meter_circle_dot_8</item>
+        <item>@string/battery_meter_circle_dot_9</item>
+        <item>@string/battery_meter_circle_dot_10</item>
+    </string-array>
+
+    <string-array name="battery_meter_circle_dot_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
     <string-array name="qs_panel_rows_portrait_entries">
         <item>@string/one_title</item>
         <item>@string/two_title</item>
