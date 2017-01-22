@@ -38,7 +38,7 @@
 
     <PreferenceScreen
         android:key="battery_meter_settings"
-        android:title="@string/battery_meter_settings_title"
+        android:title="@string/battery_meter_title"
         android:summary="@string/battery_meter_settings_summary"
         android:fragment="com.android.settings.darkkat.fragments.statusbar.BatteryMeterSettings" />
 

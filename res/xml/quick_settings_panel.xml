@@ -53,5 +53,4 @@
             android:entryValues="@array/qs_panel_columns_landscape_values" />
 
     </PreferenceCategory>
-
 </PreferenceScreen>

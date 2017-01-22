@@ -318,6 +318,22 @@
         <item>10</item>
     </string-array>
 
+    <string-array name="tile_battery_meter_type_entries" translatable="false">
+        <item>@string/battery_meter_type_icon_portrait_title</item>
+        <item>@string/battery_meter_type_icon_landscape_left_title</item>
+        <item>@string/battery_meter_type_icon_landscape_right_title</item>
+        <item>@string/battery_meter_type_circle_title</item>
+        <item>@string/battery_meter_type_arcs_title</item>
+    </string-array>
+
+    <string-array name="tile_battery_meter_type_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
     <string-array name="qs_panel_rows_portrait_entries">
         <item>@string/one_title</item>
         <item>@string/two_title</item>

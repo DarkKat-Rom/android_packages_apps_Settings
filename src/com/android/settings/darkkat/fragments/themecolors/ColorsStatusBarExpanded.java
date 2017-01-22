@@ -24,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
@@ -44,6 +45,8 @@ import net.darkkatrom.colorpicker.preference.ColorPickerPreference;
 public class ColorsStatusBarExpanded extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_CAT_BATTERY_COLORS =
+            "colors_status_bar_expanded_cat_colors_battery";
     private static final String PREF_USE_THEME_COLORS =
             "colors_status_bar_expanded_use_theme_colors";
     private static final String PREF_PRIMARY_BACKGROUND_COLOR =
@@ -58,6 +61,8 @@ public class ColorsStatusBarExpanded extends SettingsPreferenceFragment implemen
             "colors_status_bar_expanded_icon_color";
     private static final String PREF_RIPPLE_COLOR =
             "colors_status_bar_expanded_ripple_color";
+    private static final String PREF_BATTERY_TEXT_COLOR =
+            "colors_status_bar_expanded_battery_text_color";
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
@@ -69,6 +74,7 @@ public class ColorsStatusBarExpanded extends SettingsPreferenceFragment implemen
     private ColorPickerPreference mTextColor;
     private ColorPickerPreference mIconColor;
     private ColorPickerPreference mRippleColor;
+    private ColorPickerPreference mBatteryTextColor;
 
     private boolean mCustomizeColors;
     private ContentResolver mResolver;
@@ -88,6 +94,9 @@ public class ColorsStatusBarExpanded extends SettingsPreferenceFragment implemen
 
         addPreferencesFromResource(R.xml.colors_status_bar_expanded);
         mResolver = getContentResolver();
+
+        PreferenceCategory catBatteryColors =
+                (PreferenceCategory) findPreference(PREF_CAT_BATTERY_COLORS);
 
         mCustomizeColors = !ThemeHelper.statusBarExpandedUseThemeColors(getActivity());
 
@@ -153,6 +162,15 @@ public class ColorsStatusBarExpanded extends SettingsPreferenceFragment implemen
             mRippleColor.setSummary(hexColor);
             mRippleColor.setResetColor(ThemeHelper.getSystemUIRippleColor(getActivity()));
             mRippleColor.setOnPreferenceChangeListener(this);
+
+            mBatteryTextColor =
+                    (ColorPickerPreference) findPreference(PREF_BATTERY_TEXT_COLOR);
+            intColor = StatusBarExpandedColorHelper.getBatteryTextColor(getActivity());
+            mBatteryTextColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mBatteryTextColor.setSummary(hexColor);
+            mBatteryTextColor.setResetColor(ColorConstants.WHITE);
+            mBatteryTextColor.setOnPreferenceChangeListener(this);
         } else {
             removePreference(PREF_PRIMARY_BACKGROUND_COLOR);
             removePreference(PREF_SECONDARY_BACKGROUND_COLOR);
@@ -160,6 +178,8 @@ public class ColorsStatusBarExpanded extends SettingsPreferenceFragment implemen
             removePreference(PREF_TEXT_COLOR);
             removePreference(PREF_ICON_COLOR);
             removePreference(PREF_RIPPLE_COLOR);
+            catBatteryColors.removePreference(findPreference(PREF_BATTERY_TEXT_COLOR));
+            removePreference(PREF_CAT_BATTERY_COLORS);
         }
 
         getActivity().invalidateOptionsMenu();
@@ -248,6 +268,14 @@ public class ColorsStatusBarExpanded extends SettingsPreferenceFragment implemen
                     Settings.System.STATUS_BAR_EXPANDED_RIPPLE_COLOR, intHex);
             refreshSettings();
             return true;
+        } else if (preference == mBatteryTextColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.STATUS_BAR_EXPANDED_BATTERY_TEXT_COLOR, intHex);
+            refreshSettings();
+            return true;
         }
         return false;
     }
@@ -302,6 +330,9 @@ public class ColorsStatusBarExpanded extends SettingsPreferenceFragment implemen
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.STATUS_BAR_EXPANDED_RIPPLE_COLOR,
                                     ThemeHelper.getSystemUIRippleColor(getActivity()));
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.STATUS_BAR_EXPANDED_BATTERY_TEXT_COLOR,
+                                    ColorConstants.WHITE);
                             getOwner().refreshSettings();
                         }
                     })
