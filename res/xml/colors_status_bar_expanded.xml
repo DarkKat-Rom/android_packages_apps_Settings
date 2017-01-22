@@ -23,33 +23,44 @@
         android:title="@string/use_theme_colors_title"
         android:summary="@string/use_theme_colors_summary" />
 
-     <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+    <net.darkkatrom.colorpicker.preference.ColorPickerPreference
         android:key="colors_status_bar_expanded_primary_background_color"
         android:title="@string/primary_background_title"
         android:defaultValue="#ff263238" />
 
-     <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+    <net.darkkatrom.colorpicker.preference.ColorPickerPreference
         android:key="colors_status_bar_expanded_secondary_background_color"
         android:title="@string/secondary_background_title"
         android:defaultValue="#ff37474F" />
 
-     <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+    <net.darkkatrom.colorpicker.preference.ColorPickerPreference
         android:key="colors_status_bar_expanded_accent_color"
         android:title="@string/accent_title"
         android:defaultValue="#ff009688" />
 
-     <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+    <net.darkkatrom.colorpicker.preference.ColorPickerPreference
         android:key="colors_status_bar_expanded_text_color"
         android:title="@string/text_title"
         android:defaultValue="#ffffffff" />
 
-     <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+    <net.darkkatrom.colorpicker.preference.ColorPickerPreference
         android:key="colors_status_bar_expanded_icon_color"
         android:title="@string/icon_title"
         android:defaultValue="#ffffffff" />
 
-     <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+    <net.darkkatrom.colorpicker.preference.ColorPickerPreference
         android:key="colors_status_bar_expanded_ripple_color"
         android:title="@string/ripple_title"
         android:defaultValue="#33ffffff" />
+
+    <PreferenceCategory
+        android:key="colors_status_bar_expanded_cat_colors_battery"
+        android:title="@string/battery_meter_title">
+
+        <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+            android:key="colors_status_bar_expanded_battery_text_color"
+            android:title="@string/text_charge_icon_title"
+            android:defaultValue="#ffffffff" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

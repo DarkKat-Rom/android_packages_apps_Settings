@@ -34,10 +34,37 @@
     <string name="weather_service_missing_summary">\'DK Weather Service\' is not installed.\nTo use the weather feature, the app DKWeatherService \'DK Weather Service\' has to be installed</string>
     <string name="weather_service_disabled_summary">\'DK Weather Service\' is disabled.\nTo use the weather feature, enable the app DKWeatherService \'DK Weather Service\', and reboot your phone</string>
     <string name="weather_service_disabled_tablet_summary">\'DK Weather Service\' is disabled.\nTo use the weather feature, enable the app DKWeatherService \'DK Weather Service\', and reboot your tablet</string>
-    <string name="battery_meter_settings_title">Battery meter</string>
-    <string name="battery_meter_settings_summary">Customize the battery meter</string>
     <string name="customize_title">Customize</string>
     <string name="options_title">Options</string>
+    <string name="battery_meter_title">Battery meter</string>
+    <string name="battery_meter_settings_summary">Customize the battery meter</string>
+    <string name="battery_meter_cat_circle_dotted_title">Circle dotted</string>
+    <string name="battery_meter_cat_text_charge_icon_title">Percentage text &amp; charging indicator</string>
+    <string name="battery_meter_type_title">Meter type</string>
+    <string name="battery_meter_type_icon_portrait_title">Battery portrait</string>
+    <string name="battery_meter_type_icon_landscape_left_title">Battery landscape left</string>
+    <string name="battery_meter_type_icon_landscape_right_title">Battery landscape right</string>
+    <string name="battery_meter_type_circle_title">Circle</string>
+    <string name="battery_meter_type_arcs_title">Arcs</string>
+    <string name="battery_meter_type_text_only_title">Text only</string>
+    <string name="battery_meter_show_text_title">Show percentage text</string>
+    <string name="battery_meter_show_text_summary">Enable to show the percentage text</string>
+    <string name="battery_meter_circle_dot_interval_title">Interval</string>
+    <string name="battery_meter_circle_dot_length_title">Length</string>
+    <string name="battery_meter_circle_dot_no_dot_summary">The circle won\'t be shown dotted</string>
+    <string name="battery_meter_circle_dot_no_dot">No dots</string>
+    <string name="battery_meter_circle_dot_1">1</string>
+    <string name="battery_meter_circle_dot_2">2</string>
+    <string name="battery_meter_circle_dot_3">3</string>
+    <string name="battery_meter_circle_dot_4">4</string>
+    <string name="battery_meter_circle_dot_5">5</string>
+    <string name="battery_meter_circle_dot_6">6</string>
+    <string name="battery_meter_circle_dot_7">7</string>
+    <string name="battery_meter_circle_dot_8">8</string>
+    <string name="battery_meter_circle_dot_9">9</string>
+    <string name="battery_meter_circle_dot_10">10</string>
+    <string name="battery_meter_cut_out_title">Cut out</string>
+    <string name="battery_meter_cut_out_summary">Enable to cut the percentage-text/charging-indicator out of the battery icon, if the battery fill overlaps the percentage-text/charging-indicator.</string>
     <string name="show_title">Show</string>
     <string name="show_on_lock_screen_title">Show on lock screen</string>
     <string name="hide_title">Hide</string>
@@ -252,34 +279,8 @@
     <string name="clock_date_date_string_edittext_summary">Enter string</string>
 
     <!-- Status bar battery meter settings -->
-    <string name="battery_meter_cat_circle_dotted_title">Circle dotted</string>
-    <string name="battery_meter_cat_text_charge_icon_title">Percentage text &amp; charging indicator</string>
     <string name="battery_meter_cat_bar_title">Bar</string>
     <string name="battery_meter_cat_charge_animation_title">Charging animation</string>
-    <string name="battery_meter_type_title">Meter type</string>
-    <string name="battery_meter_type_icon_portrait_title">Battery portrait</string>
-    <string name="battery_meter_type_icon_landscape_left_title">Battery landscape left</string>
-    <string name="battery_meter_type_icon_landscape_right_title">Battery landscape right</string>
-    <string name="battery_meter_type_circle_title">Circle</string>
-    <string name="battery_meter_type_text_only_title">Text only</string>
-    <string name="battery_meter_show_text_title">Show percentage text</string>
-    <string name="battery_meter_show_text_summary">Enable to show the percentage text</string>
-    <string name="battery_meter_circle_dot_interval_title">Interval</string>
-    <string name="battery_meter_circle_dot_length_title">Length</string>
-    <string name="battery_meter_circle_dot_no_dot_summary">The circle won\'t be shown dotted</string>
-    <string name="battery_meter_circle_dot_no_dot">No dots</string>
-    <string name="battery_meter_circle_dot_1">1</string>
-    <string name="battery_meter_circle_dot_2">2</string>
-    <string name="battery_meter_circle_dot_3">3</string>
-    <string name="battery_meter_circle_dot_4">4</string>
-    <string name="battery_meter_circle_dot_5">5</string>
-    <string name="battery_meter_circle_dot_6">6</string>
-    <string name="battery_meter_circle_dot_7">7</string>
-    <string name="battery_meter_circle_dot_8">8</string>
-    <string name="battery_meter_circle_dot_9">9</string>
-    <string name="battery_meter_circle_dot_10">10</string>
-    <string name="battery_meter_cut_out_title">Cut out</string>
-    <string name="battery_meter_cut_out_summary">Enable to cut the percentage-text/charging-indicator out of the battery icon, if the battery fill overlaps the percentage-text/charging-indicator.</string>
     <string name="battery_meter_show_battery_bar_summary">Enable to show the bar</string>
     <string name="battery_meter_show_battery_bar_on_lock_screen_summary">Enable to show the bar on lock screen</string>
     <string name="battery_meter_show_charge_animation_summary">Enable to show the charging animation</string>
@@ -289,10 +290,13 @@
     <!-- Status bar end -->
 
     <!-- Quick Settings -->
+    <string name="quick_settings_cat_tiles_title">Tiles</string>
     <string name="quick_settings_bar_title">Bar</string>
     <string name="quick_settings_bar_summary">Choose how to display the quick settings bar</string>
     <string name="quick_settings_panel_title">Panel</string>
     <string name="quick_settings_panel_summary">Choose how to display the quick settings panel</string>
+    <string name="quick_settings_tile_battery_title">Battery</string>
+    <string name="quick_settings_tile_battery_summary">Choose how to display the battery tile in the quick settings</string>
 
     <!-- Quick Settings bar -->
     <string name="qs_bar_enable_scroll_title">Enable scroll</string>

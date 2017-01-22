@@ -16,31 +16,31 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/battery_meter_title">
+    android:title="@string/quick_settings_tile_battery_title">
 
     <ListPreference
-        android:key="battery_meter_type"
+        android:key="tile_battery_meter_type"
         android:title="@string/battery_meter_type_title"
-        android:entries="@array/battery_meter_type_entries"
-        android:entryValues="@array/battery_meter_type_values" />
+        android:entries="@array/tile_battery_meter_type_entries"
+        android:entryValues="@array/tile_battery_meter_type_values" />
 
     <SwitchPreference
-        android:key="battery_meter_show_text"
+        android:key="tile_battery_meter_show_text"
         android:title="@string/battery_meter_show_text_title"
         android:summary="@string/battery_meter_show_text_summary" />
 
     <PreferenceCategory
-        android:key="battery_meter_cat_circle_dotted"
+        android:key="tile_battery_meter_cat_circle_dotted"
         android:title="@string/battery_meter_cat_circle_dotted_title">
 
         <ListPreference
-            android:key="battery_meter_circle_dot_interval"
+            android:key="tile_battery_meter_circle_dot_interval"
             android:title="@string/battery_meter_circle_dot_interval_title"
             android:entries="@array/battery_meter_circle_dot_entries"
             android:entryValues="@array/battery_meter_circle_dot_values" />
 
         <ListPreference
-            android:key="battery_meter_circle_dot_length"
+            android:key="tile_battery_meter_circle_dot_length"
             android:title="@string/battery_meter_circle_dot_length_title"
             android:entries="@array/battery_meter_circle_dot_entries"
             android:entryValues="@array/battery_meter_circle_dot_values" />
@@ -48,37 +48,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="battery_meter_cat_text_charge_icon"
+        android:key="tile_battery_meter_cat_text_charge_icon"
         android:title="@string/battery_meter_cat_text_charge_icon_title">
 
         <SwitchPreference
-            android:key="battery_meter_cut_out_text"
+            android:key="tile_battery_meter_cut_out_text"
             android:title="@string/battery_meter_cut_out_title"
             android:summary="@string/battery_meter_cut_out_summary" />
-    </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="battery_meter_cat_bar"
-        android:title="@string/battery_meter_cat_bar_title">
-
-        <SwitchPreference
-            android:key="battery_meter_show_battery_bar"
-            android:title="@string/show_title"
-            android:summary="@string/battery_meter_show_battery_bar_summary" />
-
-        <SwitchPreference
-            android:key="battery_meter_show_battery_bar_on_lock_screen"
-            android:title="@string/show_on_lock_screen_title"
-            android:summary="@string/battery_meter_show_battery_bar_on_lock_screen_summary" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="battery_meter_cat_charge_animation"
-        android:title="@string/battery_meter_cat_charge_animation_title">
-
-        <SwitchPreference
-            android:key="battery_meter_show_charge_animation"
-            android:title="@string/show_title"
-            android:summary="@string/battery_meter_show_charge_animation_summary" />
     </PreferenceCategory>
 </PreferenceScreen>
