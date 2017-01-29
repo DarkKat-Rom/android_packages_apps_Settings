@@ -69,6 +69,7 @@
     <string name="show_on_lock_screen_title">Show on lock screen</string>
     <string name="hide_title">Hide</string>
     <string name="always_title">Always</string>
+    <string name="never_title">Never</string>
     <string name="colors_title">Colors</string>
     <string name="use_theme_colors_title">Use theme colors</string>
     <string name="use_theme_colors_summary">Enable to use colors from the current theme, disable to customize the colors</string>
@@ -295,6 +296,9 @@
     <string name="quick_settings_bar_summary">Choose how to display the quick settings bar</string>
     <string name="quick_settings_panel_title">Panel</string>
     <string name="quick_settings_panel_summary">Choose how to display the quick settings panel</string>
+    <string name="quick_settings_brightness_slider_visibility_title">Show brightness slider</string>
+    <string name="quick_settings_brightness_slider_visibility_on_bar_title">On the bar only</string>
+    <string name="quick_settings_brightness_slider_visibility_on_panel_title">On the panel only</string>
     <string name="quick_settings_tile_battery_title">Battery</string>
     <string name="quick_settings_tile_battery_summary">Choose how to display the battery tile in the quick settings</string>
 

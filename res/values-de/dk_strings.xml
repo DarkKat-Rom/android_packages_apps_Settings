@@ -69,6 +69,7 @@
     <string name="show_on_lock_screen_title">Auf dem Sperrbildschirm anzeigen</string>
     <string name="hide_title">Verbergen</string>
     <string name="always_title">Immer</string>
+    <string name="never_title">Nie</string>
     <string name="colors_title">Farben</string>
     <string name="use_theme_colors_title">Theme Farben benutzen</string>
     <string name="use_theme_colors_summary">Aktivieren um die Farben aus dem aktuellen Theme zu nutzen, deaktivieren um die farben anzupassen</string>
@@ -295,6 +296,9 @@
     <string name="quick_settings_bar_summary">Wähle wie die Leiste der Schnelleinstellungen dargestellt wird</string>
     <string name="quick_settings_panel_title">Feld</string>
     <string name="quick_settings_panel_summary">Wähle wie das Feld der Schnelleinstellungen dargestellt wird</string>
+    <string name="quick_settings_brightness_slider_visibility_title">Helligkeitsregler anzeigen</string>
+    <string name="quick_settings_brightness_slider_visibility_on_bar_title">Nur auf der Leiste</string>
+    <string name="quick_settings_brightness_slider_visibility_on_panel_title">Nur auf dem Feld</string>
     <string name="quick_settings_tile_battery_title">Akku</string>
     <string name="quick_settings_tile_battery_summary">Wähle wie die Akku-Kachel in den Schnelleinstellungen dargestellt wird</string>
 

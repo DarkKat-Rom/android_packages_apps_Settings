@@ -18,17 +18,50 @@ package com.android.settings.darkkat.fragments;
 
 import android.os.Bundle;
 
+import android.content.ContentResolver;
+import android.provider.Settings;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class QuickSettings extends SettingsPreferenceFragment { 
+public class QuickSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener { 
+
+    private static final String PREF_BRIGHTNESS_SLIDER_VISIBILITY =
+            "quick_settings_brightness_slider_visibility";
+
+    private ListPreference mBrightnessSliderVisibility;
+
+    private ContentResolver mResolver;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.quick_settings);
+        mResolver = getActivity().getContentResolver();
+
+        mBrightnessSliderVisibility = (ListPreference) findPreference(PREF_BRIGHTNESS_SLIDER_VISIBILITY);
+        int brightnessSliderVisibility = Settings.System.getInt(mResolver,
+                Settings.System.QS_BRIGHTNESS_SLIDER_VISIBILITY, 2);
+        mBrightnessSliderVisibility.setValue(String.valueOf(brightnessSliderVisibility));
+        mBrightnessSliderVisibility.setSummary(mBrightnessSliderVisibility.getEntry());
+        mBrightnessSliderVisibility.setOnPreferenceChangeListener(this);
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mBrightnessSliderVisibility) {
+            int intValue = Integer.valueOf((String) newValue);
+            int index = mBrightnessSliderVisibility.findIndexOfValue((String) newValue);
+            Settings.System.putInt(mResolver,
+                    Settings.System.QS_BRIGHTNESS_SLIDER_VISIBILITY, intValue);
+            mBrightnessSliderVisibility.setSummary(mBrightnessSliderVisibility.getEntries()[index]);
+            return true;
+        }
+        return false;
     }
 
     @Override
