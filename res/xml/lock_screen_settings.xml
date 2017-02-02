@@ -23,4 +23,10 @@
         android:title="@string/lock_screen_show_visualizer_title"
         android:summary="@string/lock_screen_show_visualizer_summary"
         android:persistent="false" />
+
+    <PreferenceScreen
+        android:key="lock_screen_battery_info_settings"
+        android:title="@string/lock_screen_battery_info_settings_title"
+        android:summary="@string/lock_screen_battery_info_settings_summary"
+        android:fragment="com.android.settings.darkkat.fragments.lockscreen.BatteryInfoSettings" />
 </PreferenceScreen>

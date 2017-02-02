@@ -202,6 +202,19 @@
     <!-- Lock screen -->
     <string name="lock_screen_show_visualizer_title">Show music visualizer</string>
     <string name="lock_screen_show_visualizer_summary">Enable to show the music visualizer on the lock screen</string>
+    <string name="lock_screen_battery_info_settings_title">Battery info</string>
+    <string name="lock_screen_battery_info_settings_summary">Choose how to display the battery info on the lock screen</string>
+
+    <!-- battery info -->
+    <string name="lock_screen_show_battery_info_title">Show battery info</string>
+    <string name="lock_screen_show_battery_info_summary">Enable to show battery info on the lock screen</string>
+    <string name="lock_screen_show_battery_temp_title">Show battery temperature</string>
+    <string name="lock_screen_show_battery_temp_summary">Enable to show the battery temperature on the lock screen</string>
+    <string name="lock_screen_show_battery_charging_info_title">Show battery charging info</string>
+    <string name="lock_screen_show_battery_charging_info_summary">Enable to show battery charging info on the lock screen</string>
+    <string name="lock_screen_show_advanced_battery_charging_info_title">Show advanced battery charging info</string>
+    <string name="lock_screen_show_advanced_battery_charging_info_summary">Enable to show advanced battery charging info on the lock screen.\n(Some values may not be available, until the device has been charged some time.\nValues in brackets displaying the maximum supported values of the charger or battery.)</string>
+    <!-- Lock screen end -->
 
     <!-- Status bar -->
 

@@ -202,6 +202,19 @@
     <!-- Lock screen -->
     <string name="lock_screen_show_visualizer_title">Musik Visualisierung anzeigen</string>
     <string name="lock_screen_show_visualizer_summary">Aktivieren um die Musik Visualisierung auf dem Sperrbildschirm anzuzeigen</string>
+    <string name="lock_screen_battery_info_settings_title">Akku Information</string>
+    <string name="lock_screen_battery_info_settings_summary">Wähle wie die Akku Informationen auf dem Sperrbildschirm dargestellt werden</string>
+
+    <!-- battery info -->
+    <string name="lock_screen_show_battery_info_title">Akku-Informationen anzeigen</string>
+    <string name="lock_screen_show_battery_info_summary">Aktivieren um Akku-Informationen auf dem Sperrbildschirm anzuzeigen</string>
+    <string name="lock_screen_show_battery_temp_title">Akku Temperatur anzeigen</string>
+    <string name="lock_screen_show_battery_temp_summary">Aktivieren um die Akku Temperatur auf dem Sperrbildschirm anzuzeigen</string>
+    <string name="lock_screen_show_battery_charging_info_title">Akku-Ladeinformationen anzeigen</string>
+    <string name="lock_screen_show_battery_charging_info_summary">Aktivieren um Akku-Ladeinformationen auf dem Sperrbildschirm anzuzeigen</string>
+    <string name="lock_screen_show_advanced_battery_charging_info_title">Erweiterte Akku-Ladeinformationen anzeigen</string>
+    <string name="lock_screen_show_advanced_battery_charging_info_summary">Aktivieren um Erweiterte Akku-Ladeinformationen auf dem Sperrbildschirm anzuzeigen.\n(Einige Werte sind möglicherweise nicht verfügbar, bis das Gerät einige Zeit geladen wurde.\nWerte in Klammern stellen die maximal unterstützten Werte des Ladegeräts oder Akkus dar.)</string>
+    <!-- Lock screen end -->
 
     <!-- Status bar -->
 
