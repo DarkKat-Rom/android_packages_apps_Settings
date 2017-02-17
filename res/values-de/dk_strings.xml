@@ -169,6 +169,7 @@
 
     <!-- Tiles-->
     <string name="theme_colors_settings_title">Theme &amp; Farben</string>
+    <string name="recents_settings_title">Anwendungsverlauf</string>
     <string name="button_settings_title">Tasten</string>
     <!-- Dashboard end -->
 
@@ -325,6 +326,32 @@
     <string name="qs_panel_rows_title">Reihen</string>
     <string name="qs_panel_columns_title">Spalten</string>
     <!-- Quick Settings end -->
+
+    <!-- Recents settings -->
+    <string name="recents_cat_appearance_title">Erscheinungsbild</string>
+    <string name="recents_cat_apps_title">Anwendungen</string>
+    <string name="recents_use_slim_recents_title">\"SlimRoms\" Anwendungsverlauf</string>
+    <string name="recents_use_slim_recents_summary">Aktivieren um die \"SlimRoms\" Anwendungsverlaufs-\Ansicht anstelle des Standard Anwendungsverlaufes zu nutzen</string>
+    <string name="slim_recents_scale_title">Größe</string>
+    <string name="slim_recents_scale_60">60\uff05</string>
+    <string name="slim_recents_scale_65">65\uff05</string>
+    <string name="slim_recents_scale_70">70\uff05</string>
+    <string name="slim_recents_scale_75">75\uff05</string>
+    <string name="slim_recents_scale_80">80\uff05</string>
+    <string name="slim_recents_scale_85">85\uff05</string>
+    <string name="slim_recents_scale_90">90\uff05</string>
+    <string name="slim_recents_scale_95">95\uff05</string>
+    <string name="slim_recents_scale_100">100\uff05</string>
+    <string name="slim_recents_expanded_mode_title">Erweiterter Modus</string>
+    <string name="slim_recents_mode_auto">Automatisch</string>
+    <string name="slim_recents_expanded_mode_always">Immer</string>
+    <string name="slim_recents_expanded_mode_never">Nie</string>
+    <string name="slim_recents_lefty_mode_title">Auf der linken Seite anzeigen</string>
+    <string name="slim_recents_lefty_mode_summary">Anwendungsverlauf auf der linken Seite des Bildschirmes anzeigen</string>
+    <string name="slim_recents_only_show_running_tasks_title">Nur laufende</string>
+    <string name="slim_recents_only_show_running_tasks_summary">Aktivieren um nur laufende Anwendungen anzuzeigen</string>
+    <string name="slim_recents_show_topmost_title">Aktueller Task</string>
+    <string name="slim_recents_show_topmost_summary">Aktivieren um den Aktuellen Task anzuzeigen</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>

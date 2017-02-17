@@ -2435,7 +2435,7 @@
                 android:icon="@drawable/ic_settings_theme_colors"
                 android:exported="true"
                 android:taskAffinity="">
-            <intent-filter android:priority="5">
+            <intent-filter android:priority="6">
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
@@ -2449,7 +2449,7 @@
                 android:icon="@drawable/ic_settings_weather"
                 android:exported="true"
                 android:taskAffinity="">
-            <intent-filter android:priority="4">
+            <intent-filter android:priority="5">
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
@@ -2463,7 +2463,7 @@
                 android:icon="@drawable/ic_settings_lock_screen"
                 android:exported="true"
                 android:taskAffinity="">
-            <intent-filter android:priority="3">
+            <intent-filter android:priority="4">
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
@@ -2477,7 +2477,7 @@
                 android:icon="@drawable/ic_settings_status_bar"
                 android:exported="true"
                 android:taskAffinity="">
-            <intent-filter android:priority="2">
+            <intent-filter android:priority="3">
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
@@ -2491,13 +2491,27 @@
                 android:icon="@drawable/ic_settings_quick_settings"
                 android:exported="true"
                 android:taskAffinity="">
-            <intent-filter android:priority="1">
+            <intent-filter android:priority="2">
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
                        android:value="com.android.settings.category.ui" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.darkkat.fragments.QuickSettings" />
+        </activity>
+
+        <activity android:name="Settings$RecentsSettingsActivity"
+                android:label="@string/recents_settings_title"
+                android:icon="@drawable/ic_settings_recents"
+                android:exported="true"
+                android:taskAffinity="">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                       android:value="com.android.settings.category.ui" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.fragments.RecentsSettings" />
         </activity>
 
         <activity android:name="Settings$ButtonSettingsActivity"

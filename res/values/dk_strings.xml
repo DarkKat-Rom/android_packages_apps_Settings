@@ -169,6 +169,7 @@
 
     <!-- Tiles-->
     <string name="theme_colors_settings_title">Theme &amp; colors</string>
+    <string name="recents_settings_title">Recents</string>
     <string name="button_settings_title">Buttons</string>
     <!-- Dashboard end -->
 
@@ -325,6 +326,36 @@
     <string name="qs_panel_rows_title">Rows</string>
     <string name="qs_panel_columns_title">Columns</string>
     <!-- Quick Settings end -->
+
+    <!-- Recents settings -->
+    <string name="recents_cat_appearance_title">Appearance</string>
+    <string name="recents_cat_apps_title">Apps</string>
+    <string name="recents_use_slim_recents_title">\'SlimRoms\' Recents</string>
+    <string name="recents_use_slim_recents_summary">Enable to use \'SlimRoms\' Recents view instead of the default recents view</string>
+    <string name="slim_recents_scale_title">Size</string>
+    <string name="slim_recents_scale_60">60\uff05</string>
+    <string name="slim_recents_scale_65">65\uff05</string>
+    <string name="slim_recents_scale_70">70\uff05</string>
+    <string name="slim_recents_scale_75">75\uff05</string>
+    <string name="slim_recents_scale_80">80\uff05</string>
+    <string name="slim_recents_scale_85">85\uff05</string>
+    <string name="slim_recents_scale_90">90\uff05</string>
+    <string name="slim_recents_scale_95">95\uff05</string>
+    <string name="slim_recents_scale_100">100\uff05</string>
+    <string name="slim_recents_expanded_mode_title">Expanded mode</string>
+    <string name="slim_recents_mode_auto">Auto</string>
+    <string name="slim_recents_expanded_mode_always">Always</string>
+    <string name="slim_recents_expanded_mode_never">Never</string>
+
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="slim_recents_lefty_mode_title">Show on the left edge</string>
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="slim_recents_lefty_mode_summary">Show recent apps panel on the left edge</string>
+
+    <string name="slim_recents_only_show_running_tasks_title">Only show running</string>
+    <string name="slim_recents_only_show_running_tasks_summary">Enable to show only apps which are currently running</string>
+    <string name="slim_recents_show_topmost_title">Show topmost task</string>
+    <string name="slim_recents_show_topmost_summary">Enable to show the topmost task</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Power menu</string>
