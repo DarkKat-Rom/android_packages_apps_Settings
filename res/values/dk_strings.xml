@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 DarkKat
+<!-- Copyright (C) 2016 - 2017 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@
     <string name="lock_screen_title">Lock screen</string>
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_expanded_title">Status bar expanded</string>
+    <string name="recents_title">Recents</string>
     <string name="notifications_title">Notifications</string>
     <string name="weather_title">Weather</string>
     <string name="qs_title">Quick settings</string>
@@ -184,6 +185,17 @@
     <string name="colors_detailed_weather_view_summary">Choose the colors to colorize the detailed weather view</string>
     <string name="colors_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
     <string name="colors_status_bar_expanded_summary">Choose the colors to colorize the content in the status bar expanded</string>
+    <string name="colors_recents_summary">Choose the colors to colorize the Recents</string>
+
+    <!-- Recents colors -->
+    <string name="colors_slim_recents_cat_panel_title">\'SlimRoms\' recents panel</string>
+    <string name="colors_slim_recents_cat_card_title">\'SlimRoms\' recents card</string>
+    <string name="colors_slim_recents_cat_card_header_title">\'SlimRoms\' recents card header</string>
+    <string name="colors_slim_recents_cat_card_action_title">\'SlimRoms\' recents card action</string>
+    <string name="colors_slim_recents_card_use_auto_colors_title">Card auto colors</string>
+    <string name="colors_slim_recents_card_use_auto_colors_summary">When enabled, and the app contains a primary color, this color will be set as the card background,\nand all other card colors will be set related to the card background automatically.</string>
+    <string name="colors_slim_recents_panel_empty_icon_title">Empty panel icon</string>
+
     <!-- Theme & colors end -->
 
     <!-- Weather -->
@@ -325,6 +337,34 @@
     <string name="qs_panel_rows_title">Rows</string>
     <string name="qs_panel_columns_title">Columns</string>
     <!-- Quick Settings end -->
+
+    <!-- Recents settings -->
+    <string name="recents_cat_appearance_title">Appearance</string>
+    <string name="recents_cat_apps_title">Apps</string>
+    <string name="recents_use_slim_recents_title">\'SlimRoms\' Recents</string>
+    <string name="recents_use_slim_recents_summary">Enable to use \'SlimRoms\' Recents view instead of the default recents view</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_title">Thumbnail aspect ratio</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_1_1">1 : 1</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_5_4">5 : 4</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_4_3">4 : 3</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_16_9">16 : 9</string>
+    <string name="slim_recents_expanded_mode_title">Expanded mode</string>
+    <string name="slim_recents_mode_auto">Auto</string>
+    <string name="slim_recents_expanded_mode_always">Always</string>
+    <string name="slim_recents_expanded_mode_never">Never</string>
+    <string name="slim_recents_show_actions_when_collapsed_title">Show actions when collapsed</string>
+    <string name="slim_recents_show_actions_when_collapsed_summary">Enable to show actions when the card is collapsed.\nActions can always be displayed/hidden on collapsed cards via lonclick</string>
+
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="slim_recents_lefty_mode_title">Show on the left edge</string>
+    <!-- ATTENTION: RTL languages need to replace left with right -->
+    <string name="slim_recents_lefty_mode_summary">Show recent apps panel on the left edge</string>
+
+    <string name="slim_recents_only_show_running_tasks_title">Only show running</string>
+    <string name="slim_recents_only_show_running_tasks_summary">Enable to show only apps which are currently running</string>
+    <string name="slim_recents_show_topmost_title">Show topmost task</string>
+    <string name="slim_recents_show_topmost_summary">Enable to show the topmost task</string>
+    <string name="slim_recents_show_topmost_pinning_enabled_summary">Screen pinning is enabled, topmost task will always be shown.</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Power menu</string>

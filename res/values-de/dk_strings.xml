@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 DarkKat
+<!-- Copyright (C) 2016 - 2017 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@
     <string name="lock_screen_title">Sperrbildschirm</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
+    <string name="recents_title">Anwendungsverlauf</string>
     <string name="notifications_title">Benachrichtigungen</string>
     <string name="weather_title">Wetter</string>
     <string name="qs_title">Schnelleinstellungen</string>
@@ -184,6 +185,17 @@
     <string name="colors_detailed_weather_view_summary">Wähle die Farben mit denen die Detaillierte Wetteransicht eingefärbt wird</string>
     <string name="colors_status_bar_summary">Wähle die Farben mit denen Text und Symbole in der Statusleiste eingefärbt werden</string>
     <string name="colors_status_bar_expanded_summary">Wähle die Farben mit denen der Inhalt in der Erweiterten Statusleiste eingefärbt werden</string>
+    <string name="colors_recents_summary">Wähle die Farben mit denen der Anwendungsverlauf eingefärbt werden</string>
+
+    <!-- Recents colors -->
+    <string name="colors_slim_recents_cat_panel_title">\"SlimRoms\" Anwendungsverlauf Feld</string>
+    <string name="colors_slim_recents_cat_card_title">\"SlimRoms\" Anwendungsverlauf Karte</string>
+    <string name="colors_slim_recents_cat_card_header_title">\"SlimRoms\" Anwendungsverlauf Karten Kopfzeile</string>
+    <string name="colors_slim_recents_cat_card_action_title">\"SlimRoms\" Anwendungsverlauf Karten Aktion</string>
+    <string name="colors_slim_recents_card_use_auto_colors_title">Automatische Kartenfarben</string>
+    <string name="colors_slim_recents_card_use_auto_colors_summary">Wenn aktiviert, und die Anwendung über eine primäre Farbe verfügt, wird diese als Kartenhintergrund gesetzt,\nund alle übrigen Kartenfarben werden abhängig zum Kartenhintergrund automatisch gesetzt.</string>
+    <string name="colors_slim_recents_panel_empty_icon_title">Leeres Feld Symbol</string>
+
     <!-- Theme & colors end -->
 
     <!-- Weather -->
@@ -325,6 +337,30 @@
     <string name="qs_panel_rows_title">Reihen</string>
     <string name="qs_panel_columns_title">Spalten</string>
     <!-- Quick Settings end -->
+
+    <!-- Recents settings -->
+    <string name="recents_cat_appearance_title">Erscheinungsbild</string>
+    <string name="recents_cat_apps_title">Anwendungen</string>
+    <string name="recents_use_slim_recents_title">\"SlimRoms\" Anwendungsverlauf</string>
+    <string name="recents_use_slim_recents_summary">Aktivieren um die \"SlimRoms\" Anwendungsverlaufs-\Ansicht anstelle des Standard Anwendungsverlaufes zu nutzen</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_title">Seitenverhältnis der Miniarturansicht</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_1_1">1 : 1</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_5_4">5 : 4</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_4_3">4 : 3</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_16_9">16 : 9</string>
+    <string name="slim_recents_expanded_mode_title">Erweiterter Modus</string>
+    <string name="slim_recents_mode_auto">Automatisch</string>
+    <string name="slim_recents_expanded_mode_always">Immer</string>
+    <string name="slim_recents_expanded_mode_never">Nie</string>
+    <string name="slim_recents_show_actions_when_collapsed_title">Aktionen eingeklappt anzeigen</string>
+    <string name="slim_recents_show_actions_when_collapsed_summary">Aktivieren um die Aktionen auf eingeklappten karten anzuzeigen.\nDie Aktionen können jederzeit bei eingeklappten karten über eine Lang-Klick angezeigt/verborgen werden.</string>
+    <string name="slim_recents_lefty_mode_title">Auf der linken Seite anzeigen</string>
+    <string name="slim_recents_lefty_mode_summary">Anwendungsverlauf auf der linken Seite des Bildschirmes anzeigen</string>
+    <string name="slim_recents_only_show_running_tasks_title">Nur laufende</string>
+    <string name="slim_recents_only_show_running_tasks_summary">Aktivieren um nur laufende Anwendungen anzuzeigen</string>
+    <string name="slim_recents_show_topmost_title">Aktueller Task</string>
+    <string name="slim_recents_show_topmost_summary">Aktivieren um den Aktuellen Task anzuzeigen</string>
+    <string name="slim_recents_show_topmost_pinning_enabled_summary">Bildschirmfixierung ist aktiviert, der Aktuellen Task wird immer angezeigt.</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>

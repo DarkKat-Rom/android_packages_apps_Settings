@@ -49,4 +49,10 @@ limitations under the License.
         android:title="@string/status_bar_expanded_title"
         android:summary="@string/colors_status_bar_expanded_summary"
         android:fragment="com.android.settings.darkkat.fragments.themecolors.ColorsStatusBarExpanded" />
+
+    <PreferenceScreen
+        android:key="colors_recents"
+        android:title="@string/recents_title"
+        android:summary="@string/colors_recents_summary"
+        android:fragment="com.android.settings.darkkat.fragments.themecolors.ColorsRecents" />
 </PreferenceScreen>

@@ -80,6 +80,7 @@ import com.android.settings.darkkat.fragments.ButtonSettings;
 import com.android.settings.darkkat.fragments.LockScreenSettings;
 import com.android.settings.darkkat.fragments.StatusBarSettings;
 import com.android.settings.darkkat.fragments.QuickSettings;
+import com.android.settings.darkkat.fragments.RecentsSettings;
 import com.android.settings.darkkat.fragments.ThemeColorsSettings;
 import com.android.settings.darkkat.fragments.WeatherSettings;
 import com.android.settings.datausage.DataUsageSummary;
@@ -292,6 +293,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             LockScreenSettings.class.getName(),
             StatusBarSettings.class.getName(),
             QuickSettings.class.getName(),
+            RecentsSettings.class.getName(),
             ButtonSettings.class.getName(),
             DeviceInfoSettings.class.getName(),
             ManageApplications.class.getName(),

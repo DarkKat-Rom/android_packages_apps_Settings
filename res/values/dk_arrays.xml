@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 DarkKat
+<!-- Copyright (C) 2016 - 2017 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -395,4 +395,31 @@
         <item>0</item>
         <item>3</item>
     </string-array>
+
+    <string-array name="slim_recents_thumbnail_aspect_ratio_entries">
+        <item>@string/slim_recents_thumbnail_aspect_ratio_1_1</item>
+        <item>@string/slim_recents_thumbnail_aspect_ratio_5_4</item>
+        <item>@string/slim_recents_thumbnail_aspect_ratio_4_3</item>
+        <item>@string/slim_recents_thumbnail_aspect_ratio_16_9</item>
+    </string-array>
+
+    <string-array name="slim_recents_thumbnail_aspect_ratio_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="slim_recents_expanded_mode_entries">
+        <item>@string/slim_recents_mode_auto</item>
+        <item>@string/slim_recents_expanded_mode_always</item>
+        <item>@string/slim_recents_expanded_mode_never</item>
+    </string-array>
+
+    <string-array name="slim_recents_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 </resources>

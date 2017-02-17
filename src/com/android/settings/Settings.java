@@ -55,6 +55,7 @@ public class Settings extends SettingsActivity {
     public static class LockScreenSettingsActivity extends SettingsActivity { /* empty */ }
     public static class StatusbarSettingsActivity extends SettingsActivity { /* empty */ }
     public static class QuickSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class RecentsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ButtonSettingsActivity extends SettingsActivity { /* empty */ }
     public static class NightDisplaySettingsActivity extends SettingsActivity { /* empty */ }
     public static class DeviceInfoSettingsActivity extends SettingsActivity { /* empty */ }
