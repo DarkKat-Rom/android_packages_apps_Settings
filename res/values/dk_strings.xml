@@ -27,6 +27,7 @@
     <string name="lock_screen_title">Lock screen</string>
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_expanded_title">Status bar expanded</string>
+    <string name="recents_title">Recents</string>
     <string name="notifications_title">Notifications</string>
     <string name="weather_title">Weather</string>
     <string name="qs_title">Quick settings</string>
@@ -169,7 +170,6 @@
 
     <!-- Tiles-->
     <string name="theme_colors_settings_title">Theme &amp; colors</string>
-    <string name="recents_settings_title">Recents</string>
     <string name="button_settings_title">Buttons</string>
     <!-- Dashboard end -->
 
@@ -185,6 +185,15 @@
     <string name="colors_detailed_weather_view_summary">Choose the colors to colorize the detailed weather view</string>
     <string name="colors_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
     <string name="colors_status_bar_expanded_summary">Choose the colors to colorize the content in the status bar expanded</string>
+    <string name="colors_recents_summary">Choose the colors to colorize the Recents</string>
+
+    <!-- Recents colors -->
+    <string name="colors_slim_recents_cat_panel_title">\'SlimRoms\' recents panel</string>
+    <string name="colors_slim_recents_cat_card_title">\'SlimRoms\' recents card</string>
+    <string name="colors_slim_recents_cat_card_header_title">\'SlimRoms\' recents card header</string>
+    <string name="colors_slim_recents_panel_empty_icon_title">Empty panel icon</string>
+    <string name="colors_slim_recents_card_header_activated_background_title">Background activated</string>
+
     <!-- Theme & colors end -->
 
     <!-- Weather -->

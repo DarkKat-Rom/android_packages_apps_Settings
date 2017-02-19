@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 Darkkat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/recents_title">
+
+    <SwitchPreference
+        android:key="colors_slim_recents_use_theme_colors"
+        android:title="@string/use_theme_colors_title"
+        android:summary="@string/use_theme_colors_summary" />
+
+    <PreferenceCategory
+        android:key="colors_slim_recents_cat_panel"
+        android:title="@string/colors_slim_recents_cat_panel_title">
+
+        <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+            android:key="colors_slim_recents_panel_background_color"
+            android:title="@string/background_title"
+            android:defaultValue="#ff1b1f23" />
+
+        <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+            android:key="colors_slim_recents_panel_empty_icon_color"
+            android:title="@string/colors_slim_recents_panel_empty_icon_title"
+            android:defaultValue="#b3ffffff" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="colors_slim_recents_cat_card"
+        android:title="@string/colors_slim_recents_cat_card_title">
+
+        <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+            android:key="colors_slim_recents_card_background_color"
+            android:title="@string/background_title"
+            android:defaultValue="#ff1f2429" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="colors_slim_recents_cat_card_header"
+        android:title="@string/colors_slim_recents_cat_card_header_title">
+
+        <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+            android:key="colors_slim_recents_card_header_background_color"
+            android:title="@string/background_title"
+            android:defaultValue="#ff1f2429" />
+
+        <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+            android:key="colors_slim_recents_card_header_activated_background_color"
+            android:title="@string/colors_slim_recents_card_header_activated_background_title"
+            android:defaultValue="#ff1b1f23" />
+
+        <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+            android:key="colors_slim_recents_card_header_text_color"
+            android:title="@string/text_title"
+            android:defaultValue="#ffffffff" />
+
+        <net.darkkatrom.colorpicker.preference.ColorPickerPreference
+            android:key="colors_slim_recents_card_header_icon_color"
+            android:title="@string/icon_title"
+            android:defaultValue="#b3ffffff" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

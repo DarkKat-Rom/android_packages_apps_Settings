@@ -2501,7 +2501,7 @@
         </activity>
 
         <activity android:name="Settings$RecentsSettingsActivity"
-                android:label="@string/recents_settings_title"
+                android:label="@string/recents_title"
                 android:icon="@drawable/ic_settings_recents"
                 android:exported="true"
                 android:taskAffinity="">

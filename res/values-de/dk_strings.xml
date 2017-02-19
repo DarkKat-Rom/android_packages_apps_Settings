@@ -27,6 +27,7 @@
     <string name="lock_screen_title">Sperrbildschirm</string>
     <string name="status_bar_title">Statusleiste</string>
     <string name="status_bar_expanded_title">Erweiterte Statusleiste</string>
+    <string name="recents_title">Anwendungsverlauf</string>
     <string name="notifications_title">Benachrichtigungen</string>
     <string name="weather_title">Wetter</string>
     <string name="qs_title">Schnelleinstellungen</string>
@@ -169,7 +170,6 @@
 
     <!-- Tiles-->
     <string name="theme_colors_settings_title">Theme &amp; Farben</string>
-    <string name="recents_settings_title">Anwendungsverlauf</string>
     <string name="button_settings_title">Tasten</string>
     <!-- Dashboard end -->
 
@@ -185,6 +185,15 @@
     <string name="colors_detailed_weather_view_summary">Wähle die Farben mit denen die Detaillierte Wetteransicht eingefärbt wird</string>
     <string name="colors_status_bar_summary">Wähle die Farben mit denen Text und Symbole in der Statusleiste eingefärbt werden</string>
     <string name="colors_status_bar_expanded_summary">Wähle die Farben mit denen der Inhalt in der Erweiterten Statusleiste eingefärbt werden</string>
+    <string name="colors_recents_summary">Wähle die Farben mit denen der Anwendungsverlauf eingefärbt werden</string>
+
+    <!-- Recents colors -->
+    <string name="colors_slim_recents_cat_panel_title">\"SlimRoms\" Anwendungsverlauf Feld</string>
+    <string name="colors_slim_recents_cat_card_title">\"SlimRoms\" Anwendungsverlauf Karte</string>
+    <string name="colors_slim_recents_cat_card_header_title">\"SlimRoms\" Anwendungsverlauf Karten Kopfzeile</string>
+    <string name="colors_slim_recents_panel_empty_icon_title">Leeres Feld Symbol</string>
+    <string name="colors_slim_recents_card_header_activated_background_title">Hintergrund aktiviert</string>
+
     <!-- Theme & colors end -->
 
     <!-- Weather -->
