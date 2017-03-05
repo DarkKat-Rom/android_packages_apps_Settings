@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 DarkKat
+ * Copyright (C) 2017 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,6 +51,8 @@ public class ColorsRecents extends SettingsPreferenceFragment implements
             "colors_slim_recents_cat_card";
     private static final String PREF_CAT_CARD_HEADER =
             "colors_slim_recents_cat_card_header";
+    private static final String PREF_CAT_CARD_ACTION =
+            "colors_slim_recents_cat_card_action";
     private static final String PREF_USE_THEME_COLORS =
             "colors_slim_recents_use_theme_colors";
     private static final String PREF_PANEL_BACKGROUND_COLOR =
@@ -59,14 +61,12 @@ public class ColorsRecents extends SettingsPreferenceFragment implements
             "colors_slim_recents_panel_empty_icon_color";
     private static final String PREF_CARD_BACKGROUND_COLOR =
             "colors_slim_recents_card_background_color";
-    private static final String PREF_CARD_HEADER_BACKGROUND_COLOR =
-            "colors_slim_recents_card_header_background_color";
-    private static final String PREF_CARD_HEADER_ACTIVATED_BACKGROUND_COLOR =
-            "colors_slim_recents_card_header_activated_background_color";
     private static final String PREF_CARD_HEADER_TEXT_COLOR =
             "colors_slim_recents_card_header_text_color";
-    private static final String PREF_CARD_HEADER_ICON_COLOR =
-            "colors_slim_recents_card_header_icon_color";
+    private static final String PREF_CARD_ACTION_ICON_COLOR =
+            "colors_slim_recents_card_action_icon_color";
+    private static final String PREF_CARD_ACTION_RIPPLE_COLOR =
+            "colors_slim_recents_card_action_ripple_color";
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
@@ -75,10 +75,9 @@ public class ColorsRecents extends SettingsPreferenceFragment implements
     private ColorPickerPreference mPanelBackgroundColor;
     private ColorPickerPreference mPanelEmptyIconColor;
     private ColorPickerPreference mCardBackgroundColor;
-    private ColorPickerPreference mCardHeaderBackgroundColor;
-    private ColorPickerPreference mCardHeaderActivatedBackgroundColor;
     private ColorPickerPreference mCardHeaderTextColor;
-    private ColorPickerPreference mCardHeaderIconColor;
+    private ColorPickerPreference mCardActionIconColor;
+    private ColorPickerPreference mCardActionRippleColor;
 
     private boolean mCustomizeColors;
     private ContentResolver mResolver;
@@ -105,6 +104,8 @@ public class ColorsRecents extends SettingsPreferenceFragment implements
                 (PreferenceCategory) findPreference(PREF_CAT_CARD);
         PreferenceCategory catCardHeader =
                 (PreferenceCategory) findPreference(PREF_CAT_CARD_HEADER);
+        PreferenceCategory catCardAction =
+                (PreferenceCategory) findPreference(PREF_CAT_CARD_ACTION);
 
         mCustomizeColors = !ThemeHelper.slimRecentsUseThemeColors(getActivity());
 
@@ -132,7 +133,7 @@ public class ColorsRecents extends SettingsPreferenceFragment implements
             hexColor = String.format("#%08x", (0xffffffff & intColor));
             mPanelEmptyIconColor.setSummary(hexColor);
             mPanelEmptyIconColor.setResetColor(
-                    ThemeHelper.getSlimRecentsPanelEmptyIconColor());
+                    ThemeHelper.getSlimRecentsPanelEmptyIconColor(getActivity()));
             mPanelEmptyIconColor.setOnPreferenceChangeListener(this);
 
             mCardBackgroundColor =
@@ -144,26 +145,6 @@ public class ColorsRecents extends SettingsPreferenceFragment implements
             mCardBackgroundColor.setResetColor(ThemeHelper.getColorBackgroundFloating(getActivity()));
             mCardBackgroundColor.setOnPreferenceChangeListener(this);
 
-            mCardHeaderBackgroundColor =
-                    (ColorPickerPreference) findPreference(PREF_CARD_HEADER_BACKGROUND_COLOR);
-            intColor = SlimRecentsColorHelper.getCardHeaderBackgroundColor(getActivity());
-            mCardHeaderBackgroundColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mCardHeaderBackgroundColor.setSummary(hexColor);
-            mCardHeaderBackgroundColor.setResetColor(
-                    ThemeHelper.getColorBackgroundFloating(getActivity()));
-            mCardHeaderBackgroundColor.setOnPreferenceChangeListener(this);
-
-            mCardHeaderActivatedBackgroundColor =
-                    (ColorPickerPreference) findPreference(PREF_CARD_HEADER_ACTIVATED_BACKGROUND_COLOR);
-            intColor = SlimRecentsColorHelper.getCardHeaderActivatedBackgroundColor(getActivity());
-            mCardHeaderActivatedBackgroundColor.setNewPreviewColor(intColor);
-            hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mCardHeaderActivatedBackgroundColor.setSummary(hexColor);
-            mCardHeaderActivatedBackgroundColor.setResetColor(
-                    ThemeHelper.getSlimRecentsCardHeaderActivatedBgColor(getActivity()));
-            mCardHeaderActivatedBackgroundColor.setOnPreferenceChangeListener(this);
-
             mCardHeaderTextColor =
                     (ColorPickerPreference) findPreference(PREF_CARD_HEADER_TEXT_COLOR);
             intColor = SlimRecentsColorHelper.getCardHeaderTextColor(getActivity());
@@ -173,25 +154,34 @@ public class ColorsRecents extends SettingsPreferenceFragment implements
             mCardHeaderTextColor.setResetColor(ThemeHelper.getPrimaryTextColor(getActivity()));
             mCardHeaderTextColor.setOnPreferenceChangeListener(this);
 
-            mCardHeaderIconColor =
-                    (ColorPickerPreference) findPreference(PREF_CARD_HEADER_ICON_COLOR);
-            intColor = SlimRecentsColorHelper.getCardHeaderIconColor(getActivity());
-            mCardHeaderIconColor.setNewPreviewColor(intColor);
+            mCardActionIconColor =
+                    (ColorPickerPreference) findPreference(PREF_CARD_ACTION_ICON_COLOR);
+            intColor = SlimRecentsColorHelper.getCardActionIconColor(getActivity());
+            mCardActionIconColor.setNewPreviewColor(intColor);
             hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mCardHeaderIconColor.setSummary(hexColor);
-            mCardHeaderIconColor.setResetColor(ThemeHelper.getIconColor(getActivity()));
-            mCardHeaderIconColor.setOnPreferenceChangeListener(this);
+            mCardActionIconColor.setSummary(hexColor);
+            mCardActionIconColor.setResetColor(ThemeHelper.getIconColor(getActivity()));
+            mCardActionIconColor.setOnPreferenceChangeListener(this);
+
+            mCardActionRippleColor =
+                    (ColorPickerPreference) findPreference(PREF_CARD_ACTION_RIPPLE_COLOR);
+            intColor = SlimRecentsColorHelper.getCardActionRippleColor(getActivity());
+            mCardActionRippleColor.setNewPreviewColor(intColor);
+            hexColor = String.format("#%08x", (0xffffffff & intColor));
+            mCardActionRippleColor.setSummary(hexColor);
+            mCardActionRippleColor.setResetColor(ThemeHelper.getRippleColor(getActivity()));
+            mCardActionRippleColor.setOnPreferenceChangeListener(this);
         } else {
             catPanel.removePreference(findPreference(PREF_PANEL_BACKGROUND_COLOR));
             catPanel.removePreference(findPreference(PREF_PANEL_EMPTY_ICON_COLOR));
-            catCardHeader.removePreference(findPreference(PREF_CARD_BACKGROUND_COLOR));
-            catCardHeader.removePreference(findPreference(PREF_CARD_HEADER_BACKGROUND_COLOR));
-            catCard.removePreference(findPreference(PREF_CARD_HEADER_ACTIVATED_BACKGROUND_COLOR));
+            catCard.removePreference(findPreference(PREF_CARD_BACKGROUND_COLOR));
             catCardHeader.removePreference(findPreference(PREF_CARD_HEADER_TEXT_COLOR));
-            catCardHeader.removePreference(findPreference(PREF_CARD_HEADER_ICON_COLOR));
+            catCardAction.removePreference(findPreference(PREF_CARD_ACTION_ICON_COLOR));
+            catCardAction.removePreference(findPreference(PREF_CARD_ACTION_RIPPLE_COLOR));
             removePreference(PREF_CAT_Panel);
             removePreference(PREF_CAT_CARD);
             removePreference(PREF_CAT_CARD_HEADER);
+            removePreference(PREF_CAT_CARD_ACTION);
         }
 
         getActivity().invalidateOptionsMenu();
@@ -256,22 +246,6 @@ public class ColorsRecents extends SettingsPreferenceFragment implements
                     Settings.System.SLIM_RECENTS_CARD_BG_COLOR, intHex);
             refreshSettings();
             return true;
-        } else if (preference == mCardHeaderBackgroundColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                    Settings.System.SLIM_RECENTS_CARD_HEADER_BG_COLOR, intHex);
-            refreshSettings();
-            return true;
-        } else if (preference == mCardHeaderActivatedBackgroundColor) {
-            hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mResolver,
-                    Settings.System.SLIM_RECENTS_CARD_HEADER_ACTIVATED_BG_COLOR, intHex);
-            refreshSettings();
-            return true;
         } else if (preference == mCardHeaderTextColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
@@ -280,12 +254,20 @@ public class ColorsRecents extends SettingsPreferenceFragment implements
                     Settings.System.SLIM_RECENTS_CARD_HEADER_TEXT_COLOR, intHex);
             refreshSettings();
             return true;
-        } else if (preference == mCardHeaderIconColor) {
+        } else if (preference == mCardActionIconColor) {
             hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mResolver,
-                    Settings.System.SLIM_RECENTS_CARD_HEADER_ICON_COLOR, intHex);
+                    Settings.System.SLIM_RECENTS_CARD_ACTION_ICON_COLOR, intHex);
+            refreshSettings();
+            return true;
+        } else if (preference == mCardActionRippleColor) {
+            hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mResolver,
+                    Settings.System.SLIM_RECENTS_CARD_ACTION_RIPPLE_COLOR, intHex);
             refreshSettings();
             return true;
         }
@@ -329,22 +311,19 @@ public class ColorsRecents extends SettingsPreferenceFragment implements
                                     ThemeHelper.getSlimRecentsPanelBgColor(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SLIM_RECENTS_PANEL_EMPTY_ICON_COLOR,
-                                    ThemeHelper.getSlimRecentsPanelEmptyIconColor());
+                                    ThemeHelper.getSlimRecentsPanelEmptyIconColor(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SLIM_RECENTS_CARD_BG_COLOR,
                                     ThemeHelper.getColorBackgroundFloating(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.SLIM_RECENTS_CARD_HEADER_BG_COLOR,
-                                    ThemeHelper.getColorBackgroundFloating(getActivity()));
-                            Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.SLIM_RECENTS_CARD_HEADER_ACTIVATED_BG_COLOR,
-                                    ThemeHelper.getSlimRecentsCardHeaderActivatedBgColor(getActivity()));
-                            Settings.System.putInt(getOwner().mResolver,
                                     Settings.System.SLIM_RECENTS_CARD_HEADER_TEXT_COLOR,
                                     ThemeHelper.getPrimaryTextColor(getActivity()));
                             Settings.System.putInt(getOwner().mResolver,
-                                    Settings.System.SLIM_RECENTS_CARD_HEADER_ICON_COLOR,
+                                    Settings.System.SLIM_RECENTS_CARD_ACTION_ICON_COLOR,
                                     ThemeHelper.getIconColor(getActivity()));
+                            Settings.System.putInt(getOwner().mResolver,
+                                    Settings.System.SLIM_RECENTS_CARD_ACTION_RIPPLE_COLOR,
+                                    ThemeHelper.getRippleColor(getActivity()));
                             getOwner().refreshSettings();
                         }
                     })

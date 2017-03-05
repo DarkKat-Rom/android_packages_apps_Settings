@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 DarkKat
+<!-- Copyright (C) 2016 - 2017 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -191,8 +191,8 @@
     <string name="colors_slim_recents_cat_panel_title">\"SlimRoms\" Anwendungsverlauf Feld</string>
     <string name="colors_slim_recents_cat_card_title">\"SlimRoms\" Anwendungsverlauf Karte</string>
     <string name="colors_slim_recents_cat_card_header_title">\"SlimRoms\" Anwendungsverlauf Karten Kopfzeile</string>
+    <string name="colors_slim_recents_cat_card_action_title">\"SlimRoms\" Anwendungsverlauf Karten Aktion</string>
     <string name="colors_slim_recents_panel_empty_icon_title">Leeres Feld Symbol</string>
-    <string name="colors_slim_recents_card_header_activated_background_title">Hintergrund aktiviert</string>
 
     <!-- Theme & colors end -->
 
@@ -341,16 +341,11 @@
     <string name="recents_cat_apps_title">Anwendungen</string>
     <string name="recents_use_slim_recents_title">\"SlimRoms\" Anwendungsverlauf</string>
     <string name="recents_use_slim_recents_summary">Aktivieren um die \"SlimRoms\" Anwendungsverlaufs-\Ansicht anstelle des Standard Anwendungsverlaufes zu nutzen</string>
-    <string name="slim_recents_scale_title">Größe</string>
-    <string name="slim_recents_scale_60">60\uff05</string>
-    <string name="slim_recents_scale_65">65\uff05</string>
-    <string name="slim_recents_scale_70">70\uff05</string>
-    <string name="slim_recents_scale_75">75\uff05</string>
-    <string name="slim_recents_scale_80">80\uff05</string>
-    <string name="slim_recents_scale_85">85\uff05</string>
-    <string name="slim_recents_scale_90">90\uff05</string>
-    <string name="slim_recents_scale_95">95\uff05</string>
-    <string name="slim_recents_scale_100">100\uff05</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_title">Seitenverhältnis der Miniarturansicht</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_1_1">1 : 1</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_5_4">5 : 4</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_4_3">4 : 3</string>
+    <string name="slim_recents_thumbnail_aspect_ratio_16_9">16 : 9</string>
     <string name="slim_recents_expanded_mode_title">Erweiterter Modus</string>
     <string name="slim_recents_mode_auto">Automatisch</string>
     <string name="slim_recents_expanded_mode_always">Immer</string>
@@ -361,6 +356,7 @@
     <string name="slim_recents_only_show_running_tasks_summary">Aktivieren um nur laufende Anwendungen anzuzeigen</string>
     <string name="slim_recents_show_topmost_title">Aktueller Task</string>
     <string name="slim_recents_show_topmost_summary">Aktivieren um den Aktuellen Task anzuzeigen</string>
+    <string name="slim_recents_show_topmost_pinning_enabled_summary">Bildschirmfixierung ist aktiviert, der Aktuellen Task wird immer angezeigt.</string>
 
     <!-- Button settings -->
     <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>

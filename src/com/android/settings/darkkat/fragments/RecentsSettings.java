@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 DarkKat
+ * Copyright (C) 2017 DarkKat
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,8 +40,8 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
             "recents_cat_apps";
     private static final String PREF_USE_SLIM_RECENTS =
             "recents_use_slim_recents";
-    private static final String PREF_SLIM_RECENTS_SCALE =
-            "slim_recents_scale";
+    private static final String PREF_SLIM_RECENTS_THUMBNAIL_ASPECT_RATIO =
+            "slim_recents_thumbnail_aspect_ratio";
     private static final String PREF_SLIM_RECENTS_EXPANDED_MODE =
             "slim_recents_expanded_mode";
     private static final String PREF_SLIM_RECENTS_LEFTY_MODE =
@@ -52,7 +52,7 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
             "slim_recents_show_topmost";
 
     private SwitchPreference mUseSlimRecents;
-    private ListPreference mSlimRecentsScale;
+    private ListPreference mSlimRecentsThumbnaiAspectRatio;
     private ListPreference mSlimRecentsExpandedMode;
     private SwitchPreference mSlimRecentsLeftyMode;
     private SwitchPreference mSlimRecentsOnlyShowRunningTasks;
@@ -89,13 +89,13 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
                 (PreferenceCategory) findPreference(PREF_CAT_APPS);
 
         if (useSlimRecents) {
-            mSlimRecentsScale =
-                    (ListPreference) findPreference(PREF_SLIM_RECENTS_SCALE);
+            mSlimRecentsThumbnaiAspectRatio =
+                    (ListPreference) findPreference(PREF_SLIM_RECENTS_THUMBNAIL_ASPECT_RATIO);
             int scale = Settings.System.getInt(mResolver,
-                   Settings.System.SLIM_RECENTS_PANEL_SCALE_FACTOR, 100);
-            mSlimRecentsScale.setValue(String.valueOf(scale));
-            mSlimRecentsScale.setSummary(mSlimRecentsScale.getEntry());
-            mSlimRecentsScale.setOnPreferenceChangeListener(this);
+                   Settings.System.SLIM_RECENTS_THUMBNAIL_ASPECT_RATIO, 0);
+            mSlimRecentsThumbnaiAspectRatio.setValue(String.valueOf(scale));
+            mSlimRecentsThumbnaiAspectRatio.setSummary(mSlimRecentsThumbnaiAspectRatio.getEntry());
+            mSlimRecentsThumbnaiAspectRatio.setOnPreferenceChangeListener(this);
 
             mSlimRecentsExpandedMode =
                     (ListPreference) findPreference(PREF_SLIM_RECENTS_EXPANDED_MODE);
@@ -121,8 +121,16 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
             mSlimRecentsShowTopmost.setChecked(Settings.System.getInt(mResolver,
                     Settings.System.SLIM_RECENTS_PANEL_SHOW_TOPMOST, 0) == 1);
             mSlimRecentsShowTopmost.setOnPreferenceChangeListener(this);
+
+            boolean screenPinningEnabled = Settings.System.getInt(mResolver,
+                    Settings.System.LOCK_TO_APP_ENABLED, 0) == 1;
+            if (screenPinningEnabled) {
+                mSlimRecentsShowTopmost.setSummary(
+                        R.string.slim_recents_show_topmost_pinning_enabled_summary);
+                mSlimRecentsShowTopmost.setEnabled(false);
+            }
         } else {
-            catAppearance.removePreference(findPreference(PREF_SLIM_RECENTS_SCALE));
+            catAppearance.removePreference(findPreference(PREF_SLIM_RECENTS_THUMBNAIL_ASPECT_RATIO));
             catAppearance.removePreference(findPreference(PREF_SLIM_RECENTS_EXPANDED_MODE));
             catAppearance.removePreference(findPreference(PREF_SLIM_RECENTS_LEFTY_MODE));
             catApps.removePreference(findPreference(PREF_SLIM_RECENTS_SHOW_ONLY_RUNNING_TASKS));
@@ -144,12 +152,13 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
                     value ? 1 : 0);
             refreshSettings();
             return true;
-        } else if (preference == mSlimRecentsScale) {
+        } else if (preference == mSlimRecentsThumbnaiAspectRatio) {
             intValue = Integer.valueOf((String) newValue);
-            index = mSlimRecentsScale.findIndexOfValue((String) newValue);
+            index = mSlimRecentsThumbnaiAspectRatio.findIndexOfValue((String) newValue);
             Settings.System.putInt(mResolver,
-                    Settings.System.SLIM_RECENTS_PANEL_SCALE_FACTOR, intValue);
-            mSlimRecentsScale.setSummary(mSlimRecentsScale.getEntries()[index]);
+                    Settings.System.SLIM_RECENTS_THUMBNAIL_ASPECT_RATIO, intValue);
+            mSlimRecentsThumbnaiAspectRatio.setSummary(
+                    mSlimRecentsThumbnaiAspectRatio.getEntries()[index]);
             return true;
         } else if (preference == mSlimRecentsExpandedMode) {
             intValue = Integer.valueOf((String) newValue);
