@@ -40,6 +40,11 @@
             android:entryValues="@array/slim_recents_mode_values" />
 
         <SwitchPreference
+            android:key="slim_recents_show_actions_when_collapsed"
+            android:title="@string/slim_recents_show_actions_when_collapsed_title"
+            android:summary="@string/slim_recents_show_actions_when_collapsed_summary" />
+
+        <SwitchPreference
             android:key="slim_recents_lefty_mode"
             android:title="@string/slim_recents_lefty_mode_title"
             android:summary="@string/slim_recents_lefty_mode_summary" />

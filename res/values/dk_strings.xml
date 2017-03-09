@@ -192,6 +192,8 @@
     <string name="colors_slim_recents_cat_card_title">\'SlimRoms\' recents card</string>
     <string name="colors_slim_recents_cat_card_header_title">\'SlimRoms\' recents card header</string>
     <string name="colors_slim_recents_cat_card_action_title">\'SlimRoms\' recents card action</string>
+    <string name="colors_slim_recents_card_use_auto_colors_title">Card auto colors</string>
+    <string name="colors_slim_recents_card_use_auto_colors_summary">When enabled, and the app contains a primary color, this color will be set as the card background,\nand all other card colors will be set related to the card background automatically.</string>
     <string name="colors_slim_recents_panel_empty_icon_title">Empty panel icon</string>
 
     <!-- Theme & colors end -->
@@ -350,6 +352,8 @@
     <string name="slim_recents_mode_auto">Auto</string>
     <string name="slim_recents_expanded_mode_always">Always</string>
     <string name="slim_recents_expanded_mode_never">Never</string>
+    <string name="slim_recents_show_actions_when_collapsed_title">Show actions when collapsed</string>
+    <string name="slim_recents_show_actions_when_collapsed_summary">Enable to show actions when the card is collapsed.\nActions can always be displayed/hidden on collapsed cards via lonclick</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->
     <string name="slim_recents_lefty_mode_title">Show on the left edge</string>

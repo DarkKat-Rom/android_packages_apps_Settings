@@ -192,6 +192,8 @@
     <string name="colors_slim_recents_cat_card_title">\"SlimRoms\" Anwendungsverlauf Karte</string>
     <string name="colors_slim_recents_cat_card_header_title">\"SlimRoms\" Anwendungsverlauf Karten Kopfzeile</string>
     <string name="colors_slim_recents_cat_card_action_title">\"SlimRoms\" Anwendungsverlauf Karten Aktion</string>
+    <string name="colors_slim_recents_card_use_auto_colors_title">Automatische Kartenfarben</string>
+    <string name="colors_slim_recents_card_use_auto_colors_summary">Wenn aktiviert, und die Anwendung über eine primäre Farbe verfügt, wird diese als Kartenhintergrund gesetzt,\nund alle übrigen Kartenfarben werden abhängig zum Kartenhintergrund automatisch gesetzt.</string>
     <string name="colors_slim_recents_panel_empty_icon_title">Leeres Feld Symbol</string>
 
     <!-- Theme & colors end -->
@@ -350,6 +352,8 @@
     <string name="slim_recents_mode_auto">Automatisch</string>
     <string name="slim_recents_expanded_mode_always">Immer</string>
     <string name="slim_recents_expanded_mode_never">Nie</string>
+    <string name="slim_recents_show_actions_when_collapsed_title">Aktionen eingeklappt anzeigen</string>
+    <string name="slim_recents_show_actions_when_collapsed_summary">Aktivieren um die Aktionen auf eingeklappten karten anzuzeigen.\nDie Aktionen können jederzeit bei eingeklappten karten über eine Lang-Klick angezeigt/verborgen werden.</string>
     <string name="slim_recents_lefty_mode_title">Auf der linken Seite anzeigen</string>
     <string name="slim_recents_lefty_mode_summary">Anwendungsverlauf auf der linken Seite des Bildschirmes anzeigen</string>
     <string name="slim_recents_only_show_running_tasks_title">Nur laufende</string>

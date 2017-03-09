@@ -44,6 +44,8 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
             "slim_recents_thumbnail_aspect_ratio";
     private static final String PREF_SLIM_RECENTS_EXPANDED_MODE =
             "slim_recents_expanded_mode";
+    private static final String PREF_SLIM_RECENTS_SHOW_ACTIONS_WHEN_COLLAPSED =
+            "slim_recents_show_actions_when_collapsed";
     private static final String PREF_SLIM_RECENTS_LEFTY_MODE =
             "slim_recents_lefty_mode";
     private static final String PREF_SLIM_RECENTS_SHOW_ONLY_RUNNING_TASKS =
@@ -54,6 +56,7 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mUseSlimRecents;
     private ListPreference mSlimRecentsThumbnaiAspectRatio;
     private ListPreference mSlimRecentsExpandedMode;
+    private SwitchPreference mShowActionsWhenCollapsed;
     private SwitchPreference mSlimRecentsLeftyMode;
     private SwitchPreference mSlimRecentsOnlyShowRunningTasks;
     private SwitchPreference mSlimRecentsShowTopmost;
@@ -105,6 +108,12 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
             mSlimRecentsExpandedMode.setSummary(mSlimRecentsExpandedMode.getEntry());
             mSlimRecentsExpandedMode.setOnPreferenceChangeListener(this);
 
+            mShowActionsWhenCollapsed =
+                    (SwitchPreference) findPreference(PREF_SLIM_RECENTS_SHOW_ACTIONS_WHEN_COLLAPSED);
+            mShowActionsWhenCollapsed.setChecked(Settings.System.getInt(mResolver,
+                    Settings.System.SLIM_RECENTS_SHOW_ACTIONS_WHEN_COLLAPSED, 0) == 1);
+            mShowActionsWhenCollapsed.setOnPreferenceChangeListener(this);
+
             mSlimRecentsLeftyMode =
                     (SwitchPreference) findPreference(PREF_SLIM_RECENTS_LEFTY_MODE);
             mSlimRecentsLeftyMode.setChecked(Settings.System.getInt(mResolver,
@@ -132,6 +141,7 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
         } else {
             catAppearance.removePreference(findPreference(PREF_SLIM_RECENTS_THUMBNAIL_ASPECT_RATIO));
             catAppearance.removePreference(findPreference(PREF_SLIM_RECENTS_EXPANDED_MODE));
+            catAppearance.removePreference(findPreference(PREF_SLIM_RECENTS_SHOW_ACTIONS_WHEN_COLLAPSED));
             catAppearance.removePreference(findPreference(PREF_SLIM_RECENTS_LEFTY_MODE));
             catApps.removePreference(findPreference(PREF_SLIM_RECENTS_SHOW_ONLY_RUNNING_TASKS));
             catApps.removePreference(findPreference(PREF_SLIM_RECENTS_SHOW_TOPMOST));
@@ -166,6 +176,12 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(mResolver,
                     Settings.System.SLIM_RECENTS_PANEL_EXPANDED_MODE, intValue);
             mSlimRecentsExpandedMode.setSummary(mSlimRecentsExpandedMode.getEntries()[index]);
+            return true;
+        } else if (preference == mShowActionsWhenCollapsed) {
+            value = (Boolean) newValue;
+            Settings.System.putInt(mResolver,
+                    Settings.System.SLIM_RECENTS_SHOW_ACTIONS_WHEN_COLLAPSED,
+                    value ? 1 : 0);
             return true;
         } else if (preference == mSlimRecentsLeftyMode) {
             value = (Boolean) newValue;
