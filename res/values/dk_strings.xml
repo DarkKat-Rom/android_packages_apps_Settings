@@ -26,6 +26,7 @@
     <string name="action_show_detailed_weather_view_title">Show detailed weather view</string>
     <string name="lock_screen_title">Lock screen</string>
     <string name="status_bar_title">Status bar</string>
+    <string name="navigation_bar_title">Navigation bar</string>
     <string name="status_bar_expanded_title">Status bar expanded</string>
     <string name="recents_title">Recents</string>
     <string name="notifications_title">Notifications</string>
@@ -185,6 +186,7 @@
     <string name="colors_detailed_weather_view_summary">Choose the colors to colorize the detailed weather view</string>
     <string name="colors_status_bar_summary">Choose the colors to colorize the text and icons in the status bar</string>
     <string name="colors_status_bar_expanded_summary">Choose the colors to colorize the content in the status bar expanded</string>
+    <string name="colors_navigation_bar_summary">Choose the colors to colorize the icons and ripple effect in the status bar</string>
     <string name="colors_recents_summary">Choose the colors to colorize the Recents</string>
 
     <!-- Recents colors -->
