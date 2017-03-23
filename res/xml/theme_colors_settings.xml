@@ -51,6 +51,12 @@ limitations under the License.
         android:fragment="com.android.settings.darkkat.fragments.themecolors.ColorsStatusBarExpanded" />
 
     <PreferenceScreen
+        android:key="colors_navigation_bar"
+        android:title="@string/navigation_bar_title"
+        android:summary="@string/colors_navigation_bar_summary"
+        android:fragment="com.android.settings.darkkat.fragments.themecolors.ColorsNavigationBar" />
+
+    <PreferenceScreen
         android:key="colors_recents"
         android:title="@string/recents_title"
         android:summary="@string/colors_recents_summary"
