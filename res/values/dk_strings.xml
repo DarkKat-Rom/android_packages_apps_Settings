@@ -387,6 +387,7 @@
     <string name="about_software_wifi_only_summary">Show more about Android, kernel etc.</string>
     <string name="about_darkkat_title">Darkkat</string>
     <string name="about_darkkat_summary">Show more about the installed %1$s version</string>
+    <string name="about_android_title">Android</string>
 
     <!-- Hardware -->
     <string name="cpu_info">CPU</string>

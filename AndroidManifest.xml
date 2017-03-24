@@ -2528,6 +2528,19 @@
                 android:value="com.android.settings.darkkat.fragments.ButtonSettings" />
         </activity>
 
+        <!-- Pseudo-activity used to provide an intent-filter entry point to display 'About software' settings -->
+        <activity android:name="Settings$AboutSoftwareActivity"
+                android:label="@string/about_android_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.settings.DEVICE_INFO_SOFTWARE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.fragments.deviceinfo.Software" />
+        </activity>
+
         <!-- DarkKat activities end -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
