@@ -76,13 +76,6 @@ import com.android.settings.applications.WriteSettingsDetails;
 import com.android.settings.bluetooth.BluetoothSettings;
 import com.android.settings.dashboard.DashboardContainerFragment;
 import com.android.settings.dashboard.SearchResultsSummary;
-import com.android.settings.darkkat.fragments.ButtonSettings;
-import com.android.settings.darkkat.fragments.LockScreenSettings;
-import com.android.settings.darkkat.fragments.StatusBarSettings;
-import com.android.settings.darkkat.fragments.QuickSettings;
-import com.android.settings.darkkat.fragments.RecentsSettings;
-import com.android.settings.darkkat.fragments.ThemeColorsSettings;
-import com.android.settings.darkkat.fragments.WeatherSettings;
 import com.android.settings.darkkat.fragments.deviceinfo.Software;
 import com.android.settings.datausage.DataUsageSummary;
 import com.android.settings.deletionhelper.AutomaticStorageManagerSettings;
@@ -289,13 +282,6 @@ public class SettingsActivity extends SettingsDrawerActivity
             UserDictionarySettings.class.getName(),
             HomeSettings.class.getName(),
             DisplaySettings.class.getName(),
-            ThemeColorsSettings.class.getName(),
-            WeatherSettings.class.getName(),
-            LockScreenSettings.class.getName(),
-            StatusBarSettings.class.getName(),
-            QuickSettings.class.getName(),
-            RecentsSettings.class.getName(),
-            ButtonSettings.class.getName(),
             DeviceInfoSettings.class.getName(),
             Software.class.getName(),
             ManageApplications.class.getName(),
@@ -1077,11 +1063,6 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                 Settings.BluetoothSettingsActivity.class.getName()),
                 pm.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH), isAdmin, pm);
-
-        setTileEnabled(new ComponentName(packageName,
-                Settings.WeatherSettingsActivity.class.getName()),
-                WeatherHelper.getWeatherServiceAvailability(this)
-                        == WeatherHelper.PACKAGE_ENABLED, isAdmin, pm);
 
         setTileEnabled(new ComponentName(packageName,
                 Settings.DataUsageSummaryActivity.class.getName()),

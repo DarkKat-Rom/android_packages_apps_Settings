@@ -61,7 +61,14 @@
 
         <PreferenceScreen
                 android:key="about_darkkat"
-                android:title="@string/about_darkkat_title"
-                android:fragment="com.android.settings.darkkat.fragments.deviceinfo.Darkkat" />
+                android:title="@string/about_darkkat_title">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="net.darkkatrom.dksettings.SettingsActivity"
+                android:targetPackage="net.darkkatrom.dksettings">
+                <extra android:name=":android:show_fragment"
+                    android:value="net.darkkatrom.dksettings.fragments.buildinfo.DarkKat" />
+            </intent>
+        </PreferenceScreen>
 
 </PreferenceScreen>

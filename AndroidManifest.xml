@@ -126,7 +126,7 @@
 
         <activity android:name=".Settings$WirelessSettings"
             android:label="@string/header_category_wireless_networks">
-            <intent-filter android:priority="5">
+            <intent-filter android:priority="6">
                 <action android:name="com.android.settings.category.wireless" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -134,8 +134,16 @@
 
         <activity android:name=".Settings$UiSettings"
             android:label="@string/header_category_ui_title">
-            <intent-filter android:priority="4">
+            <intent-filter android:priority="5">
                 <action android:name="com.android.settings.category.ui" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Settings$ButtonsSettings"
+            android:label="@string/header_category_buttons_title">
+            <intent-filter android:priority="4">
+                <action android:name="com.android.settings.category.buttons" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -2429,104 +2437,6 @@
         />
 
         <!-- DarkKat activities Start -->
-
-        <activity android:name="Settings$ThemeColorsSettingsActivity"
-                android:label="@string/theme_colors_settings_title"
-                android:icon="@drawable/ic_settings_theme_colors"
-                android:exported="true"
-                android:taskAffinity="">
-            <intent-filter android:priority="6">
-                <action android:name="com.android.settings.action.SETTINGS" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.ui" />
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.fragments.ThemeColorsSettings" />
-        </activity>
-
-        <activity android:name="Settings$WeatherSettingsActivity"
-                android:label="@string/weather_title"
-                android:icon="@drawable/ic_settings_weather"
-                android:exported="true"
-                android:taskAffinity="">
-            <intent-filter android:priority="5">
-                <action android:name="com.android.settings.action.SETTINGS" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.ui" />
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.fragments.WeatherSettings" />
-        </activity>
-
-        <activity android:name="Settings$LockScreenSettingsActivity"
-                android:label="@string/lock_screen_title"
-                android:icon="@drawable/ic_settings_lock_screen"
-                android:exported="true"
-                android:taskAffinity="">
-            <intent-filter android:priority="4">
-                <action android:name="com.android.settings.action.SETTINGS" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.ui" />
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.fragments.LockScreenSettings" />
-        </activity>
-
-        <activity android:name="Settings$StatusbarSettingsActivity"
-                android:label="@string/status_bar_title"
-                android:icon="@drawable/ic_settings_status_bar"
-                android:exported="true"
-                android:taskAffinity="">
-            <intent-filter android:priority="3">
-                <action android:name="com.android.settings.action.SETTINGS" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.ui" />
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.fragments.StatusBarSettings" />
-        </activity>
-
-        <activity android:name="Settings$QuickSettingsActivity"
-                android:label="@string/qs_title"
-                android:icon="@drawable/ic_settings_quick_settings"
-                android:exported="true"
-                android:taskAffinity="">
-            <intent-filter android:priority="2">
-                <action android:name="com.android.settings.action.SETTINGS" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.ui" />
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.fragments.QuickSettings" />
-        </activity>
-
-        <activity android:name="Settings$RecentsSettingsActivity"
-                android:label="@string/recents_title"
-                android:icon="@drawable/ic_settings_recents"
-                android:exported="true"
-                android:taskAffinity="">
-            <intent-filter android:priority="1">
-                <action android:name="com.android.settings.action.SETTINGS" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.ui" />
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.fragments.RecentsSettings" />
-        </activity>
-
-        <activity android:name="Settings$ButtonSettingsActivity"
-                android:label="@string/button_settings_title"
-                android:icon="@drawable/ic_settings_buttons"
-                android:exported="true"
-                android:taskAffinity="">
-            <intent-filter android:priority="9">
-                <action android:name="com.android.settings.action.SETTINGS" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.device" />
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.darkkat.fragments.ButtonSettings" />
-        </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to display 'About software' settings -->
         <activity android:name="Settings$AboutSoftwareActivity"
