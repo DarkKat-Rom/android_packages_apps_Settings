@@ -52,7 +52,6 @@ import android.widget.Button;
 import android.widget.SearchView;
 
 import com.android.internal.util.ArrayUtils;
-import com.android.internal.util.darkkat.WeatherHelper;
 import com.android.settings.Settings.WifiSettingsActivity;
 import com.android.settings.accessibility.AccessibilitySettings;
 import com.android.settings.accessibility.AccessibilitySettingsForSetupWizard;
