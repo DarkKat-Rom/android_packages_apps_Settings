@@ -31,7 +31,7 @@
         android:paddingBottom="16dp"
         android:paddingStart="?android:attr/listPreferredItemPaddingStart"
         android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-        android:background="@android:color/white">
+        android:background="?android:attr/colorBackgroundFloating">
 
         <TextView
             android:id="@android:id/title"
@@ -40,6 +40,7 @@
             android:layout_weight="1"
             android:singleLine="true"
             android:textAppearance="?android:attr/textAppearanceListItem"
+            android:textColor="?android:attr/textColorPrimary"
             android:ellipsize="marquee"/>
 
         <Switch
@@ -54,7 +55,7 @@
         android:id="@+id/gesture_animation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/gestures_setting_background_color"
+        android:background="?android:attr/colorBackground"
         android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
         android:orientation="horizontal">
 
@@ -68,22 +69,31 @@
                 android:id="@+id/gesture_video"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:padding="@dimen/gesture_preview_padding"
                 android:layout_gravity="center"/>
 
             <ImageView
                 android:id="@+id/gesture_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:padding="@dimen/gesture_preview_padding"
                 android:scaleType="fitXY"
-                android:background="@color/gestures_setting_background_color"/>
+                android:background="?android:attr/colorBackground"/>
 
             <ImageView
                 android:id="@+id/gesture_play_button"
                 android:layout_width="@dimen/gestures_play_button_size"
                 android:layout_height="@dimen/gestures_play_button_size"
+                android:padding="@dimen/gesture_preview_padding"
                 android:src="@drawable/ic_gesture_play_button"
                 android:gravity="center"
                 android:layout_gravity="center"/>
+
+            <View
+                android:id="@+id/gesture_preview_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gesture_preview_frame"/>
 
         </com.android.settings.widget.AspectRatioFrameLayout>
 
