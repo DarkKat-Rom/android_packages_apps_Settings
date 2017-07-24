@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 DarkKat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- Material theme -->
+    <color name="material_grey_850">#ff303030</color>
+    <color name="material_grey_800">#ff424242</color>
+
+    <color name="accent_night">#ff80cbc4</color><!-- material teal 200 -->
+
+    <color name="card_background">@color/material_grey_850</color>
+    <color name="card_background_grey">@color/material_grey_800</color>
+    <color name="main_dashboard_background">@color/material_grey_850</color>
+
+    <color name="suw_color_accent_dark">@color/accent_night</color>
+    <color name="setup_lock_pattern_view_success_color_dark">@color/accent_darkkat</color>
+
+    <color name="fingerprint_message_color">#ffffffff</color>
+    <color name="fingerprint_progress_ring_bg">#20ffffff</color>
+    <color name="fingerprint_indicator_background_resting">#12ffffff</color>
+
+    <color name="storage_summary_text_color">#b3ffffff</color>
+</resources>
