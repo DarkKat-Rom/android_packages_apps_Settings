@@ -15,7 +15,8 @@
 -->
 <resources>
 
-    <string name="night_mode_title">Theme</string>
+    <string name="theme_title">Theme</string>
+    <string name="night_mode_title">Day/night theme</string>
     <string name="night_mode_summary">%s</string>
     <string name="night_mode_no">Material light</string>
     <string name="night_mode_yes">Material</string>
@@ -23,6 +24,8 @@
     <string name="night_mode_whiteout">Whiteout</string>
     <string name="night_mode_blackout">Blackout</string>
     <string name="night_mode_auto">Automatic</string>
+    <string name="night_auto_mode_title">Auto night theme</string>
+    <string name="day_auto_mode_title">Auto day theme</string>
 
-    <string name="keywords_display_night_mode">dark theme, night mode, dim screen, invert brightness</string>
+    <string name="keywords_display_night_mode">dark theme, light theme, night mode, day mode, dim screen, invert brightness</string>
 </resources>

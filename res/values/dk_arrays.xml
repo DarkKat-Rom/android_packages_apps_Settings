@@ -32,4 +32,36 @@
         <item>5</item>
         <item>0</item>
     </string-array>
+
+    <string-array name="theme_summary_titles" translatable="false">
+        <item>@string/night_mode_auto</item>
+        <item>@string/night_mode_no</item>
+        <item>@string/night_mode_yes</item>
+        <item>@string/night_mode_darkkat</item>
+        <item>@string/night_mode_whiteout</item>
+        <item>@string/night_mode_blackout</item>
+
+    </string-array>
+
+    <string-array name="night_auto_mode_entries" translatable="false">
+        <item>@string/night_mode_yes</item>
+        <item>@string/night_mode_darkkat</item>
+        <item>@string/night_mode_blackout</item>
+    </string-array>
+
+    <string-array name="night_auto_mode_values" translatable="false">
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="day_auto_mode_entries" translatable="false">
+        <item>@string/night_mode_no</item>
+        <item>@string/night_mode_whiteout</item>
+    </string-array>
+
+    <string-array name="day_auto_mode_values" translatable="false">
+        <item>1</item>
+        <item>4</item>
+    </string-array>
 </resources>

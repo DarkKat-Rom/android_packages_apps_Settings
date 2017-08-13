@@ -15,7 +15,8 @@
 -->
 <resources>
 
-    <string name="night_mode_title">Theme</string>
+    <string name="theme_title">Theme</string>
+    <string name="night_mode_title">Tag/Nacht Theme</string>
     <string name="night_mode_summary">%s</string>
     <string name="night_mode_no">Material-Light</string>
     <string name="night_mode_yes">Material</string>
@@ -23,6 +24,8 @@
     <string name="night_mode_whiteout">Whiteout</string>
     <string name="night_mode_blackout">Blackout</string>
     <string name="night_mode_auto">Automatik</string>
+    <string name="night_auto_mode_title">Auto Nacht-Theme</string>
+    <string name="day_auto_mode_title">Auto Tag-Theme</string>
 
-    <string name="keywords_display_night_mode">dunkles theme, nacht modus, display dimmen, display helligkeit umkehren</string>
+    <string name="keywords_display_night_mode">dunkles theme, helles theme, nacht modus, tag modus, display dimmen, display helligkeit umkehren</string>
 </resources>

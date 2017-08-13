@@ -86,6 +86,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_AUTO_ROTATE = "auto_rotate";
     private static final String KEY_NIGHT_DISPLAY = "night_display";
     private static final String KEY_NIGHT_MODE = "night_mode";
+    private static final String KEY_THEME = "theme";
     private static final String KEY_CAMERA_GESTURE = "camera_gesture";
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
@@ -287,6 +288,21 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         return pm.hasSystemFeature(PackageManager.FEATURE_VR_MODE_HIGH_PERFORMANCE);
     }
 
+    private void updateThemePreferenceDescription() {
+        Preference preference = findPreference(KEY_THEME);
+        UiModeManager uiModeManager = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
+        int theme = uiModeManager.getNightMode();
+        String[] themeTitles = getResources().getStringArray(R.array.theme_summary_titles);
+        String summary = themeTitles[theme];
+
+        if (theme == UiModeManager.MODE_NIGHT_AUTO) {
+            int themeAuto = uiModeManager.getCurrentNightMode();
+            summary += " (" + themeTitles[themeAuto] + ")";
+        }
+
+        preference.setSummary(summary);
+    }
+
     private void updateTimeoutPreferenceDescription(long currentTimeout) {
         TimeoutListPreference preference = mScreenTimeoutPreference;
         String summary;
@@ -318,6 +334,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     public void onResume() {
         super.onResume();
         updateState();
+
+        updateThemePreferenceDescription();
 
         final long currentTimeout = Settings.System.getLong(getActivity().getContentResolver(),
                 SCREEN_OFF_TIMEOUT, FALLBACK_SCREEN_TIMEOUT_VALUE);
