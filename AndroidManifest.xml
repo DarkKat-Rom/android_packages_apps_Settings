@@ -129,7 +129,7 @@
 
         <activity android:name=".Settings$WirelessSettings"
             android:label="@string/header_category_wireless_networks">
-            <intent-filter android:priority="4">
+            <intent-filter android:priority="5">
                 <action android:name="com.android.settings.category.wireless" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -3091,5 +3091,29 @@
             android:enabled="@bool/config_has_help" />
 
         <!-- This is the longest AndroidManifest.xml ever. -->
+
+        <!-- DarkKat activities -->
+        <activity android:name=".Settings$ButtonsSettings"
+            android:label="@string/button_settings_title">
+            <intent-filter android:priority="4">
+                <action android:name="com.android.settings.category.buttons" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="Settings$ButtonSettingsActivity"
+                android:label="@string/button_settings_title"
+                android:icon="@drawable/ic_settings_buttons"
+                android:exported="true"
+                android:taskAffinity="">
+            <intent-filter android:priority="10">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                       android:value="com.android.settings.category.device" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.darkkat.fragments.ButtonSettings" />
+        </activity>
+
     </application>
 </manifest>

@@ -15,7 +15,7 @@
 -->
 <resources>
 
-    <string-array name="night_mode_entries" translatable="false">
+    <string-array name="night_mode_entries">
         <item>@string/night_mode_no</item>
         <item>@string/night_mode_yes</item>
         <item>@string/night_mode_darkkat</item>
@@ -33,7 +33,7 @@
         <item>0</item>
     </string-array>
 
-    <string-array name="theme_summary_titles" translatable="false">
+    <string-array name="theme_summary_titles">
         <item>@string/night_mode_auto</item>
         <item>@string/night_mode_no</item>
         <item>@string/night_mode_yes</item>
@@ -43,7 +43,7 @@
 
     </string-array>
 
-    <string-array name="night_auto_mode_entries" translatable="false">
+    <string-array name="night_auto_mode_entries">
         <item>@string/night_mode_yes</item>
         <item>@string/night_mode_darkkat</item>
         <item>@string/night_mode_blackout</item>
@@ -55,7 +55,7 @@
         <item>5</item>
     </string-array>
 
-    <string-array name="day_auto_mode_entries" translatable="false">
+    <string-array name="day_auto_mode_entries">
         <item>@string/night_mode_no</item>
         <item>@string/night_mode_whiteout</item>
     </string-array>
@@ -63,5 +63,23 @@
     <string-array name="day_auto_mode_values" translatable="false">
         <item>1</item>
         <item>4</item>
+    </string-array>
+
+    <string-array name="power_menu_advanced_reboot_mode_entries">
+        <item>@string/power_menu_advanced_reboot_mode_always_entry</item>
+        <item>@string/power_menu_advanced_reboot_mode_never_entry</item>
+        <item>@string/power_menu_advanced_reboot_mode_hide_on_secure_lock_screen_entry</item>
+    </string-array>
+
+    <string-array name="power_menu_advanced_reboot_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="power_menu_advanced_reboot_mode_summary_titles">
+        <item>@string/power_menu_advanced_reboot_mode_always_summary</item>
+        <item>@string/power_menu_advanced_reboot_mode_never_summary</item>
+        <item>@string/power_menu_advanced_reboot_mode_hide_on_secure_lock_screen_summary</item>
     </string-array>
 </resources>

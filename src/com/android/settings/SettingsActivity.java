@@ -73,6 +73,7 @@ import com.android.settings.applications.UsageAccessDetails;
 import com.android.settings.applications.VrListenerSettings;
 import com.android.settings.applications.WriteSettingsDetails;
 import com.android.settings.bluetooth.BluetoothSettings;
+import com.android.settings.darkkat.fragments.ButtonSettings;
 import com.android.settings.dashboard.DashboardContainerFragment;
 import com.android.settings.dashboard.SearchResultsSummary;
 import com.android.settings.datausage.DataUsageSummary;
@@ -279,6 +280,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             UserDictionaryList.class.getName(),
             UserDictionarySettings.class.getName(),
             HomeSettings.class.getName(),
+            ButtonSettings.class.getName(),
             DisplaySettings.class.getName(),
             DeviceInfoSettings.class.getName(),
             ManageApplications.class.getName(),

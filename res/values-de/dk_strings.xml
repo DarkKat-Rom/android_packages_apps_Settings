@@ -15,7 +15,10 @@
 -->
 <resources>
 
+    <!-- Display settings -->
     <string name="theme_title">Theme</string>
+
+    <!-- Theme settings -->
     <string name="night_mode_title">Tag/Nacht Theme</string>
     <string name="night_mode_summary">%s</string>
     <string name="night_mode_no">Material-Light</string>
@@ -26,6 +29,25 @@
     <string name="night_mode_auto">Automatik</string>
     <string name="night_auto_mode_title">Auto Nacht-Theme</string>
     <string name="day_auto_mode_title">Auto Tag-Theme</string>
+    <!-- Display settings end -->
+
+    <!-- Button settings -->
+    <string name="button_settings_title">Tasten</string>
+    <string name="button_power_menu_settings_title">Ein&#47;Aus-Menü</string>
+    <string name="button_power_menu_settings_summary">Ein&#47;Aus-Menü anpassen</string>
+
+    <!-- Power menu settings -->
+    <string name="power_menu_advanced_reboot_mode_title">Erweiterte Neustart-Optionen anzeigen</string>
+    <string name="power_menu_advanced_reboot_mode_always_summary">Im Neustart-Menü werden immer erweiterte Neustart-Optionen angezeigt.</string>
+    <string name="power_menu_advanced_reboot_mode_never_summary">Im Neustart-Menü werden nie erweiterte Neustart-Optionen angezeigt.</string>
+    <string name="power_menu_advanced_reboot_mode_hide_on_secure_lock_screen_summary">Im Neustart-Menü werden erweiterte Neustart-Optionen auf einem sicheren Sperrbildschirm verborgen.</string>
+    <string name="power_menu_advanced_reboot_mode_always_entry">Immer</string>
+    <string name="power_menu_advanced_reboot_mode_never_entry">Nie</string>
+    <string name="power_menu_advanced_reboot_mode_hide_on_secure_lock_screen_entry">Auf einem sicheren Sperrbildschirm verbergen</string>
+    <string name="power_menu_confirm_reboot_title">Neustart bestätigen</string>
+    <string name="power_menu_confirm_reboot_summary">Aktivieren um vor dem Neustarten einen Bestätigungs-Dialog anzuzeigen, deaktivieren um direkt ohne Bestätigung neuzustarten.</string>
+    <string name="power_menu_confirm_power_off_title">Ausschalten bestätigen</string>
+    <string name="power_menu_confirm_power_off_summary">Aktivieren um vor dem Herunterfahren einen Bestätigungs-Dialog anzuzeigen, deaktivieren um direkt ohne Bestätigung herunterzufahren.</string>
 
     <string name="keywords_display_night_mode">dunkles theme, helles theme, nacht modus, tag modus, display dimmen, display helligkeit umkehren</string>
 </resources>
