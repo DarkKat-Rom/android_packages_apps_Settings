@@ -129,7 +129,7 @@
 
         <activity android:name=".Settings$WirelessSettings"
             android:label="@string/header_category_wireless_networks">
-            <intent-filter android:priority="6">
+            <intent-filter android:priority="7">
                 <action android:name="com.android.settings.category.wireless" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -137,8 +137,16 @@
 
         <activity android:name=".Settings$UiSettings"
             android:label="@string/header_category_ui_title">
-            <intent-filter android:priority="5">
+            <intent-filter android:priority="6">
                 <action android:name="com.android.settings.category.ui" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Settings$AppDrawerSettings"
+            android:label="@string/header_category_app_drawer_title">
+            <intent-filter android:priority="5">
+                <action android:name="com.android.settings.category.appDrawer" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

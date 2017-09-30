@@ -17,6 +17,7 @@
 
     <!-- Dashboard categories -->
     <string name="header_category_ui_title">User interface</string>
+    <string name="header_category_app_drawer_title">App drawer</string>
     <string name="header_category_buttons_title">Buttons</string>
 
     <!-- Device info settings -->
