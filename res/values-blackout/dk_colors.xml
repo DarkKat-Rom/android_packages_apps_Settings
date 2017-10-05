@@ -16,7 +16,7 @@
 
 <resources>
 
-    <!-- Blackout theme -->
+    <!-- Night (Blackout) theme colors, additional colors -->
     <color name="fingerprint_message_color">#ffffffff</color>
     <color name="fingerprint_progress_ring_bg">#20ffffff</color>
     <color name="fingerprint_indicator_background_resting">#12ffffff</color>

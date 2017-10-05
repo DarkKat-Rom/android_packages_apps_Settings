@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Blackout theme 
-         (CyanideL addition)-->
+    <!-- Night (Blackout) theme colors -->
+
+    <!-- CyanideL addition -->
     <color name="lock_pattern_view_regular_color">@*android:color/secondary_text_default_material_dark</color>
 
     <color name="material_empty_color_light">#b3ffffff</color>
