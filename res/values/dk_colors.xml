@@ -16,10 +16,10 @@
 
 <resources>
 
-    <!-- Day theme -->
+    <!-- Day (Material.Light) theme, additional colors -->
     <color name="main_dashboard_background">@color/material_grey_300</color>
     <color name="storage_summary_text_color">#8a000000</color>
 
-    <!-- DarkKat theme -->
+    <!-- Night (DarkKat) theme, additional colors -->
     <color name="background_darkkat_blue_grey">#ff1b1f23</color>
 </resources>

@@ -16,7 +16,7 @@
 
 <resources>
 
-    <!-- Material theme -->
+    <!-- Night (Material) theme styles -->
     <style name="SecurityPreferenceButtonContainer" parent="@android:style/Widget.Material.SegmentedButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
