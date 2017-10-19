@@ -50,7 +50,7 @@ public class BugReportPreferenceController extends PreferenceController {
 
     @Override
     public boolean isAvailable() {
-        return !mUserManager.hasUserRestriction(UserManager.DISALLOW_DEBUGGING_FEATURES);
+        return false;
     }
 
     public void enablePreference(boolean enabled) {
