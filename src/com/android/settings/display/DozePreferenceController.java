@@ -21,6 +21,8 @@ import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.text.TextUtils;
 
+import com.android.internal.util.darkkat.AmbientDisplayHelper;
+
 import com.android.settings.core.PreferenceController;
 import com.android.settings.core.instrumentation.MetricsFeatureProvider;
 import com.android.settings.overlay.FeatureFactory;
@@ -73,6 +75,6 @@ public class DozePreferenceController extends PreferenceController implements
             name = mContext.getResources().getString(
                     com.android.internal.R.string.config_dozeComponent);
         }
-        return !TextUtils.isEmpty(name);
+        return !TextUtils.isEmpty(name) && AmbientDisplayHelper.deviceHasProximitySensor(mContext);
     }
 }
