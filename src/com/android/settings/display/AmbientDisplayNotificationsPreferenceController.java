@@ -22,6 +22,7 @@ import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 
 import com.android.internal.hardware.AmbientDisplayConfiguration;
+import com.android.internal.util.darkkat.AmbientDisplayHelper;
 import com.android.settings.R;
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settings.core.instrumentation.MetricsFeatureProvider;
@@ -81,7 +82,7 @@ public class AmbientDisplayNotificationsPreferenceController extends
 
     @Override
     public boolean isAvailable() {
-        return mConfig.pulseOnNotificationAvailable();
+        return mConfig.pulseOnNotificationAvailable() && AmbientDisplayHelper.deviceHasProximitySensor(mContext);
     }
 
     @Override
